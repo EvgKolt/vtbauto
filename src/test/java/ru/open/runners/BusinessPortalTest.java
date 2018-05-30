@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {"html:target/cucumber-report/businessportaltest", "json:target/cucumber.json"},
         features = "src/test/java/ru/open/features",
-        glue = "ru/open/steps/",
+        glue = "ru/open/steps",
         tags = "@businessportaltest"
 )
 
@@ -27,10 +27,9 @@ public class BusinessPortalTest {
         /**
          * Webdriver configuration - optional
          * */
-        /*
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/webdrivers/chromedriver.exe");
         Configuration.browser = "chrome";
-        */
+
     }
 }
 

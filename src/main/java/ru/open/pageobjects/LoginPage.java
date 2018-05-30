@@ -3,8 +3,7 @@ package ru.open.pageobjects;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 
-public class LoginPage extends AbstractPage
-{
+public class LoginPage extends AbstractPage {
 
     @NameOfElement("Имя пользователя")
     @FindBy(xpath = "//*[@id=\"UserName\"]")
@@ -15,17 +14,11 @@ public class LoginPage extends AbstractPage
     public SelenideElement password;
 
     @NameOfElement("Войти")
-    @FindBy(xpath = "//*[@id=\"widget0\"]/div/div/div[2]/div/div[2]/form/div[4]/div[1]/button")
+    @FindBy(xpath = "//*[@id=\"widget0\"]/div/div/div[2]/div/div[2]/form/div[4]/div[1]")
     public SelenideElement signin;
 
     @NameOfElement("Восстановить")
     @FindBy(xpath = "//*[@id=\"widget0\"]/div/div/div[2]/div/div[2]/form/div[4]/div[2]/a")
     public SelenideElement restore;
-
-
-
-
-
-
 
 }
