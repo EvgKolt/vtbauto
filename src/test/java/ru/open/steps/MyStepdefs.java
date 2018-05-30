@@ -1,5 +1,6 @@
 package ru.open.steps;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
@@ -55,4 +56,9 @@ public class MyStepdefs {
         String currentUrl = url();
         assertThat(currentUrl, containsString(verifyUrl));
        }
+
+    @Then("^verify that element with text \"([^\"]*)\" exists$")
+    public void verifyThatElementWithTextExists(String verifyText) throws Throwable {
+        loginPage.get("Неправильный логин").waitUntil(Condition.exist, 10000);
+    }
 }
