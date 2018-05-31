@@ -6,23 +6,23 @@ import org.openqa.selenium.support.FindBy;
 public class LoginPage extends AbstractPage {
 
     @NameOfElement("Имя пользователя")
-    @FindBy(xpath = "//*[@id=\"UserName\"]")
+    @FindBy(id = "UserName")
     public SelenideElement username;
 
     @NameOfElement("Пароль")
-    @FindBy(xpath = "//*[@id=\"Password\"]")
+    @FindBy(id = "Password")
     public SelenideElement password;
 
     @NameOfElement("Войти")
-    @FindBy(xpath = "//*[@id=\"widget0\"]/div/div/div[2]/div/div[2]/form/div[4]/div[1]")
+    @FindBy(xpath = "//button[@type='submit' and contains(., 'Войти')]")
     public SelenideElement signin;
 
     @NameOfElement("Восстановить")
-    @FindBy(xpath = "//*[@id=\"widget0\"]/div/div/div[2]/div/div[2]/form/div[4]/div[2]/a")
+    @FindBy(className = "welcome__login-action")
     public SelenideElement restore;
 
     @NameOfElement("Неправильный логин")
-    @FindBy(xpath = "//*[@id=\"widget0\"]/div/div/div[2]/div/div[2]/form/div[5]/div[3]/div")
+    @FindBy(className = "welcome__form-error")
     public SelenideElement errormessage;
 
 }
