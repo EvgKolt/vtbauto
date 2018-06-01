@@ -18,8 +18,11 @@ import ru.open.parsersandhelpers.Keyboard;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.io.FileReader;
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.security.Key;
+import java.util.Properties;
 
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.url;
@@ -32,24 +35,13 @@ public class MyStepdefs {
     private LoginPage loginPage = page(LoginPage.class);
     private MainPage mainPage = page(MainPage.class);
     private ActionPage actionPage = page(ActionPage.class);
+    private String propertiesPath = "src/main/resources/properties.properties";
 
     @Given("^open businessportal$")
     public void openBusinessportal() throws InterruptedException {
         open("http://rumskapt273.open.ru/273/login");
         //прогрузка элементов
         sleep(3000);
-    }
-
-    @And("^type to input with name \"([^\"]*)\" text: \"([^\"]*)\" on \"([^\"]*)\"$")
-    public void typeToInputWithNameTextOn(String nameOfElement, String text, String page) throws InterruptedException {
-        sleep(3000);
-        if ("LoginPage".equals(page)) {
-            loginPage.get(nameOfElement).sendKeys(text);
-        } else if ("MainPage".equals(page)) {
-            mainPage.get(nameOfElement).sendKeys(text);
-        } else if ("ActionPage".equals(page)) {
-            actionPage.get(nameOfElement).sendKeys(text);
-        }
     }
 
     @When("^press button with text \"([^\"]*)\" on \"([^\"]*)\"$")
@@ -71,19 +63,45 @@ public class MyStepdefs {
         assertThat(currentUrl, containsString(verifyUrl));
     }
 
-    @Then("^verify that element with text \"([^\"]*)\" exists$")
-    public void verifyThatElementWithTextExists(String verifyText) throws Throwable {
-        loginPage.get("Неправильный логин").waitUntil(Condition.exist, 10000);
+    @When("^load file with address \"([^\"]*)\"$")
+    public void loadFileWithAddress(String fileLocation) throws InterruptedException, AWTException, IOException {
+        sleep(5000);
+        try (FileReader fileReader = new FileReader(propertiesPath)) {
+            Properties properties = new Properties();
+            properties.load(fileReader);
+            Keyboard keyboard = new Keyboard();
+            keyboard.type(properties.getProperty(fileLocation));
+            sleep(2000);
+            keyboard.pressKey('\n');
+            sleep(3000);
+        }
     }
 
-    @When("^load file with address \"([^\"]*)\"$")
-    public void loadFileWithAddress(String fileLocation) throws InterruptedException, AWTException {
-        sleep(5000);
-        Keyboard keyboard = new Keyboard();
-        keyboard.type(fileLocation);
-        sleep(2000);
-        keyboard.pressKey('\n');
+    @And("^type to input with name \"([^\"]*)\" property: \"([^\"]*)\" on \"([^\"]*)\"$")
+    public void typeToInputWithNamePropertyOn(String nameOfElement, String property, String page) throws InterruptedException, IOException {
         sleep(3000);
+        try (FileReader fileReader = new FileReader(propertiesPath)) {
+            Properties properties = new Properties();
+            properties.load(fileReader);
+            if ("LoginPage".equals(page)) {
+                loginPage.get(nameOfElement).sendKeys(properties.getProperty(property));
+            } else if ("MainPage".equals(page)) {
+                mainPage.get(nameOfElement).sendKeys(properties.getProperty(property));
+            } else if ("ActionPage".equals(page)) {
+                actionPage.get(nameOfElement).sendKeys(properties.getProperty(property));
+            }
+        }
+    }
+
+    @Then("^verify that element with text \"([^\"]*)\" exists on \"([^\"]*)\"$")
+    public void verifyThatElementWithTextExistsOn(String nameOfElement, String page){
+        if ("LoginPage".equals(page)) {
+            loginPage.get(nameOfElement).waitUntil(Condition.exist, 10000);
+        } else if ("MainPage".equals(page)) {
+            mainPage.get(nameOfElement).waitUntil(Condition.exist, 10000);
+        } else if ("ActionPage".equals(page)) {
+            actionPage.get(nameOfElement).waitUntil(Condition.exist, 10000);
+        }
     }
 }
 

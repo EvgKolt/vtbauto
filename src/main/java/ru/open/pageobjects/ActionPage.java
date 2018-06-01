@@ -33,6 +33,8 @@ public class ActionPage extends AbstractPage {
     @FindBy(xpath = "//button[@class='btn-wrapper' and @type='submit']")
     public SelenideElement sendmessage;
 
-
+    @NameOfElement("Тестовый запрос")
+    @FindBy(xpath = "//*[contains(text(),'Тестовый запрос')]")
+    public SelenideElement testrequest;
 
 }

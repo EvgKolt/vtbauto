@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
         plugin = {"html:target/cucumber-report/businessportaltest", "json:target/cucumber.json"},
         features = "src/test/java/ru/open/features",
         glue = "ru/open/steps",
-        tags = "@last"
+        tags = "@businessportaltest"
 )
 
 public class BusinessPortalTest {

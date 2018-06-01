@@ -21,7 +21,7 @@ public class LoginPage extends AbstractPage {
     @FindBy(className = "welcome__login-action")
     public SelenideElement restore;
 
-    @NameOfElement("Неправильный логин")
+    @NameOfElement("Неверный логин")
     @FindBy(className = "welcome__form-error")
     public SelenideElement errormessage;
 
