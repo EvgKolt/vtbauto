@@ -41,12 +41,12 @@ public final class LogParser {
              BufferedReader bufferedReader = new BufferedReader(fileReader)) {
             String result = "";
             String line;
-            while (((line = bufferedReader.readLine()) != null)) {
+            while ((line = bufferedReader.readLine()) != null) {
                 if (line.contains("internetbankmb.open.ru")) {
                     result = line;
                 }
             }
-            if (!(result.isEmpty())) {
+            if (!result.isEmpty()) {
                 return result.substring(result.indexOf(":") + 2, result.lastIndexOf("<"));
             }
         }

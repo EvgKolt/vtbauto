@@ -20,8 +20,8 @@ public final class Keyboard {
         this.robot = robot;
     }
 
-    public void pressKey(int VK){
-        robot.keyPress(VK);
+    public void pressKey(int vk) {
+        robot.keyPress(vk);
     }
 
     public void type(CharSequence characters) {

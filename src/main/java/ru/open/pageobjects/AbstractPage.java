@@ -5,6 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 
 import java.lang.reflect.Field;
 
+//todo add slf4j delete sout
 public abstract class AbstractPage {
 
     public SelenideElement get(String cucumberElementName) {
