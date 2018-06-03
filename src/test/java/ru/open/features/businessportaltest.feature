@@ -43,3 +43,12 @@ Feature: Бизнес портал
     When load file with address "testjpgfileaddress"
     When press button with text "Отправить" on "ActionPage"
     Then verify that element with text "Тестовый запрос" exists on "ActionPage"
+
+  //@last
+
+  Scenario: Восстановление пароля #157180
+
+    Given open businessportal
+    When press button with text "Восстановить" on "LoginPage"
+    And type to input with name "Логин" property: "login" on "LoginPage"
+

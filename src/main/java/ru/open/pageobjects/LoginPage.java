@@ -25,4 +25,9 @@ public class LoginPage extends AbstractPage {
     @FindBy(className = "welcome__form-error")
     public SelenideElement errormessage;
 
+    @NameOfElement("Логин")
+    @FindBy(id = "//*[@id=\"fio-textfield\"]")
+    public SelenideElement login;
+
+
 }
