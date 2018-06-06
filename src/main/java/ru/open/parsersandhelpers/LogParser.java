@@ -1,6 +1,6 @@
 package ru.open.parsersandhelpers;
 
-import ru.open.entities.PropertyPath;
+import ru.open.entities.Constants;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -11,31 +11,25 @@ import java.util.Properties;
 
 public final class LogParser {
 
-    public static void main(String[] args) throws IOException {
-        //getSmsLogFilePath();
-        LogParser logParser = new LogParser();
-        System.out.println(logParser.getLastSmsByTag());
-    }
-
     private String getSmsLogFilePath() throws IOException {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        try (FileReader fileReader = new FileReader(PropertyPath.getPROPERTYPATH())) {
+        try (FileReader fileReader = new FileReader(Constants.PROPERTY_PATH)) {
             Properties properties = new Properties();
             properties.load(fileReader);
-            return properties.getProperty("smslogspattern") + dateFormat.format(new Date()) + ".log";
+            return properties.getProperty("sms.logs.pattern") + dateFormat.format(new Date()) + ".log";
         }
     }
 
     private String getEmailLogFilePath() throws IOException {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        try (FileReader fileReader = new FileReader(PropertyPath.getPROPERTYPATH())) {
+        try (FileReader fileReader = new FileReader(Constants.PROPERTY_PATH)) {
             Properties properties = new Properties();
             properties.load(fileReader);
-            return properties.getProperty("emaillogspattern") + dateFormat.format(new Date()) + ".log";
+            return properties.getProperty("email.logs.pattern") + dateFormat.format(new Date()) + ".log";
         }
     }
 
-    public String getLastSmsByTag() throws IOException {
+    public String getLastSmsCode() throws IOException {
         //find last log's message with sms
         try (FileReader fileReader = new FileReader(getSmsLogFilePath());
              BufferedReader bufferedReader = new BufferedReader(fileReader)) {
@@ -53,5 +47,24 @@ public final class LogParser {
         return null;
     }
 
+    public String getLastReference() throws IOException {
+        //find last log's message with sms
+        try (FileReader fileReader = new FileReader(getEmailLogFilePath());
+             BufferedReader bufferedReader = new BufferedReader(fileReader)) {
+            String result = "";
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                if (line.contains("http://rumskapt273.open.ru/sso/auth/login-password-change")) {
+                    result = line;
+                }
+            }
+            if (!result.isEmpty()) {
+                return "http://rumskapt273.open.ru/sso/auth/login-password-change" +
+                        result.substring(result.indexOf("?code="), result.lastIndexOf("&amp")) +
+                        "&client_id=smeportal";
+            }
+        }
+        return null;
+    }
 }
 

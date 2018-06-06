@@ -26,8 +26,40 @@ public class LoginPage extends AbstractPage {
     public SelenideElement errormessage;
 
     @NameOfElement("Логин")
-    @FindBy(id = "//*[@id=\"fio-textfield\"]")
+    @FindBy(id = "fio-textfield")
     public SelenideElement login;
+
+    @NameOfElement("Восстановить_")
+    @FindBy(className = "step__buttons")
+    public SelenideElement restore2;
+
+    @NameOfElement("СМС код")
+    @FindBy(id = "smsCode")
+    public SelenideElement smscode;
+
+    @NameOfElement("Подтвердить")
+    @FindBy(xpath = "//*[contains(text(),'Подтвердить')]")
+    public SelenideElement confirm;
+
+    @NameOfElement("Новый пароль")
+    @FindBy(id = "password-textfield")
+    public SelenideElement newpassword;
+
+    @NameOfElement("Повторить новый пароль")
+    @FindBy(id = "repeat-password-textfield")
+    public SelenideElement repeatnewpassword;
+
+    @NameOfElement("Сохранить пароль")
+    @FindBy(className = "step__buttons")
+    public SelenideElement savepassword;
+
+    @NameOfElement("Выслать код повторно")
+    @FindBy(className = "link-repeat")
+    public SelenideElement resendcode;
+
+    @NameOfElement("Неверный код")
+    @FindBy(className = "code-not-available")
+    public SelenideElement wrongcode;
 
 
 }

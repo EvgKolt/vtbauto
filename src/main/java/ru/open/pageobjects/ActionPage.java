@@ -34,7 +34,7 @@ public class ActionPage extends AbstractPage {
     public SelenideElement sendmessage;
 
     @NameOfElement("Тестовый запрос")
-    @FindBy(xpath = "//*[contains(text(),'Тестовый запрос')]")
+    @FindBy(xpath = "//*[contains(text(),'TESTOVII ZAPROS')]")
     public SelenideElement testrequest;
 
 }

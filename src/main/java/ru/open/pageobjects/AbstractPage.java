@@ -5,8 +5,10 @@ import com.codeborne.selenide.SelenideElement;
 
 import java.lang.reflect.Field;
 
-//todo add slf4j delete sout
+//todo add l4j delete sout
 public abstract class AbstractPage {
+
+    // private Logger logger = LogManager.getLogger(AbstractPage.class);
 
     public SelenideElement get(String cucumberElementName) {
         Class<?> clazz = this.getClass();
@@ -16,9 +18,9 @@ public abstract class AbstractPage {
                 if (nameOfElementAnnotation.value().equals(cucumberElementName)) {
                     try {
                         return (SelenideElement) field.get(this);
-
                     } catch (IllegalAccessException e) {
-                        System.out.println("ERROR: element with name " + cucumberElementName + " at page " + this.getClass().getName() + " is not public");
+                        System.out.println("ERROR: element with name \" + cucumberElementName + \" at page \" + this.getClass().getName() + \" is not public");
+                        //logger.error("ERROR: element with name " + cucumberElementName + " at page " + this.getClass().getName() + " is not public");
                     }
                 }
             }
