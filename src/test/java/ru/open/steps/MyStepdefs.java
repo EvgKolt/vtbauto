@@ -6,9 +6,10 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import ru.open.entities.Constants;
-import ru.open.pageobjects.ActionPage;
-import ru.open.pageobjects.LoginPage;
-import ru.open.pageobjects.MainPage;
+import ru.open.pageobjects.businessportal.ActionPage;
+import ru.open.pageobjects.businessportal.LoginPage;
+import ru.open.pageobjects.businessportal.MainPage;
+import ru.open.parsersandhelpers.ImageHelper;
 import ru.open.parsersandhelpers.Keyboard;
 
 import java.awt.*;
@@ -26,6 +27,12 @@ import static java.lang.Thread.sleep;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.StringContains.containsString;
 
+/**
+ * GIVEN steps are used to describe the initial context of the system - the scene of the scenario.
+ * WHEN(AND) steps are used to describe an event, or an action.
+ * THEN steps are used to describe an expected outcome, or result.
+ **/
+
 public class MyStepdefs {
 
     private LoginPage loginPage = page(LoginPage.class);
@@ -40,39 +47,6 @@ public class MyStepdefs {
             open(properties.getProperty(property));
         }
         sleep(4000);
-    }
-
-    @When("^press button with text \"([^\"]*)\" on \"([^\"]*)\"$")
-    public void pressButtonWithTextOn(String button, String page) throws InterruptedException {
-        sleep(3000);
-        if ("LoginPage".equals(page)) {
-            loginPage.get(button).click();
-        } else if ("MainPage".equals(page)) {
-            mainPage.get(button).click();
-        } else if ("ActionPage".equals(page)) {
-            actionPage.get(button).click();
-        }
-    }
-
-    @Then("^verify that page with url \"([^\"]*)\" is opened$")
-    public void verifyThatPageWithUrlIsOpened(String verifyUrl) throws InterruptedException {
-        sleep(3000);
-        String currentUrl = url();
-        assertThat(currentUrl, containsString(verifyUrl));
-    }
-
-    @When("^load file with address \"([^\"]*)\"$")
-    public void loadFileWithAddress(String fileLocation) throws InterruptedException, AWTException, IOException {
-        sleep(5000);
-        try (FileReader fileReader = new FileReader(Constants.PROPERTY_PATH)) {
-            Properties properties = new Properties();
-            properties.load(fileReader);
-            Keyboard keyboard = new Keyboard();
-            keyboard.type(properties.getProperty(fileLocation));
-            sleep(2000);
-            keyboard.pressKey('\n');
-            sleep(3000);
-        }
     }
 
     @And("^type to input with name \"([^\"]*)\" property: \"([^\"]*)\" on \"([^\"]*)\"$")
@@ -91,17 +65,30 @@ public class MyStepdefs {
         }
     }
 
-    @Then("^verify that element with text \"([^\"]*)\" exists on \"([^\"]*)\"$")
-    public void verifyThatElementWithTextExistsOn(String nameOfElement, String page) throws InterruptedException {
+    @When("^press button with text \"([^\"]*)\" on \"([^\"]*)\"$")
+    public void pressButtonWithTextOn(String button, String page) throws InterruptedException {
         sleep(3000);
         if ("LoginPage".equals(page)) {
-            loginPage.get(nameOfElement).waitUntil(Condition.exist, 10000);
+            loginPage.get(button).click();
         } else if ("MainPage".equals(page)) {
-            mainPage.get(nameOfElement).waitUntil(Condition.exist, 10000);
+            mainPage.get(button).click();
         } else if ("ActionPage".equals(page)) {
-            actionPage.get(nameOfElement).waitUntil(Condition.exist, 10000);
+            actionPage.get(button).click();
         }
+    }
+
+    @When("^load file with address \"([^\"]*)\"$")
+    public void loadFileWithAddress(String fileLocation) throws InterruptedException, AWTException, IOException {
         sleep(5000);
+        try (FileReader fileReader = new FileReader(Constants.PROPERTY_PATH)) {
+            Properties properties = new Properties();
+            properties.load(fileReader);
+            Keyboard keyboard = new Keyboard();
+            keyboard.type(properties.getProperty(fileLocation));
+            sleep(2000);
+            keyboard.pressKey('\n');
+            sleep(3000);
+        }
     }
 
     @When("^get param from class \"([^\"]*)\" by method \"([^\"]*)\" and save as property \"([^\"]*)\"$")
@@ -126,6 +113,42 @@ public class MyStepdefs {
     @When("^wait \"([^\"]*)\"ms$")
     public void waitMs(String time) throws InterruptedException {
         sleep(Long.parseLong(time));
+    }
+
+    @Then("^verify that image \"([^\"]*)\" exists$")
+    public void verifyThatImageExists(String imageName) {
+        ImageHelper imageHelper = new ImageHelper();
+        assert (imageHelper.checkImage(imageName) != null);
+    }
+
+    @Then("^verify that page with url \"([^\"]*)\" is opened$")
+    public void verifyThatPageWithUrlIsOpened(String verifyUrl) throws InterruptedException {
+        sleep(3000);
+        String currentUrl = url();
+        assertThat(currentUrl, containsString(verifyUrl));
+    }
+
+    @Then("^verify that element with text \"([^\"]*)\" \"([^\"]*)\" on \"([^\"]*)\"$")
+    public void verifyThatElementWithTextOn(String nameOfElement, String condition, String page) throws Throwable {
+        sleep(3000);
+        if ("exists".equals(condition)) {
+            if ("LoginPage".equals(page)) {
+                loginPage.get(nameOfElement).waitUntil((Condition.exist), 10000);
+            } else if ("MainPage".equals(page)) {
+                mainPage.get(nameOfElement).waitUntil(Condition.exist, 10000);
+            } else if ("ActionPage".equals(page)) {
+                actionPage.get(nameOfElement).waitUntil(Condition.exist, 10000);
+            }
+            sleep(5000);
+        } else {
+            if ("LoginPage".equals(page)) {
+                loginPage.get(nameOfElement).waitUntil((Condition.not(Condition.exist)), 10000);
+            } else if ("MainPage".equals(page)) {
+                mainPage.get(nameOfElement).waitUntil((Condition.not(Condition.exist)), 10000);
+            } else if ("ActionPage".equals(page)) {
+                actionPage.get(nameOfElement).waitUntil((Condition.not(Condition.exist)), 10000);
+            }
+        }
     }
 }
 

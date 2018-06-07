@@ -1,7 +1,9 @@
-package ru.open.pageobjects;
+package ru.open.pageobjects.businessportal;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
+import ru.open.pageobjects.AbstractPage;
+import ru.open.pageobjects.NameOfElement;
 
 public class LoginPage extends AbstractPage {
 
@@ -60,6 +62,18 @@ public class LoginPage extends AbstractPage {
     @NameOfElement("Неверный код")
     @FindBy(className = "code-not-available")
     public SelenideElement wrongcode;
+
+    @NameOfElement("Пароль меньше 8")
+    @FindBy(xpath = "//span[contains(@class, 'error_hint') and text() = 'Пароль должен быть 8 символов или больше.']")
+    public SelenideElement errorhint;
+
+    @NameOfElement("Пароль не подходит")
+    @FindBy(xpath = "//span[contains(@class, 'error_hint') and text() = 'Пароль не соответствует требованиям.']")
+    public SelenideElement errorhint_;
+
+    @NameOfElement("Пароли не совпадают")
+    @FindBy(xpath = "//span[contains(@class, 'error_hint') and text() = 'Пароли не совпадают.']")
+    public SelenideElement errorhint__;
 
 
 }

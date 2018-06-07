@@ -1,7 +1,9 @@
-package ru.open.pageobjects;
+package ru.open.pageobjects.businessportal;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
+import ru.open.pageobjects.AbstractPage;
+import ru.open.pageobjects.NameOfElement;
 
 public class MainPage extends AbstractPage {
 
