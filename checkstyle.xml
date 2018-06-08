@@ -350,26 +350,26 @@
         <property name="severity" value="warning"/>
     </module>
     <module name="RegexpSingleline">
-        <property name="severity" value="warn"/>
+        <property name="severity" value="warning"/>
         <property name="format" value="\s+$"/>
         <property name="message" value="Line has trailing spaces"/>
         <property name="id" value="TrailingSpaces_Error"/>
     </module>
     <module name="RegexpSingleline">
-        <property name="severity" value="warn"/>
+        <property name="severity" value="error"/>
         <property name="format"
                   value="\.exit\(|\.halt\(|\.traceMethodCalls\(|\.traceInstructions\(|\.runFinalization\(|\.gc\("/>
         <property name="message" value="Suspicious invocation of dangerous JVM level operation"/>
         <property name="id" value="DangerousJVMOperation_Error"/>
     </module>
     <module name="RegexpSingleline">
-        <property name="severity" value="warn"/>
+        <property name="severity" value="error"/>
         <property name="format" value="long serialVersionUID"/>
         <property name="message" value="Do not declare a serialVersionUID"/>
         <property name="id" value="SerialVersionUIDDeclared_Error"/>
     </module>
     <module name="RegexpSingleline">
-        <property name="severity" value="warn"/>
+        <property name="severity" value="error"/>
         <property name="format"
                   value="\.printStackTrace\(\)|System\.out|System\.err|org\.apache\.commons\.logging\.Log|java\.util\.logging"/>
         <property name="message" value="use SLF4J for logging"/>

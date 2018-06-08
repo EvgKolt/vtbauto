@@ -1,6 +1,4 @@
-package ru.open.parsersandhelpers;
-
-import ru.open.entities.Constants;
+package ru.open.parsers;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -8,6 +6,8 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
+
+import ru.open.entities.Constants;
 
 public final class LogParser {
 

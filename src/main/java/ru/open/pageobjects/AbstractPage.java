@@ -1,14 +1,13 @@
 package ru.open.pageobjects;
 
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
-
 import java.lang.reflect.Field;
 
-//todo add l4j delete sout
-public abstract class AbstractPage {
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.SelenideElement;
+import lombok.extern.slf4j.Slf4j;
 
-    // private Logger logger = LogManager.getLogger(AbstractPage.class);
+@Slf4j
+public abstract class AbstractPage {
 
     public SelenideElement get(String cucumberElementName) {
         Class<?> clazz = this.getClass();
@@ -19,8 +18,7 @@ public abstract class AbstractPage {
                     try {
                         return (SelenideElement) field.get(this);
                     } catch (IllegalAccessException e) {
-                        System.out.println("ERROR: element with name \" + cucumberElementName + \" at page \" + this.getClass().getName() + \" is not public");
-                        //logger.error("ERROR: element with name " + cucumberElementName + " at page " + this.getClass().getName() + " is not public");
+                        log.error("ERROR: element with name \" + cucumberElementName + \" at page \" + this.getClass().getName() + \" is not public", e);
                     }
                 }
             }

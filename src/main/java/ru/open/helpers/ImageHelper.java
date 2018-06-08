@@ -1,4 +1,4 @@
-package ru.open.parsersandhelpers;
+package ru.open.helpers;
 
 import org.sikuli.script.Match;
 import org.sikuli.script.Pattern;
