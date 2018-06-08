@@ -32,7 +32,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 public class BusinessPortalTest {
     @BeforeClass
     static public void setupTimeout() throws MalformedURLException {
-        /////////////////////////////////for remote runs///////////////////////////////
+        /////////////////////////////////for remote runs////////////////////////////////
         Configuration.remote = "http://10.52.185.105:4419/wd/hub";
         Configuration.browser = "chrome";
         DesiredCapabilities capabilities = new DesiredCapabilities();
