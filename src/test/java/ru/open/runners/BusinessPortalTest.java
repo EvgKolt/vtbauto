@@ -11,6 +11,7 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -32,6 +33,9 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 public class BusinessPortalTest {
     @BeforeClass
     static public void setupTimeout() throws MalformedURLException {
+
+        Dimension d = new Dimension(1382, 744);
+        //Resize the current window to the given dimension
         /////////////////////////////////for remote runs////////////////////////////////
         Configuration.remote = "http://10.52.185.105:4419/wd/hub";
         Configuration.browser = "chrome";
@@ -40,6 +44,7 @@ public class BusinessPortalTest {
         capabilities.setCapability(ACCEPT_SSL_CERTS, true);
         WebDriver wd = new RemoteWebDriver(new URL("http://10.52.185.105:4419/wd/hub"), capabilities);
         setWebDriver(wd);
+        wd.manage().window().setSize(d);
 
         /*
         ///////////////////////////////////for local runs////////////////////////////
