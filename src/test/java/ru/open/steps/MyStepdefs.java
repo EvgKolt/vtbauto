@@ -1,7 +1,9 @@
 package ru.open.steps;
 
+
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static com.codeborne.selenide.WebDriverRunner.url;
 import static java.lang.Thread.sleep;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -20,6 +22,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.openqa.selenium.Dimension;
 import ru.open.entities.Constants;
 import ru.open.helpers.ImageHelper;
 import ru.open.helpers.Keyboard;
@@ -41,6 +44,7 @@ public class MyStepdefs {
 
     @Given("^open link from property \"([^\"]*)\"$")
     public void openLinkFromProperty(String property) throws IOException, InterruptedException {
+        getWebDriver().manage().window().setSize(new Dimension(1382, 744));
         Properties properties = new Properties();
         try (FileReader fileReader = new FileReader(Constants.PROPERTY_PATH)) {
             properties.load(fileReader);
