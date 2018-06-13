@@ -24,7 +24,7 @@ public class MainPage extends AbstractPage {
     public SelenideElement newpay;
 
     @NameOfElement("Настройки")
-    @FindBy(xpath = "//a[contains(@href,'Настройки')]")
+    @FindBy(xpath = "//*[contains(text(),'Настройки')]")
     public SelenideElement settings;
 
     @NameOfElement("Тарифы")
@@ -34,5 +34,6 @@ public class MainPage extends AbstractPage {
     @NameOfElement("Контакты")
     @FindBy(xpath = "//a[contains(@href,'Контакты')]")
     public SelenideElement contacts;
+
 
 }

@@ -39,4 +39,41 @@ public class ActionPage extends AbstractPage {
     @FindBy(xpath = "//*[contains(text(),'TESTOVII ZAPROS')]")
     public SelenideElement testrequest;
 
+    @NameOfElement("Изменить телефон")
+    @FindBy(xpath = "(//*[contains(text(),'Изменить')])[2]")
+    public SelenideElement changephone;
+
+    @NameOfElement("Новый телефон")
+    @FindBy(xpath = "//*[@id=\"widget0\"]/div/div[2]/div[2]/div[2]/div/div[2]/div/div/div[2]/div[1]/div/form/div[3]/div/div/div/input")
+    public SelenideElement inputnumber;
+
+    @NameOfElement("Сохранить телефон")
+    @FindBy(xpath = "//*[@id=\"widget0\"]/div/div[2]/div[2]/div[2]/div/div[2]/div/div/div[2]/div[1]/div/form/div[4]/div/button[1]/div")
+    public SelenideElement savephone;
+
+    @NameOfElement("СМС Код")
+    @FindBy(className = "input-style")
+    public SelenideElement smscode;
+
+    @NameOfElement("Подписать")
+    @FindBy(xpath = "//button[@class='btn-wrapper' and @type='submit']")
+    public SelenideElement sign;
+
+    @NameOfElement("Номер телефона")
+    @FindBy(xpath = "//*[@id=\"widget0\"]/div/div[2]/div[2]/div[2]/div/div[2]/div[2]/div[1]/div/div[3]/div[1]/div/div/input")
+    public SelenideElement phone;
+
+    @NameOfElement("Фонд Хабенского")
+    @FindBy(xpath = "//div[@class='row']")
+    public SelenideElement fond;
+
+    @NameOfElement("Тысяча")
+    @FindBy(xpath = "//div[@class='btn-container primary-btn__active label-as-number']")
+    public SelenideElement thousand;
+
+    @NameOfElement("Я согласен")
+    @FindBy(xpath = "//*[contains(text(),'Я ознакомлен с условиями ')]")
+    public SelenideElement agreement;
+
+
 }
