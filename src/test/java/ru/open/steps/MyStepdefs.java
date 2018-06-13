@@ -22,7 +22,6 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.openqa.selenium.Dimension;
 import ru.open.entities.Constants;
 import ru.open.helpers.ImageHelper;
 import ru.open.helpers.Keyboard;
@@ -44,7 +43,7 @@ public class MyStepdefs {
 
     @Given("^open link from property \"([^\"]*)\"$")
     public void openLinkFromProperty(String property) throws IOException, InterruptedException {
-        getWebDriver().manage().window().setSize(new Dimension(1382, 744));
+        getWebDriver().manage().window().maximize();//setSize(new Dimension(1382, 744));
         Properties properties = new Properties();
         try (FileReader fileReader = new FileReader(Constants.PROPERTY_PATH)) {
             properties.load(fileReader);
@@ -68,7 +67,6 @@ public class MyStepdefs {
             actionPage.get(nameOfElement).sendKeys(properties.getProperty(property));
         }
     }
-
 
     @When("^press button with text \"([^\"]*)\" on \"([^\"]*)\"$")
     public void pressButtonWithTextOn(String button, String page) throws InterruptedException {
@@ -119,7 +117,8 @@ public class MyStepdefs {
     }
 
     @Then("^verify that image \"([^\"]*)\" exists$")
-    public void verifyThatImageExists(String imageName) {
+    public void verifyThatImageExists(String imageName) throws InterruptedException {
+        sleep(5000);
         ImageHelper imageHelper = new ImageHelper();
         assert (imageHelper.checkImage(imageName) != null);
     }
@@ -152,6 +151,22 @@ public class MyStepdefs {
                 actionPage.get(nameOfElement).waitUntil((Condition.not(Condition.exist)), 10000);
             }
         }
+    }
+
+    @Then("^verify that element with text \"([^\"]*)\" contains property \"([^\"]*)\" on \"([^\"]*)\"$")
+    public void verifyThatElementWithTextContainsPropertyOn(String nameOfElement, String property, String page) throws InterruptedException {
+        sleep(3000);
+        if ("LoginPage".equals(page)) {
+            String text = loginPage.get(nameOfElement).getText();
+            assertThat(property, containsString(text));
+        } else if ("MainPage".equals(page)) {
+            String text = mainPage.get(nameOfElement).getText();
+            assertThat(property, containsString(text));
+        } else if ("ActionPage".equals(page)) {
+            String text = actionPage.get(nameOfElement).getText();
+            assertThat(property, containsString(text));
+        }
+
     }
 }
 
