@@ -1,10 +1,15 @@
 package ru.open.runners;
 
+import static com.codeborne.selenide.WebDriverRunner.setWebDriver;
+
 import com.codeborne.selenide.Configuration;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 /**
  * plugin – reporting
@@ -37,7 +42,11 @@ public class BusinessPortalTest {
         Configuration.timeout = 10000;
         System.setProperty("webdriver.chrome.driver", "src/main/resources/webdrivers/chromedriver.exe");
         Configuration.browser = "chrome";
-
+        Configuration.startMaximized = false;
+        ChromeOptions chop = new ChromeOptions();
+        chop.addArguments("no-sandbox");
+        WebDriver wd = new ChromeDriver(chop);
+        setWebDriver(wd);
     }
 }
 
