@@ -37,7 +37,6 @@ public class BusinessPortalTest {
         //        capabilities.setCapability(ACCEPT_SSL_CERTS, true);
         //        WebDriver wd = new RemoteWebDriver(new URL("http://10.52.185.105:4419/wd/hub"), capabilities);
         //        setWebDriver(wd);
-
         ///////////////////////////////////for local runs////////////////////////////
         System.setProperty("webdriver.chrome.driver", "src/main/resources/webdrivers/chromedriver.exe");
         Configuration.timeout = 10000;
