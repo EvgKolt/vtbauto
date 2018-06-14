@@ -9,7 +9,6 @@ import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
 /**
  * plugin – reporting
@@ -40,9 +39,7 @@ public class BusinessPortalTest {
         ///////////////////////////////////for local runs////////////////////////////
         System.setProperty("webdriver.chrome.driver", "src/main/resources/webdrivers/chromedriver.exe");
         Configuration.timeout = 10000;
-        ChromeOptions chop = new ChromeOptions();
-        chop.addArguments("--no-sandbox");
-        WebDriver driver = new ChromeDriver(chop);
+        WebDriver driver = new ChromeDriver();
         setWebDriver(driver);
         driver.manage().window().maximize();
     }
