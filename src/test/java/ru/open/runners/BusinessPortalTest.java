@@ -22,7 +22,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
         plugin = {"html:target/cucumber-report/businessportaltest", "json:target/cucumber.json"},
         features = "src/test/java/ru/open/features",
         glue = "ru/open/steps",
-        tags = "@last"
+        tags = "@businessportaltest"
 )
 
 public class BusinessPortalTest {
@@ -39,14 +39,13 @@ public class BusinessPortalTest {
         //        setWebDriver(wd);
 
         ///////////////////////////////////for local runs////////////////////////////
-        Configuration.timeout = 10000;
         System.setProperty("webdriver.chrome.driver", "src/main/resources/webdrivers/chromedriver.exe");
-        Configuration.browser = "chrome";
-        Configuration.startMaximized = false;
+        Configuration.timeout = 10000;
         ChromeOptions chop = new ChromeOptions();
-        chop.addArguments("no-sandbox");
-        WebDriver wd = new ChromeDriver(chop);
-        setWebDriver(wd);
+        chop.addArguments("--no-sandbox");
+        WebDriver driver = new ChromeDriver(chop);
+        setWebDriver(driver);
+        driver.manage().window().maximize();
     }
 }
 

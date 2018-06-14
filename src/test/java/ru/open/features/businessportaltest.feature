@@ -436,8 +436,7 @@ Feature: Business portal
     Then verify that element with text "Пароли не совпадают" "exists" on "LoginPage"
     Then verify that image "src/main/resources/imgs/savepassnotactive.png" exists
 
-  @last
-  Scenario: Change phone number#157222(verify ONLY with payment order)
+  Scenario: Change phone number#157222
 
     Given open link from property "business.portal.link"
     And type to input with name "Имя пользователя" property: "login" on "LoginPage"
@@ -458,16 +457,7 @@ Feature: Business portal
     When press button with text "Подписать" on "ActionPage"
     When press button with text "Настройки" on "MainPage"
     Then verify that element with text "Номер телефона" contains property "phone" on "ActionPage"
-    Given open link from property "business.portal.link"
-    When press button with text "Фонд Хабенского" on "ActionPage"
-    When press button with text "Тысяча" on "ActionPage"
-    When press button with text "Отправить" on "ActionPage"
-    When press button with text "Я согласен" on "ActionPage"
-    When wait "25000"ms
-    When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
-    And type to input with name "СМС Код" property: "smscode" on "ActionPage"
-    When press button with text "Подписать" on "ActionPage"
-    When wait "500000"ms
+
 
 
 

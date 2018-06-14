@@ -3,7 +3,6 @@ package ru.open.steps;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static com.codeborne.selenide.WebDriverRunner.url;
 import static java.lang.Thread.sleep;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -43,7 +42,6 @@ public class MyStepdefs {
 
     @Given("^open link from property \"([^\"]*)\"$")
     public void openLinkFromProperty(String property) throws IOException, InterruptedException {
-        getWebDriver().manage().window().maximize();//setSize(new Dimension(1382, 744));
         Properties properties = new Properties();
         try (FileReader fileReader = new FileReader(Constants.PROPERTY_PATH)) {
             properties.load(fileReader);
