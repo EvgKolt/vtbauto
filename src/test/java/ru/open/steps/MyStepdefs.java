@@ -59,7 +59,7 @@ public class MyStepdefs {
             properties.load(fileReader);
         }
         if ("LoginPage".equals(page)) {
-            $(nameOfElement).waitUntil(Condition.visible, 1500000);
+            $(nameOfElement).waitUntil(Condition.exist, 15000);
             loginPage.get(nameOfElement).sendKeys(properties.getProperty(property));
         } else if ("MainPage".equals(page)) {
             mainPage.get(nameOfElement).sendKeys(properties.getProperty(property));
