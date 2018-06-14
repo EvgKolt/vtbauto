@@ -1,6 +1,7 @@
 package ru.open.steps;
 
 
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
 import static com.codeborne.selenide.WebDriverRunner.url;
@@ -58,6 +59,7 @@ public class MyStepdefs {
             properties.load(fileReader);
         }
         if ("LoginPage".equals(page)) {
+            $(nameOfElement).waitUntil(Condition.visible, 1500000);
             loginPage.get(nameOfElement).sendKeys(properties.getProperty(property));
         } else if ("MainPage".equals(page)) {
             mainPage.get(nameOfElement).sendKeys(properties.getProperty(property));
