@@ -24,6 +24,7 @@ Feature: Business portal
     Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
     When press button with text "Выйти" on "MainPage"
 
+  @last
   Scenario: Authorization and logout of the user in the personal account#157175#157177
 
     Given open link from property "business.portal.link"
