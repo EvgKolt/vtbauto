@@ -21,7 +21,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
         plugin = {"html:target/cucumber-report/businessportaltest", "json:target/cucumber.json"},
         features = "src/test/java/ru/open/features",
         glue = "ru/open/steps",
-        tags = "@businessportaltest"
+        tags = "@last"
 )
 
 public class BusinessPortalTest {
