@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
 
-import ru.open.entities.Constants;
+import ru.open.Constants;
 
 public final class LogParser {
 

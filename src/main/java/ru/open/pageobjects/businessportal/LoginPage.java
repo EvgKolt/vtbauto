@@ -7,11 +7,11 @@ import ru.open.pageobjects.NameOfElement;
 
 public class LoginPage extends AbstractPage {
 
-    @NameOfElement("Имя пользователя")
+    @NameOfElement("username")
     @FindBy(id = "UserName")
     public SelenideElement username;
 
-    @NameOfElement("Пароль")
+    @NameOfElement("pass")
     @FindBy(id = "Password")
     public SelenideElement password;
 

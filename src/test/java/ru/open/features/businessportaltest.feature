@@ -27,8 +27,8 @@ Feature: Business portal
   Scenario: Authorization and logout of the user in the personal account#157175#157177
 
     Given open link from property "business.portal.link"
-    And type to input with name "Имя пользователя" property: "login" on "LoginPage"
-    And type to input with name "Пароль" property: "password" on "LoginPage"
+    And type to input with name "username" property: "login" on "LoginPage"
+    And type to input with name "pass" property: "password" on "LoginPage"
     When press button with text "Войти" on "LoginPage"
     Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
     When press button with text "Выйти" on "MainPage"

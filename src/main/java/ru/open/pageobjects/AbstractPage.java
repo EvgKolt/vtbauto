@@ -18,7 +18,7 @@ public abstract class AbstractPage {
                     try {
                         return (SelenideElement) field.get(this);
                     } catch (IllegalAccessException e) {
-                        log.error("ERROR: element with name \" + cucumberElementName + \" at page \" + this.getClass().getName() + \" is not public", e);
+                        log.error("ERROR: element is not public", e);
                     }
                 }
             }

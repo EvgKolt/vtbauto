@@ -1,4 +1,4 @@
-package ru.open.entities;
+package ru.open;
 
 
 public final class Constants {

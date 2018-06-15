@@ -1,7 +1,6 @@
 package ru.open.steps;
 
 
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
 import static com.codeborne.selenide.WebDriverRunner.url;
@@ -22,7 +21,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import ru.open.entities.Constants;
+import ru.open.Constants;
 import ru.open.helpers.ImageHelper;
 import ru.open.helpers.Keyboard;
 import ru.open.pageobjects.businessportal.ActionPage;
@@ -59,7 +58,6 @@ public class MyStepdefs {
             properties.load(fileReader);
         }
         if ("LoginPage".equals(page)) {
-            $(nameOfElement).waitUntil(Condition.exist, 15000);
             loginPage.get(nameOfElement).sendKeys(properties.getProperty(property));
         } else if ("MainPage".equals(page)) {
             mainPage.get(nameOfElement).sendKeys(properties.getProperty(property));
