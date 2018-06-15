@@ -5,5 +5,5 @@
     "http://www.puppycrawl.com/dtds/suppressions_1_0.dtd">
 
 <suppressions>
-    <suppress checks="OneStatementPerLine" files="Keyboard\.java"/>
+    <suppress checks="." files="Keyboard.java"/>
 </suppressions>

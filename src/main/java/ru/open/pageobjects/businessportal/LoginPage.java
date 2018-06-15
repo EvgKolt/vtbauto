@@ -1,78 +1,62 @@
 package ru.open.pageobjects.businessportal;
 
 import com.codeborne.selenide.SelenideElement;
+import lombok.Getter;
 import org.openqa.selenium.support.FindBy;
 import ru.open.pageobjects.AbstractPage;
-import ru.open.pageobjects.NameOfElement;
 
+@Getter
 public class LoginPage extends AbstractPage {
 
-    @NameOfElement("username")
     @FindBy(id = "UserName")
-    public SelenideElement username;
+    private SelenideElement userName;
 
-    @NameOfElement("pass")
     @FindBy(id = "Password")
-    public SelenideElement password;
+    private SelenideElement password;
 
-    @NameOfElement("Войти")
     @FindBy(xpath = "//button[@type='submit' and contains(., 'Войти')]")
-    public SelenideElement signin;
+    private SelenideElement signIn;
 
-    @NameOfElement("Восстановить")
     @FindBy(className = "welcome__login-action")
-    public SelenideElement restore;
+    private SelenideElement restore;
 
-    @NameOfElement("Неверный логин")
     @FindBy(className = "welcome__form-error")
-    public SelenideElement errormessage;
+    private SelenideElement errorMessage;
 
-    @NameOfElement("Логин")
     @FindBy(id = "fio-textfield")
-    public SelenideElement login;
+    private SelenideElement login;
 
-    @NameOfElement("Восстановить_")
     @FindBy(className = "step__buttons")
-    public SelenideElement restore2;
+    private SelenideElement restore1;
 
-    @NameOfElement("СМС код")
     @FindBy(id = "smsCode")
-    public SelenideElement smscode;
+    private SelenideElement smsCode;
 
-    @NameOfElement("Подтвердить")
     @FindBy(xpath = "//*[contains(text(),'Подтвердить')]")
-    public SelenideElement confirm;
+    private SelenideElement confirm;
 
-    @NameOfElement("Новый пароль")
     @FindBy(id = "password-textfield")
-    public SelenideElement newpassword;
+    private SelenideElement newPassword;
 
-    @NameOfElement("Повторить новый пароль")
     @FindBy(id = "repeat-password-textfield")
-    public SelenideElement repeatnewpassword;
+    private SelenideElement repeatNewPassword;
 
-    @NameOfElement("Сохранить пароль")
     @FindBy(className = "step__buttons")
-    public SelenideElement savepassword;
+    private SelenideElement savePassword;
 
-    @NameOfElement("Выслать код повторно")
     @FindBy(className = "link-repeat")
-    public SelenideElement resendcode;
+    private SelenideElement resendCode;
 
-    @NameOfElement("Неверный код")
     @FindBy(className = "code-not-available")
-    public SelenideElement wrongcode;
+    private SelenideElement wrongCode;
 
-    @NameOfElement("Пароль меньше 8")
     @FindBy(xpath = "//span[contains(@class, 'error_hint') and text() = 'Пароль должен быть 8 символов или больше.']")
-    public SelenideElement errorhint;
+    private SelenideElement errorHint;
 
-    @NameOfElement("Пароль не подходит")
     @FindBy(xpath = "//span[contains(@class, 'error_hint') and text() = 'Пароль не соответствует требованиям.']")
-    public SelenideElement errorhint1;
+    private SelenideElement errorHint1;
 
-    @NameOfElement("Пароли не совпадают")
     @FindBy(xpath = "//span[contains(@class, 'error_hint') and text() = 'Пароли не совпадают.']")
-    public SelenideElement errorhint2;
+    private SelenideElement errorHint2;
 }
 

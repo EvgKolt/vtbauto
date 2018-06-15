@@ -16,7 +16,9 @@ public final class LogParser {
         try (FileReader fileReader = new FileReader(Constants.PROPERTY_PATH)) {
             Properties properties = new Properties();
             properties.load(fileReader);
-            return properties.getProperty("sms.logs.pattern") + dateFormat.format(new Date()) + ".log";
+            return properties.getProperty("sms.logs.pattern")
+                    + dateFormat.format(new Date())
+                    + ".log";
         }
     }
 
@@ -25,7 +27,9 @@ public final class LogParser {
         try (FileReader fileReader = new FileReader(Constants.PROPERTY_PATH)) {
             Properties properties = new Properties();
             properties.load(fileReader);
-            return properties.getProperty("email.logs.pattern") + dateFormat.format(new Date()) + ".log";
+            return properties.getProperty("email.logs.pattern")
+                    + dateFormat.format(new Date())
+                    + ".log";
         }
     }
 
@@ -41,7 +45,8 @@ public final class LogParser {
                 }
             }
             if (!result.isEmpty()) {
-                return result.substring(result.indexOf(":") + 2, result.lastIndexOf("<"));
+                return result.substring(result.indexOf(":")
+                        + 2, result.lastIndexOf("<"));
             }
         }
         return null;
@@ -59,9 +64,9 @@ public final class LogParser {
                 }
             }
             if (!result.isEmpty()) {
-                return "http://rumskapt273.open.ru/sso/auth/login-password-change" +
-                        result.substring(result.indexOf("?code="), result.lastIndexOf("&amp")) +
-                        "&client_id=smeportal";
+                return "http://rumskapt273.open.ru/sso/auth/login-password-change"
+                        + result.substring(result.indexOf("?code="), result.lastIndexOf("&amp"))
+                        + "&client_id=smeportal";
             }
         }
         return null;

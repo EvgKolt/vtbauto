@@ -15,6 +15,9 @@ public class DBConnect {
     private static final String PASS = "";
     private static Connection connection;
 
+    private DBConnect() {
+    }
+
     public static void openConnection() throws SQLException {
         connection = DriverManager.getConnection(DB_URL, USER, PASS);
 

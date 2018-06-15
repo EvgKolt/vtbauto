@@ -1,79 +1,53 @@
 package ru.open.pageobjects.businessportal;
 
 import com.codeborne.selenide.SelenideElement;
+import lombok.Getter;
 import org.openqa.selenium.support.FindBy;
 import ru.open.pageobjects.AbstractPage;
-import ru.open.pageobjects.NameOfElement;
 
+@Getter
 public class ActionPage extends AbstractPage {
 
-    @NameOfElement("Написать письмо")
     @FindBy(xpath = "//button[contains(., 'Написать сообщение')]")
-    public SelenideElement writeletter;
+    private SelenideElement writeLetter;
 
-    @NameOfElement("Категория вопроса")
     @FindBy(className = "Select-placeholder")
-    public SelenideElement questioncategory;
+    private SelenideElement questionCategory;
 
-    @NameOfElement("Открытие счета")
     @FindBy(xpath = "//*[contains(text(),'Открытие счета')]")
-    public SelenideElement openaccount;
+    private SelenideElement openAccount;
 
-    @NameOfElement("Тема")
     @FindBy(xpath = "//input[@type='text']")
-    public SelenideElement theme;
+    private SelenideElement theme;
 
-    @NameOfElement("Сообщение")
     @FindBy(xpath = "//textarea[contains(@rows, '6')]")
-    public SelenideElement message;
+    private SelenideElement message;
 
-    @NameOfElement("Приложить файл")
     @FindBy(className = "input-container_files")
-    public SelenideElement addfile;
+    private SelenideElement addFile;
 
-    @NameOfElement("Отправить")
     @FindBy(xpath = "//button[@class='btn-wrapper' and @type='submit']")
-    public SelenideElement sendmessage;
+    private SelenideElement sendMessage;
 
-    @NameOfElement("Тестовый запрос")
     @FindBy(xpath = "//*[contains(text(),'TESTOVII ZAPROS')]")
-    public SelenideElement testrequest;
+    private SelenideElement testRequest;
 
-    @NameOfElement("Изменить телефон")
     @FindBy(xpath = "(//*[contains(text(),'Изменить')])[2]")
-    public SelenideElement changephone;
+    private SelenideElement changePhone;
 
-    @NameOfElement("Новый телефон")
     @FindBy(xpath = "//*[@id=\"widget0\"]/div/div[2]/div[2]/div[2]/div/div[2]/div/div/div[2]/div[1]/div/form/div[3]/div/div/div/input")
-    public SelenideElement inputnumber;
+    private SelenideElement inputNumber;
 
-    @NameOfElement("Сохранить телефон")
     @FindBy(xpath = "//*[@id=\"widget0\"]/div/div[2]/div[2]/div[2]/div/div[2]/div/div/div[2]/div[1]/div/form/div[4]/div/button[1]/div")
-    public SelenideElement savephone;
+    private SelenideElement savePhone;
 
-    @NameOfElement("СМС Код")
     @FindBy(className = "input-style")
-    public SelenideElement smscode;
+    private SelenideElement smsCode;
 
-    @NameOfElement("Подписать")
     @FindBy(xpath = "//button[@class='btn-wrapper' and @type='submit']")
-    public SelenideElement sign;
+    private SelenideElement sign;
 
-    @NameOfElement("Номер телефона")
     @FindBy(xpath = "//*[@id=\"widget0\"]/div/div[2]/div[2]/div[2]/div/div[2]/div[2]/div[1]/div/div[3]/div[1]/div/div/input")
-    public SelenideElement phone;
-
-    @NameOfElement("Фонд Хабенского")
-    @FindBy(xpath = "//div[@class='row']")
-    public SelenideElement fond;
-
-    @NameOfElement("Тысяча")
-    @FindBy(xpath = "//div[@class='btn-container primary-btn__active label-as-number']")
-    public SelenideElement thousand;
-
-    @NameOfElement("Я согласен")
-    @FindBy(xpath = "//*[contains(text(),'Я ознакомлен с условиями ')]")
-    public SelenideElement agreement;
-
+    private SelenideElement phone;
 
 }
