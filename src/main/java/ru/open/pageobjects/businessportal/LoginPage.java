@@ -60,3 +60,5 @@ public class LoginPage extends AbstractPage {
     private SelenideElement errorHint2;
 }
 
+
+

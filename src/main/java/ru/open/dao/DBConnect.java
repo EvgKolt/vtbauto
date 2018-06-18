@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class DBConnect {
+public final class DBConnect {
     private static final String DB_URL = "jdbc:h2:~/test";
 
     //  Database credentials (example)

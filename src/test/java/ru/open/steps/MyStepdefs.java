@@ -117,7 +117,7 @@ public class MyStepdefs {
     public void verifyThatImageExists(String imageName) throws InterruptedException {
         sleep(5000);
         ImageHelper imageHelper = new ImageHelper();
-        assert (imageHelper.checkImage(imageName) != null);
+        assertThat("no such image", imageHelper.checkImage(imageName) != null);
     }
 
     @Then("^verify that page with url \"([^\"]*)\" is opened$")

@@ -9,7 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 public abstract class AbstractPage {
 
     public SelenideElement get(String nameOfElement) {
-        Class<?> clazz = this.getClass();
+        Class<?> clazz = getClass();
         for (Field field : clazz.getDeclaredFields()) {
             if (field.getName().equals(nameOfElement)) {
                 try {
