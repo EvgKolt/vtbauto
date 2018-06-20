@@ -1,10 +1,14 @@
 package ru.open.runners.clientservice;
 
+import static com.codeborne.selenide.WebDriverRunner.setWebDriver;
+
 import com.codeborne.selenide.Configuration;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 
 /**
@@ -26,9 +30,9 @@ public class CSChromeTest {
     static public void setupTimeout() {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/webdrivers/chromedriver.exe");
         Configuration.timeout = 5000;
-        //        WebDriver driver = new ChromeDriver();
-        //        setWebDriver(driver);
-        //        driver.manage().window().maximize();
+        WebDriver driver = new ChromeDriver();
+        setWebDriver(driver);
+        driver.manage().window().maximize();
     }
 }
 
