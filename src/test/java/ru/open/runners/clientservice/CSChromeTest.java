@@ -1,0 +1,35 @@
+package ru.open.runners.clientservice;
+
+import com.codeborne.selenide.Configuration;
+import cucumber.api.CucumberOptions;
+import cucumber.api.junit.Cucumber;
+import org.junit.BeforeClass;
+import org.junit.runner.RunWith;
+
+
+/**
+ * plugin – reporting
+ * ru.open.features – features
+ * glue – steps
+ * tags – feature's tag(may be several)
+ */
+@RunWith(Cucumber.class)
+@CucumberOptions(
+        plugin = {"html:target/cucumber-report/clientservice", "json:target/cucumber.json"},
+        features = "src/test/java/ru/open/features/clientservice",
+        glue = "ru/open/steps",
+        tags = "@cschrometest"
+)
+
+public class CSChromeTest {
+    @BeforeClass
+    static public void setupTimeout() {
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/webdrivers/chromedriver.exe");
+        Configuration.timeout = 5000;
+        //        WebDriver driver = new ChromeDriver();
+        //        setWebDriver(driver);
+        //        driver.manage().window().maximize();
+    }
+}
+
+

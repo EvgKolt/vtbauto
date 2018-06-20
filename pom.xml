@@ -26,24 +26,32 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.21.0</version>
                 <configuration>
-                    <testFailureIgnore>false</testFailureIgnore>
+                    <testFailureIgnore>true</testFailureIgnore>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>net.masterthought</groupId>
                 <artifactId>maven-cucumber-reporting</artifactId>
-                <version>2.0.0</version>
+                <version>3.17.1</version>
                 <executions>
                     <execution>
                         <id>execution</id>
-                        <phase>verify</phase>
+                        <phase>test</phase>
                         <goals>
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <projectName>cucumber-selenide-example</projectName>
-                            <outputDirectory>target/cucumber-html-reports</outputDirectory>
-                            <cucumberOutput>target/cucumber.json</cucumberOutput>
+                            <projectName>MSB-BusinessPortal</projectName>
+                            <outputDirectory>${project.build.directory}</outputDirectory>
+                            <jsonFiles>
+                                <!-- supports wildcard or name pattern -->
+                                <param>**/*.json</param>
+                            </jsonFiles>
+                            <classificationFiles>
+                                <!-- supports wildcard or name pattern -->
+                                <param>sample.properties</param>
+                                <param>other.properties</param>
+                            </classificationFiles>
                             <parallelTesting>false</parallelTesting>
                         </configuration>
                     </execution>
@@ -96,7 +104,7 @@
         <dependency>
             <groupId>com.codeborne</groupId>
             <artifactId>selenide</artifactId>
-            <version>3.8.1</version>
+            <version>4.12.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
