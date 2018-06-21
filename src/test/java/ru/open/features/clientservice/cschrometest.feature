@@ -1,5 +1,5 @@
 @cschrometest
-Feature: Business portal
+Feature: Business portal client service
 
   Scenario: Restore password of the personal account #157180
 
