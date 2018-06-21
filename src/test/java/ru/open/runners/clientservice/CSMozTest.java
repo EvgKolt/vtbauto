@@ -24,7 +24,7 @@ import org.junit.runner.RunWith;
 public class CSMozTest {
     @BeforeClass
     static public void setupTimeout() {
-        //        System.setProperty("webdriver.gecko.driver", "src/main/resources/webdrivers/geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", "src/main/resources/webdrivers/geckodriver.exe");
         Configuration.timeout = 10000;
         //        WebDriver driver = new FirefoxDriver();
         //        setWebDriver(driver);
