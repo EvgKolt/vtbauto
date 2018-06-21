@@ -143,11 +143,11 @@ public class MyStepdefs {
         sleep(3000);
         if ("exists".equals(condition)) {
             if ("LoginPage".equals(page)) {
-                loginPage.get(nameOfElement).waitUntil((Condition.exist), 10000);
+                loginPage.get(nameOfElement).waitUntil((Condition.exist), 30000);
             } else if ("MainPage".equals(page)) {
-                mainPage.get(nameOfElement).waitUntil(Condition.exist, 10000);
+                mainPage.get(nameOfElement).waitUntil(Condition.exist, 30000);
             } else if ("ActionPage".equals(page)) {
-                actionPage.get(nameOfElement).waitUntil(Condition.exist, 10000);
+                actionPage.get(nameOfElement).waitUntil(Condition.exist, 30000);
             }
             sleep(5000);
         } else {

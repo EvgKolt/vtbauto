@@ -7,7 +7,6 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 
@@ -22,7 +21,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
         plugin = {"html:target/cucumber-report/clientservice/chrome", "json:target/cucumber.json"},
         features = "src/test/java/ru/open/features/clientservice",
         glue = "ru/open/steps",
-        tags = "@cschrometest1"
+        tags = "@cschrometest"
 )
 
 public class CSChromeTest {
@@ -30,7 +29,7 @@ public class CSChromeTest {
     static public void setupTimeout() {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/webdrivers/chromedriver.exe");
         Configuration.timeout = 10000;
-        WebDriver driver = new ChromeDriver();
+        ChromeDriver driver = new ChromeDriver();
         setWebDriver(driver);
         driver.manage().window().maximize();
     }

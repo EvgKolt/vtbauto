@@ -53,7 +53,7 @@ Feature: Business portal
   Scenario: Send message #157198
 
     Given open link from property "business.portal.link"
-    And type to input with name "userMessage" property: "login" on "LoginPage"
+    And type to input with name "userName" property: "login" on "LoginPage"
     And type to input with name "password" property: "password" on "LoginPage"
     When press button with text "signIn" on "LoginPage"
     When press button with text "letters" on "MainPage"
