@@ -66,7 +66,7 @@ Feature: Business portal
     When load file with address "test.jpg.file.address"
     When press button with text "sendMessage" on "ActionPage"
     Then verify that element with text "testRequest" "exists" on "ActionPage"
-    When press button with text "SignOut" on "MainPage"
+    When press button with text "signOut" on "MainPage"
     Then verify that page with url "http://rumskapt273.open.ru/273/login" is opened
 
   Scenario: Restore password of the personal account(Resending smscode by timer)#166768
@@ -91,9 +91,9 @@ Feature: Business portal
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
     And type to input with name "password" property: "password" on "LoginPage"
-    When press button with text "SignIn" on "LoginPage"
+    When press button with text "signIn" on "LoginPage"
     Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
-    When press button with text "SignOut" on "MainPage"
+    When press button with text "signOut" on "MainPage"
 
   Scenario: Restore password of the personal account with wrong smscode#157210
 
@@ -128,16 +128,16 @@ Feature: Business portal
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "signer.login" on "LoginPage"
     And type to input with name "password" property: "signer.password" on "LoginPage"
-    When press button with text "SignIn" on "LoginPage"
+    When press button with text "signIn" on "LoginPage"
     Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
-    When press button with text "SignOut" on "MainPage"
+    When press button with text "signOut" on "MainPage"
 
   Scenario: Restore password with validation#157243
 
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
     When press button with text "restore" on "LoginPage"
-    And type to input with name "userName" property: "login" on "LoginPage"
+    And type to input with name "login" property: "login" on "LoginPage"
     When press button with text "restore1" on "LoginPage"
     When get param from class "ru.open.parsers.LogParser" by method "getLastReference" and save as property "reference.to.confirm"
     Given open link from property "reference.to.confirm"
@@ -151,14 +151,14 @@ Feature: Business portal
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
     And type to input with name "password" property: "password.validation1" on "LoginPage"
-    When press button with text "SignIn" on "LoginPage"
+    When press button with text "signIn" on "LoginPage"
     Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
-    When press button with text "SignOut" on "MainPage"
+    When press button with text "signOut" on "MainPage"
 
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
     When press button with text "restore" on "LoginPage"
-    And type to input with name "userName" property: "login" on "LoginPage"
+    And type to input with name "login" property: "login" on "LoginPage"
     When press button with text "restore1" on "LoginPage"
     When get param from class "ru.open.parsers.LogParser" by method "getLastReference" and save as property "reference.to.confirm"
     Given open link from property "reference.to.confirm"
@@ -193,9 +193,9 @@ Feature: Business portal
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
     And type to input with name "password" property: "password.validation3" on "LoginPage"
-    When press button with text "SignIn" on "LoginPage"
+    When press button with text "signIn" on "LoginPage"
     Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
-    When press button with text "SignOut" on "MainPage"
+    When press button with text "signOut" on "MainPage"
 
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
@@ -216,7 +216,7 @@ Feature: Business portal
     And type to input with name "password" property: "password.validation4" on "LoginPage"
     When press button with text "signIn" on "LoginPage"
     Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
-    When press button with text "SignOut" on "MainPage"
+    When press button with text "signOut" on "MainPage"
 
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
@@ -237,7 +237,7 @@ Feature: Business portal
     And type to input with name "password" property: "password.validation5" on "LoginPage"
     When press button with text "signIn" on "LoginPage"
     Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
-    When press button with text "SignOut" on "MainPage"
+    When press button with text "signOut" on "MainPage"
 
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
@@ -279,7 +279,7 @@ Feature: Business portal
     And type to input with name "password" property: "password.validation7" on "LoginPage"
     When press button with text "signIn" on "LoginPage"
     Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
-    When press button with text "SignOut" on "MainPage"
+    When press button with text "signOut" on "MainPage"
 
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
@@ -364,7 +364,7 @@ Feature: Business portal
     And type to input with name "smsCode" property: "smscode" on "LoginPage"
     When press button with text "confirm" on "LoginPage"
     When type to input with name "newPassword" property: "password.negative4" on "LoginPage"
-    When type to input with name "confirmNewPassword" property: "password.negative4" on "LoginPage"
+    When type to input with name "repeatNewPassword" property: "password.negative4" on "LoginPage"
     Then verify that element with text "errorHint1" "exists" on "LoginPage"
     Then verify that image "src/main/resources/imgs/savepassnotactive.png" exists
     When type to input with name "newPassword" property: "password.negative5" on "LoginPage"
@@ -441,7 +441,7 @@ Feature: Business portal
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
     And type to input with name "password" property: "password" on "LoginPage"
-    When press button with text "SignIn" on "LoginPage"
+    When press button with text "signIn" on "LoginPage"
     Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
     When press button with text "settings" on "MainPage"
     When press button with text "changePhone" on "ActionPage"
@@ -459,7 +459,7 @@ Feature: Business portal
     Then verify that element with text "phone" contains property "phone" on "ActionPage"
     When execute method "clickImage" from class "ru.open.helpers.ImageHelper" on "src/main/resources/imgs/close.png"
     Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
-    When press button with text "SignOut" on "MainPage"
+    When press button with text "signOut" on "MainPage"
 
 
 
