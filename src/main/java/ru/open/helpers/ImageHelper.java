@@ -1,7 +1,6 @@
 package ru.open.helpers;
 
 import lombok.extern.slf4j.Slf4j;
-import org.sikuli.script.FindFailed;
 import org.sikuli.script.Match;
 import org.sikuli.script.Pattern;
 import org.sikuli.script.Screen;
@@ -19,9 +18,8 @@ public final class ImageHelper {
         Pattern pattern = new Pattern(imageName);
         try {
             screen.click(pattern);
-        } catch (FindFailed findFailed) {
-            log.error("no such image");
-            findFailed.printStackTrace();
+        } catch (Exception e) {
+            log.error("no such image", e);
         }
     }
 }
