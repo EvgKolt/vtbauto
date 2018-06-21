@@ -133,7 +133,7 @@ public class MyStepdefs {
 
     @Then("^verify that page with url \"([^\"]*)\" is opened$")
     public void verifyThatPageWithUrlIsOpened(String verifyUrl) throws InterruptedException {
-        sleep(3000);
+        sleep(5000);
         String currentUrl = url();
         assertThat(currentUrl, containsString(verifyUrl));
     }
