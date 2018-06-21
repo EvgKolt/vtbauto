@@ -16,4 +16,12 @@ public final class TextGenerator {
         String uuid = UUID.randomUUID().toString().replaceAll("-", "").substring(SUBINDEX);
         return "!Qw" + uuid;
     }
+
+    public String generateEmail() {
+        return null;
+    }
+
+    public String generateLogin() {
+        return null;
+    }
 }
