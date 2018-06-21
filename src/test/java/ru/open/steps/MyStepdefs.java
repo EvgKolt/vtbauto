@@ -113,6 +113,17 @@ public class MyStepdefs {
         sleep(Long.parseLong(time));
     }
 
+    @When("^execute method \"([^\"]*)\" from class \"([^\"]*)\" on \"([^\"]*)\"$")
+    public void executeMethodFromClassOn(String methodName, String obj, String param) throws InterruptedException, ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
+        if (!("".equals(param))) {
+            sleep(4000);
+            Class c = Class.forName(obj);
+            Object object = c.newInstance();
+            Method method = object.getClass().getMethod(methodName, String.class);
+            method.invoke(object, param);
+        }
+    }
+
     @Then("^verify that image \"([^\"]*)\" exists$")
     public void verifyThatImageExists(String imageName) throws InterruptedException {
         sleep(5000);
@@ -165,5 +176,6 @@ public class MyStepdefs {
         }
 
     }
+
 }
 

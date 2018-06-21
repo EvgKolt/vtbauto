@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
  */
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        plugin = {"html:target/cucumber-report/clientservice", "json:target/cucumber.json"},
+        plugin = {"html:target/cucumber-report/clientservice/moz", "json:target/cucumber.json"},
         features = "src/test/java/ru/open/features/clientservice",
         glue = "ru/open/steps",
         tags = "@csmoztest"

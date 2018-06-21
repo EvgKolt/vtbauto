@@ -457,6 +457,9 @@ Feature: Business portal
     When press button with text "sign" on "ActionPage"
     When press button with text "settings" on "MainPage"
     Then verify that element with text "phone" contains property "phone" on "ActionPage"
+    When execute method "clickImage" from class "ru.open.helpers.ImageHelper" on "src/main/resources/imgs/close.png"
+    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
+    When press button with text "SignOut" on "MainPage"
 
 
 

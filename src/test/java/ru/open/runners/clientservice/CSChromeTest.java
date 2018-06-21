@@ -19,10 +19,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
  */
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        plugin = {"html:target/cucumber-report/clientservice", "json:target/cucumber.json"},
+        plugin = {"html:target/cucumber-report/clientservice/chrome", "json:target/cucumber.json"},
         features = "src/test/java/ru/open/features/clientservice",
         glue = "ru/open/steps",
-        tags = "@cschrometest"
+        tags = "@cschrometest1"
 )
 
 public class CSChromeTest {

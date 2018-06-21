@@ -1,7 +1,7 @@
 @csmoztest
 Feature: Business portal
 
-  Scenario: Restore password of the personal account #157180
+  Scenario: Restore password of the personal account #157180(moz)
 
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
@@ -24,7 +24,7 @@ Feature: Business portal
     Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
     When press button with text "signOut" on "MainPage"
 
-  Scenario: Authorization and logout of the user in the personal account#157175#157177
+  Scenario: Authorization and logout of the user in the personal account#157175#157177(moz)
 
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
@@ -34,7 +34,7 @@ Feature: Business portal
     When press button with text "signOut" on "MainPage"
     Then verify that page with url "http://rumskapt273.open.ru/273/login" is opened
 
-  Scenario: Authorization of the user in the personal account(negative scenario - wrong pass)#157191
+  Scenario: Authorization of the user in the personal account(negative scenario - wrong pass)#157191(moz)
 
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
@@ -42,7 +42,7 @@ Feature: Business portal
     When press button with text "signIn" on "LoginPage"
     Then verify that element with text "errorMessage" "exists" on "LoginPage"
 
-  Scenario: Authorization of the user in the personal account(negative scenario - wrong login)#157191
+  Scenario: Authorization of the user in the personal account(negative scenario - wrong login)#157191(moz)
 
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "wronglogin" on "LoginPage"
@@ -50,7 +50,7 @@ Feature: Business portal
     When press button with text "signIn" on "LoginPage"
     Then verify that element with text "errorMessage" "exists" on "LoginPage"
 
-  Scenario: Send message #157198
+  Scenario: Send message #157198(moz)
 
     Given open link from property "business.portal.link"
     And type to input with name "userMessage" property: "login" on "LoginPage"
@@ -69,7 +69,7 @@ Feature: Business portal
     When press button with text "SignOut" on "MainPage"
     Then verify that page with url "http://rumskapt273.open.ru/273/login" is opened
 
-  Scenario: Restore password of the personal account(Resending smscode by timer)#166768
+  Scenario: Restore password of the personal account(Resending smscode by timer)#166768(moz)
 
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
@@ -95,7 +95,7 @@ Feature: Business portal
     Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
     When press button with text "SignOut" on "MainPage"
 
-  Scenario: Restore password of the personal account with wrong smscode#157210
+  Scenario: Restore password of the personal account with wrong smscode#157210(moz)
 
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
@@ -109,7 +109,7 @@ Feature: Business portal
     When press button with text "confirm" on "LoginPage"
     Then verify that element with text "wrongCode" "exists" on "LoginPage"
 
-  Scenario: Restore password by signer#166770
+  Scenario: Restore password by signer#166770(moz)
 
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "signer.login" on "LoginPage"
@@ -132,7 +132,7 @@ Feature: Business portal
     Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
     When press button with text "SignOut" on "MainPage"
 
-  Scenario: Restore password with validation#157243
+  Scenario: Restore password with validation#157243(moz)
 
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
@@ -302,7 +302,7 @@ Feature: Business portal
     Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
     When press button with text "signOut" on "MainPage"
 
-  Scenario: Restore password(negative scenario)#157247
+  Scenario: Restore password(negative scenario)#157247(moz)
 
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
@@ -436,7 +436,7 @@ Feature: Business portal
     Then verify that element with text "errorHint2" "exists" on "LoginPage"
     Then verify that image "src/main/resources/imgs/savepassnotactive.png" exists
 
-  Scenario: Change phone number#157222
+  Scenario: Change phone number#157222(moz)
 
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
