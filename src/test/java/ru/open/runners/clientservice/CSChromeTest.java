@@ -29,7 +29,7 @@ public class CSChromeTest {
     @BeforeClass
     static public void setupTimeout() {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/webdrivers/chromedriver.exe");
-        Configuration.timeout = 5000;
+        Configuration.timeout = 10000;
         WebDriver driver = new ChromeDriver();
         setWebDriver(driver);
         driver.manage().window().maximize();
