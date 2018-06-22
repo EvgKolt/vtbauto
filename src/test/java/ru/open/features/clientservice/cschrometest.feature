@@ -1,6 +1,7 @@
 @cschrometest
 Feature: Business portal client service
 
+  @last
   Scenario: Restore password(negative scenario)#157247
 
     Given open link from property "business.portal.link"
@@ -16,7 +17,6 @@ Feature: Business portal client service
     When type to input with name "newPassword" property: "password.negative1" on "LoginPage"
     When type to input with name "repeatNewPassword" property: "password.negative1" on "LoginPage"
     Then verify that element with text "errorHint" "exists" on "LoginPage"
-    Then verify that element with text "savePassNotActive" "does not exists" on "LoginPage"
 
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
@@ -31,11 +31,9 @@ Feature: Business portal client service
     When type to input with name "newPassword" property: "password.negative2" on "LoginPage"
     When type to input with name "repeatNewPassword" property: "password.negative2" on "LoginPage"
     Then verify that element with text "errorHint" "exists" on "LoginPage"
-    Then verify that element with text "savePassNotActive" "does not exists" on "LoginPage"
     When type to input with name "newPassword" property: "password.negative3" on "LoginPage"
     When type to input with name "repeatNewPassword" property: "password.negative3" on "LoginPage"
     Then verify that element with text "errorHint" "exists" on "LoginPage"
-    Then verify that element with text "savePassNotActive" "does not exists" on "LoginPage"
 
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
@@ -50,7 +48,6 @@ Feature: Business portal client service
     When type to input with name "newPassword" property: "password.negative3" on "LoginPage"
     When type to input with name "repeatNewPassword" property: "password.negative3" on "LoginPage"
     Then verify that element with text "errorHint" "exists" on "LoginPage"
-    Then verify that element with text "savePassNotActive" "does not exists" on "LoginPage"
 
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
@@ -65,11 +62,9 @@ Feature: Business portal client service
     When type to input with name "newPassword" property: "password.negative4" on "LoginPage"
     When type to input with name "repeatNewPassword" property: "password.negative4" on "LoginPage"
     Then verify that element with text "errorHint1" "exists" on "LoginPage"
-    Then verify that element with text "savePassNotActive" "does not exists" on "LoginPage"
     When type to input with name "newPassword" property: "password.negative5" on "LoginPage"
     When type to input with name "repeatNewPassword" property: "password.negative5" on "LoginPage"
     Then verify that element with text "errorHint1" "exists" on "LoginPage"
-    Then verify that element with text "savePassNotActive" "does not exists" on "LoginPage"
 
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
@@ -84,11 +79,9 @@ Feature: Business portal client service
     When type to input with name "newPassword" property: "password.negative6" on "LoginPage"
     When type to input with name "repeatNewPassword" property: "password.negative6" on "LoginPage"
     Then verify that element with text "errorHint1" "exists" on "LoginPage"
-    Then verify that element with text "savePassNotActive" "does not exists" on "LoginPage"
     When type to input with name "newPassword" property: "password.negative7" on "LoginPage"
     When type to input with name "repeatNewPassword" property: "password.negative7" on "LoginPage"
     Then verify that element with text "errorHint1" "exists" on "LoginPage"
-    Then verify that element with text "savePassNotActive" "does not exists" on "LoginPage"
 
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
@@ -103,7 +96,6 @@ Feature: Business portal client service
     When type to input with name "newPassword" property: "password.negative8" on "LoginPage"
     When type to input with name "repeatNewPassword" property: "password.negative8" on "LoginPage"
     Then verify that element with text "errorHint1" "exists" on "LoginPage"
-    Then verify that element with text "savePassNotActive" "does not exists" on "LoginPage"
 
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
@@ -118,7 +110,6 @@ Feature: Business portal client service
     When type to input with name "newPassword" property: "password.negative9" on "LoginPage"
     When type to input with name "repeatNewPassword" property: "password.negative9" on "LoginPage"
     Then verify that element with text "errorHint1" "exists" on "LoginPage"
-    Then verify that element with text "savePassNotActive" "does not exists" on "LoginPage"
 
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
@@ -133,7 +124,6 @@ Feature: Business portal client service
     When type to input with name "newPassword" property: "password.negative10" on "LoginPage"
     When type to input with name "repeatNewPassword" property: "password.negative10" on "LoginPage"
     Then verify that element with text "errorHint2" "exists" on "LoginPage"
-    Then verify that element with text "savePassNotActive" "does not exists" on "LoginPage"
 
   Scenario: Restore password of the personal account #157180
 
