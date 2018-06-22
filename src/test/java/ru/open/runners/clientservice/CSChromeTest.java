@@ -1,10 +1,12 @@
 package ru.open.runners.clientservice;
 
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static com.codeborne.selenide.WebDriverRunner.setWebDriver;
 
 import com.codeborne.selenide.Configuration;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -32,6 +34,11 @@ public class CSChromeTest {
         ChromeDriver driver = new ChromeDriver();
         setWebDriver(driver);
         driver.manage().window().maximize();
+    }
+
+    @AfterClass
+    static public void doAfter() {
+        getWebDriver().close();
     }
 }
 
