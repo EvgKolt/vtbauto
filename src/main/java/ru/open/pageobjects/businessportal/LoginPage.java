@@ -59,6 +59,9 @@ public class LoginPage extends AbstractPage {
     @FindBy(xpath = "//span[contains(@class, 'error_hint') and text() = 'Пароли не совпадают.']")
     private SelenideElement errorHint2;
 
+    @FindBy(className = "button_next button_next_active")
+    private SelenideElement savePassNotActive;
+
 }
 
 

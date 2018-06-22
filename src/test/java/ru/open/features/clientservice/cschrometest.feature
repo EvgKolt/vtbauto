@@ -16,7 +16,7 @@ Feature: Business portal client service
     When type to input with name "newPassword" property: "password.negative1" on "LoginPage"
     When type to input with name "repeatNewPassword" property: "password.negative1" on "LoginPage"
     Then verify that element with text "errorHint" "exists" on "LoginPage"
-    Then verify that image "src/main/resources/imgs/savepass.png" exists
+    Then verify that element with text "savePassNotActive" "does not exists" on "LoginPage"
 
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
@@ -31,11 +31,11 @@ Feature: Business portal client service
     When type to input with name "newPassword" property: "password.negative2" on "LoginPage"
     When type to input with name "repeatNewPassword" property: "password.negative2" on "LoginPage"
     Then verify that element with text "errorHint" "exists" on "LoginPage"
-    Then verify that image "src/main/resources/imgs/savepass.png" exists
+    Then verify that element with text "savePassNotActive" "does not exists" on "LoginPage"
     When type to input with name "newPassword" property: "password.negative3" on "LoginPage"
     When type to input with name "repeatNewPassword" property: "password.negative3" on "LoginPage"
     Then verify that element with text "errorHint" "exists" on "LoginPage"
-    Then verify that image "src/main/resources/imgs/savepass.png" exists
+    Then verify that element with text "savePassNotActive" "does not exists" on "LoginPage"
 
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
@@ -50,7 +50,7 @@ Feature: Business portal client service
     When type to input with name "newPassword" property: "password.negative3" on "LoginPage"
     When type to input with name "repeatNewPassword" property: "password.negative3" on "LoginPage"
     Then verify that element with text "errorHint" "exists" on "LoginPage"
-    Then verify that image "src/main/resources/imgs/savepass.png" exists
+    Then verify that element with text "savePassNotActive" "does not exists" on "LoginPage"
 
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
@@ -65,11 +65,11 @@ Feature: Business portal client service
     When type to input with name "newPassword" property: "password.negative4" on "LoginPage"
     When type to input with name "repeatNewPassword" property: "password.negative4" on "LoginPage"
     Then verify that element with text "errorHint1" "exists" on "LoginPage"
-    Then verify that image "src/main/resources/imgs/savepass.png" exists
+    Then verify that element with text "savePassNotActive" "does not exists" on "LoginPage"
     When type to input with name "newPassword" property: "password.negative5" on "LoginPage"
     When type to input with name "repeatNewPassword" property: "password.negative5" on "LoginPage"
     Then verify that element with text "errorHint1" "exists" on "LoginPage"
-    Then verify that image "src/main/resources/imgs/savepass.png" exists
+    Then verify that element with text "savePassNotActive" "does not exists" on "LoginPage"
 
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
@@ -84,11 +84,11 @@ Feature: Business portal client service
     When type to input with name "newPassword" property: "password.negative6" on "LoginPage"
     When type to input with name "repeatNewPassword" property: "password.negative6" on "LoginPage"
     Then verify that element with text "errorHint1" "exists" on "LoginPage"
-    Then verify that image "src/main/resources/imgs/savepass.png" exists
+    Then verify that element with text "savePassNotActive" "does not exists" on "LoginPage"
     When type to input with name "newPassword" property: "password.negative7" on "LoginPage"
     When type to input with name "repeatNewPassword" property: "password.negative7" on "LoginPage"
     Then verify that element with text "errorHint1" "exists" on "LoginPage"
-    Then verify that image "src/main/resources/imgs/savepass.png" exists
+    Then verify that element with text "savePassNotActive" "does not exists" on "LoginPage"
 
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
@@ -103,7 +103,7 @@ Feature: Business portal client service
     When type to input with name "newPassword" property: "password.negative8" on "LoginPage"
     When type to input with name "repeatNewPassword" property: "password.negative8" on "LoginPage"
     Then verify that element with text "errorHint1" "exists" on "LoginPage"
-    Then verify that image "src/main/resources/imgs/savepass.png" exists
+    Then verify that element with text "savePassNotActive" "does not exists" on "LoginPage"
 
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
@@ -118,7 +118,7 @@ Feature: Business portal client service
     When type to input with name "newPassword" property: "password.negative9" on "LoginPage"
     When type to input with name "repeatNewPassword" property: "password.negative9" on "LoginPage"
     Then verify that element with text "errorHint1" "exists" on "LoginPage"
-    Then verify that image "src/main/resources/imgs/savepass.png" exists
+    Then verify that element with text "savePassNotActive" "does not exists" on "LoginPage"
 
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
@@ -133,7 +133,7 @@ Feature: Business portal client service
     When type to input with name "newPassword" property: "password.negative10" on "LoginPage"
     When type to input with name "repeatNewPassword" property: "password.negative10" on "LoginPage"
     Then verify that element with text "errorHint2" "exists" on "LoginPage"
-    Then verify that image "src/main/resources/imgs/savepass.png" exists
+    Then verify that element with text "savePassNotActive" "does not exists" on "LoginPage"
 
   Scenario: Restore password of the personal account #157180
 
@@ -224,7 +224,7 @@ Feature: Business portal client service
     When press button with text "sign" on "ActionPage"
     When press button with text "settings" on "MainPage"
     Then verify that element with text "phone" contains property "phone" on "ActionPage"
-    When execute method "clickImage" from class "ru.open.helpers.ImageHelper" on "src/main/resources/imgs/close.png"
+    When press button with text "close" on "ActionPage"
     Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
     When press button with text "signOut" on "MainPage"
 
@@ -460,6 +460,7 @@ Feature: Business portal client service
     When press button with text "signIn" on "LoginPage"
     Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
     When press button with text "signOut" on "MainPage"
+
 
 
 

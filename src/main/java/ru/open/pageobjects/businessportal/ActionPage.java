@@ -50,4 +50,7 @@ public class ActionPage extends AbstractPage {
     @FindBy(xpath = "//*[@id=\"widget0\"]/div/div[2]/div[2]/div[2]/div/div[2]/div[2]/div[1]/div/div[3]/div[1]/div/div/input")
     private SelenideElement phone;
 
+    @FindBy(className = "drawer-exit__button")
+    private SelenideElement close;
+
 }
