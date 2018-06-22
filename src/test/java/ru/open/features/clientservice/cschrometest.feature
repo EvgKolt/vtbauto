@@ -1,6 +1,140 @@
 @cschrometest
 Feature: Business portal client service
 
+  Scenario: Restore password(negative scenario)#157247
+
+    Given open link from property "business.portal.link"
+    And type to input with name "userName" property: "login" on "LoginPage"
+    When press button with text "restore" on "LoginPage"
+    And type to input with name "login" property: "login" on "LoginPage"
+    When press button with text "restore1" on "LoginPage"
+    When get param from class "ru.open.parsers.LogParser" by method "getLastReference" and save as property "reference.to.confirm"
+    Given open link from property "reference.to.confirm"
+    When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
+    And type to input with name "smsCode" property: "smscode" on "LoginPage"
+    When press button with text "confirm" on "LoginPage"
+    When type to input with name "newPassword" property: "password.negative1" on "LoginPage"
+    When type to input with name "repeatNewPassword" property: "password.negative1" on "LoginPage"
+    Then verify that element with text "errorHint" "exists" on "LoginPage"
+    Then verify that image "src/main/resources/imgs/savepassnotactive.png" exists
+
+    Given open link from property "business.portal.link"
+    And type to input with name "userName" property: "login" on "LoginPage"
+    When press button with text "restore" on "LoginPage"
+    And type to input with name "login" property: "login" on "LoginPage"
+    When press button with text "restore1" on "LoginPage"
+    When get param from class "ru.open.parsers.LogParser" by method "getLastReference" and save as property "reference.to.confirm"
+    Given open link from property "reference.to.confirm"
+    When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
+    And type to input with name "smsCode" property: "smscode" on "LoginPage"
+    When press button with text "confirm" on "LoginPage"
+    When type to input with name "newPassword" property: "password.negative2" on "LoginPage"
+    When type to input with name "repeatNewPassword" property: "password.negative2" on "LoginPage"
+    Then verify that element with text "errorHint" "exists" on "LoginPage"
+    Then verify that image "src/main/resources/imgs/savepassnotactive.png" exists
+    When type to input with name "newPassword" property: "password.negative3" on "LoginPage"
+    When type to input with name "repeatNewPassword" property: "password.negative3" on "LoginPage"
+    Then verify that element with text "errorHint" "exists" on "LoginPage"
+    Then verify that image "src/main/resources/imgs/savepassnotactive.png" exists
+
+    Given open link from property "business.portal.link"
+    And type to input with name "userName" property: "login" on "LoginPage"
+    When press button with text "restore" on "LoginPage"
+    And type to input with name "login" property: "login" on "LoginPage"
+    When press button with text "restore1" on "LoginPage"
+    When get param from class "ru.open.parsers.LogParser" by method "getLastReference" and save as property "reference.to.confirm"
+    Given open link from property "reference.to.confirm"
+    When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
+    And type to input with name "smsCode" property: "smscode" on "LoginPage"
+    When press button with text "confirm" on "LoginPage"
+    When type to input with name "newPassword" property: "password.negative3" on "LoginPage"
+    When type to input with name "repeatNewPassword" property: "password.negative3" on "LoginPage"
+    Then verify that element with text "errorHint" "exists" on "LoginPage"
+    Then verify that image "src/main/resources/imgs/savepassnotactive.png" exists
+
+    Given open link from property "business.portal.link"
+    And type to input with name "userName" property: "login" on "LoginPage"
+    When press button with text "restore" on "LoginPage"
+    And type to input with name "login" property: "login" on "LoginPage"
+    When press button with text "restore1" on "LoginPage"
+    When get param from class "ru.open.parsers.LogParser" by method "getLastReference" and save as property "reference.to.confirm"
+    Given open link from property "reference.to.confirm"
+    When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
+    And type to input with name "smsCode" property: "smscode" on "LoginPage"
+    When press button with text "confirm" on "LoginPage"
+    When type to input with name "newPassword" property: "password.negative4" on "LoginPage"
+    When type to input with name "repeatNewPassword" property: "password.negative4" on "LoginPage"
+    Then verify that element with text "errorHint1" "exists" on "LoginPage"
+    Then verify that image "src/main/resources/imgs/savepassnotactive.png" exists
+    When type to input with name "newPassword" property: "password.negative5" on "LoginPage"
+    When type to input with name "repeatNewPassword" property: "password.negative5" on "LoginPage"
+    Then verify that element with text "errorHint1" "exists" on "LoginPage"
+    Then verify that image "src/main/resources/imgs/savepassnotactive.png" exists
+
+    Given open link from property "business.portal.link"
+    And type to input with name "userName" property: "login" on "LoginPage"
+    When press button with text "restore" on "LoginPage"
+    And type to input with name "login" property: "login" on "LoginPage"
+    When press button with text "restore1" on "LoginPage"
+    When get param from class "ru.open.parsers.LogParser" by method "getLastReference" and save as property "reference.to.confirm"
+    Given open link from property "reference.to.confirm"
+    When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
+    And type to input with name "smsCode" property: "smscode" on "LoginPage"
+    When press button with text "confirm" on "LoginPage"
+    When type to input with name "newPassword" property: "password.negative6" on "LoginPage"
+    When type to input with name "repeatNewPassword" property: "password.negative6" on "LoginPage"
+    Then verify that element with text "errorHint1" "exists" on "LoginPage"
+    Then verify that image "src/main/resources/imgs/savepassnotactive.png" exists
+    When type to input with name "newPassword" property: "password.negative7" on "LoginPage"
+    When type to input with name "repeatNewPassword" property: "password.negative7" on "LoginPage"
+    Then verify that element with text "errorHint1" "exists" on "LoginPage"
+    Then verify that image "src/main/resources/imgs/savepassnotactive.png" exists
+
+    Given open link from property "business.portal.link"
+    And type to input with name "userName" property: "login" on "LoginPage"
+    When press button with text "restore" on "LoginPage"
+    And type to input with name "login" property: "login" on "LoginPage"
+    When press button with text "restore1" on "LoginPage"
+    When get param from class "ru.open.parsers.LogParser" by method "getLastReference" and save as property "reference.to.confirm"
+    Given open link from property "reference.to.confirm"
+    When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
+    And type to input with name "smsCode" property: "smscode" on "LoginPage"
+    When press button with text "confirm" on "LoginPage"
+    When type to input with name "newPassword" property: "password.negative8" on "LoginPage"
+    When type to input with name "repeatNewPassword" property: "password.negative8" on "LoginPage"
+    Then verify that element with text "errorHint1" "exists" on "LoginPage"
+    Then verify that image "src/main/resources/imgs/savepassnotactive.png" exists
+
+    Given open link from property "business.portal.link"
+    And type to input with name "userName" property: "login" on "LoginPage"
+    When press button with text "restore" on "LoginPage"
+    And type to input with name "login" property: "login" on "LoginPage"
+    When press button with text "restore1" on "LoginPage"
+    When get param from class "ru.open.parsers.LogParser" by method "getLastReference" and save as property "reference.to.confirm"
+    Given open link from property "reference.to.confirm"
+    When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
+    And type to input with name "smsCode" property: "smscode" on "LoginPage"
+    When press button with text "confirm" on "LoginPage"
+    When type to input with name "newPassword" property: "password.negative9" on "LoginPage"
+    When type to input with name "repeatNewPassword" property: "password.negative9" on "LoginPage"
+    Then verify that element with text "errorHint1" "exists" on "LoginPage"
+    Then verify that image "src/main/resources/imgs/savepassnotactive.png" exists
+
+    Given open link from property "business.portal.link"
+    And type to input with name "userName" property: "login" on "LoginPage"
+    When press button with text "restore" on "LoginPage"
+    And type to input with name "login" property: "login" on "LoginPage"
+    When press button with text "restore1" on "LoginPage"
+    When get param from class "ru.open.parsers.LogParser" by method "getLastReference" and save as property "reference.to.confirm"
+    Given open link from property "reference.to.confirm"
+    When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
+    And type to input with name "smsCode" property: "smscode" on "LoginPage"
+    When press button with text "confirm" on "LoginPage"
+    When type to input with name "newPassword" property: "password.negative10" on "LoginPage"
+    When type to input with name "repeatNewPassword" property: "password.negative10" on "LoginPage"
+    Then verify that element with text "errorHint2" "exists" on "LoginPage"
+    Then verify that image "src/main/resources/imgs/savepassnotactive.png" exists
+
   Scenario: Restore password of the personal account #157180
 
     Given open link from property "business.portal.link"
@@ -68,6 +202,31 @@ Feature: Business portal client service
     Then verify that element with text "testRequest" "exists" on "ActionPage"
     When press button with text "signOut" on "MainPage"
     Then verify that page with url "http://rumskapt273.open.ru/273/login" is opened
+
+  Scenario: Change phone number#157222
+
+    Given open link from property "business.portal.link"
+    And type to input with name "userName" property: "login" on "LoginPage"
+    And type to input with name "password" property: "password" on "LoginPage"
+    When press button with text "signIn" on "LoginPage"
+    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
+    When press button with text "settings" on "MainPage"
+    When press button with text "changePhone" on "ActionPage"
+    When get param from class "ru.open.helpers.TextGenerator" by method "generatePhone" and save as property "phone"
+    And type to input with name "inputNumber" property: "phone" on "ActionPage"
+    When press button with text "savePhone" on "ActionPage"
+    When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
+    And type to input with name "smsCode" property: "smscode" on "ActionPage"
+    When press button with text "sign" on "ActionPage"
+    When wait "25000"ms
+    When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
+    And type to input with name "smsCode" property: "smscode" on "ActionPage"
+    When press button with text "sign" on "ActionPage"
+    When press button with text "settings" on "MainPage"
+    Then verify that element with text "phone" contains property "phone" on "ActionPage"
+    When execute method "clickImage" from class "ru.open.helpers.ImageHelper" on "src/main/resources/imgs/close.png"
+    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
+    When press button with text "signOut" on "MainPage"
 
   Scenario: Restore password of the personal account(Resending smscode by timer)#166768
 
@@ -301,166 +460,6 @@ Feature: Business portal client service
     When press button with text "signIn" on "LoginPage"
     Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
     When press button with text "signOut" on "MainPage"
-
-  Scenario: Restore password(negative scenario)#157247
-
-    Given open link from property "business.portal.link"
-    And type to input with name "userName" property: "login" on "LoginPage"
-    When press button with text "restore" on "LoginPage"
-    And type to input with name "login" property: "login" on "LoginPage"
-    When press button with text "restore1" on "LoginPage"
-    When get param from class "ru.open.parsers.LogParser" by method "getLastReference" and save as property "reference.to.confirm"
-    Given open link from property "reference.to.confirm"
-    When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
-    And type to input with name "smsCode" property: "smscode" on "LoginPage"
-    When press button with text "confirm" on "LoginPage"
-    When type to input with name "newPassword" property: "password.negative1" on "LoginPage"
-    When type to input with name "repeatNewPassword" property: "password.negative1" on "LoginPage"
-    Then verify that element with text "errorHint" "exists" on "LoginPage"
-    Then verify that image "src/main/resources/imgs/savepassnotactive.png" exists
-
-    Given open link from property "business.portal.link"
-    And type to input with name "userName" property: "login" on "LoginPage"
-    When press button with text "restore" on "LoginPage"
-    And type to input with name "login" property: "login" on "LoginPage"
-    When press button with text "restore1" on "LoginPage"
-    When get param from class "ru.open.parsers.LogParser" by method "getLastReference" and save as property "reference.to.confirm"
-    Given open link from property "reference.to.confirm"
-    When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
-    And type to input with name "smsCode" property: "smscode" on "LoginPage"
-    When press button with text "confirm" on "LoginPage"
-    When type to input with name "newPassword" property: "password.negative2" on "LoginPage"
-    When type to input with name "repeatNewPassword" property: "password.negative2" on "LoginPage"
-    Then verify that element with text "errorHint" "exists" on "LoginPage"
-    Then verify that image "src/main/resources/imgs/savepassnotactive.png" exists
-    When type to input with name "newPassword" property: "password.negative3" on "LoginPage"
-    When type to input with name "repeatNewPassword" property: "password.negative3" on "LoginPage"
-    Then verify that element with text "errorHint" "exists" on "LoginPage"
-    Then verify that image "src/main/resources/imgs/savepassnotactive.png" exists
-
-    Given open link from property "business.portal.link"
-    And type to input with name "userName" property: "login" on "LoginPage"
-    When press button with text "restore" on "LoginPage"
-    And type to input with name "login" property: "login" on "LoginPage"
-    When press button with text "restore1" on "LoginPage"
-    When get param from class "ru.open.parsers.LogParser" by method "getLastReference" and save as property "reference.to.confirm"
-    Given open link from property "reference.to.confirm"
-    When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
-    And type to input with name "smsCode" property: "smscode" on "LoginPage"
-    When press button with text "confirm" on "LoginPage"
-    When type to input with name "newPassword" property: "password.negative3" on "LoginPage"
-    When type to input with name "repeatNewPassword" property: "password.negative3" on "LoginPage"
-    Then verify that element with text "errorHint" "exists" on "LoginPage"
-    Then verify that image "src/main/resources/imgs/savepassnotactive.png" exists
-
-    Given open link from property "business.portal.link"
-    And type to input with name "userName" property: "login" on "LoginPage"
-    When press button with text "restore" on "LoginPage"
-    And type to input with name "login" property: "login" on "LoginPage"
-    When press button with text "restore1" on "LoginPage"
-    When get param from class "ru.open.parsers.LogParser" by method "getLastReference" and save as property "reference.to.confirm"
-    Given open link from property "reference.to.confirm"
-    When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
-    And type to input with name "smsCode" property: "smscode" on "LoginPage"
-    When press button with text "confirm" on "LoginPage"
-    When type to input with name "newPassword" property: "password.negative4" on "LoginPage"
-    When type to input with name "repeatNewPassword" property: "password.negative4" on "LoginPage"
-    Then verify that element with text "errorHint1" "exists" on "LoginPage"
-    Then verify that image "src/main/resources/imgs/savepassnotactive.png" exists
-    When type to input with name "newPassword" property: "password.negative5" on "LoginPage"
-    When type to input with name "repeatNewPassword" property: "password.negative5" on "LoginPage"
-    Then verify that element with text "errorHint1" "exists" on "LoginPage"
-    Then verify that image "src/main/resources/imgs/savepassnotactive.png" exists
-
-    Given open link from property "business.portal.link"
-    And type to input with name "userName" property: "login" on "LoginPage"
-    When press button with text "restore" on "LoginPage"
-    And type to input with name "login" property: "login" on "LoginPage"
-    When press button with text "restore1" on "LoginPage"
-    When get param from class "ru.open.parsers.LogParser" by method "getLastReference" and save as property "reference.to.confirm"
-    Given open link from property "reference.to.confirm"
-    When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
-    And type to input with name "smsCode" property: "smscode" on "LoginPage"
-    When press button with text "confirm" on "LoginPage"
-    When type to input with name "newPassword" property: "password.negative6" on "LoginPage"
-    When type to input with name "repeatNewPassword" property: "password.negative6" on "LoginPage"
-    Then verify that element with text "errorHint1" "exists" on "LoginPage"
-    Then verify that image "src/main/resources/imgs/savepassnotactive.png" exists
-    When type to input with name "newPassword" property: "password.negative7" on "LoginPage"
-    When type to input with name "repeatNewPassword" property: "password.negative7" on "LoginPage"
-    Then verify that element with text "errorHint1" "exists" on "LoginPage"
-    Then verify that image "src/main/resources/imgs/savepassnotactive.png" exists
-
-    Given open link from property "business.portal.link"
-    And type to input with name "userName" property: "login" on "LoginPage"
-    When press button with text "restore" on "LoginPage"
-    And type to input with name "login" property: "login" on "LoginPage"
-    When press button with text "restore1" on "LoginPage"
-    When get param from class "ru.open.parsers.LogParser" by method "getLastReference" and save as property "reference.to.confirm"
-    Given open link from property "reference.to.confirm"
-    When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
-    And type to input with name "smsCode" property: "smscode" on "LoginPage"
-    When press button with text "confirm" on "LoginPage"
-    When type to input with name "newPassword" property: "password.negative8" on "LoginPage"
-    When type to input with name "repeatNewPassword" property: "password.negative8" on "LoginPage"
-    Then verify that element with text "errorHint1" "exists" on "LoginPage"
-    Then verify that image "src/main/resources/imgs/savepassnotactive.png" exists
-
-    Given open link from property "business.portal.link"
-    And type to input with name "userName" property: "login" on "LoginPage"
-    When press button with text "restore" on "LoginPage"
-    And type to input with name "login" property: "login" on "LoginPage"
-    When press button with text "restore1" on "LoginPage"
-    When get param from class "ru.open.parsers.LogParser" by method "getLastReference" and save as property "reference.to.confirm"
-    Given open link from property "reference.to.confirm"
-    When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
-    And type to input with name "smsCode" property: "smscode" on "LoginPage"
-    When press button with text "confirm" on "LoginPage"
-    When type to input with name "newPassword" property: "password.negative9" on "LoginPage"
-    When type to input with name "repeatNewPassword" property: "password.negative9" on "LoginPage"
-    Then verify that element with text "errorHint1" "exists" on "LoginPage"
-    Then verify that image "src/main/resources/imgs/savepassnotactive.png" exists
-
-    Given open link from property "business.portal.link"
-    And type to input with name "userName" property: "login" on "LoginPage"
-    When press button with text "restore" on "LoginPage"
-    And type to input with name "login" property: "login" on "LoginPage"
-    When press button with text "restore1" on "LoginPage"
-    When get param from class "ru.open.parsers.LogParser" by method "getLastReference" and save as property "reference.to.confirm"
-    Given open link from property "reference.to.confirm"
-    When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
-    And type to input with name "smsCode" property: "smscode" on "LoginPage"
-    When press button with text "confirm" on "LoginPage"
-    When type to input with name "newPassword" property: "password.negative10" on "LoginPage"
-    When type to input with name "repeatNewPassword" property: "password.negative10" on "LoginPage"
-    Then verify that element with text "errorHint2" "exists" on "LoginPage"
-    Then verify that image "src/main/resources/imgs/savepassnotactive.png" exists
-
-  Scenario: Change phone number#157222
-
-    Given open link from property "business.portal.link"
-    And type to input with name "userName" property: "login" on "LoginPage"
-    And type to input with name "password" property: "password" on "LoginPage"
-    When press button with text "signIn" on "LoginPage"
-    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
-    When press button with text "settings" on "MainPage"
-    When press button with text "changePhone" on "ActionPage"
-    When get param from class "ru.open.helpers.TextGenerator" by method "generatePhone" and save as property "phone"
-    And type to input with name "inputNumber" property: "phone" on "ActionPage"
-    When press button with text "savePhone" on "ActionPage"
-    When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
-    And type to input with name "smsCode" property: "smscode" on "ActionPage"
-    When press button with text "sign" on "ActionPage"
-    When wait "25000"ms
-    When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
-    And type to input with name "smsCode" property: "smscode" on "ActionPage"
-    When press button with text "sign" on "ActionPage"
-    When press button with text "settings" on "MainPage"
-    Then verify that element with text "phone" contains property "phone" on "ActionPage"
-    When execute method "clickImage" from class "ru.open.helpers.ImageHelper" on "src/main/resources/imgs/close.png"
-    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
-    When press button with text "signOut" on "MainPage"
-
 
 
 
