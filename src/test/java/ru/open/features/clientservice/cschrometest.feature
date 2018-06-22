@@ -431,7 +431,7 @@ Feature: Business portal client service
     When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
     And type to input with name "smsCode" property: "smscode" on "LoginPage"
     When press button with text "confirm" on "LoginPage"
-    When type to input with name "newPassword" property: "password.negative9" on "LoginPage"
+    When type to input with name "newPassword" property: "password.negative10" on "LoginPage"
     When type to input with name "repeatNewPassword" property: "password.negative10" on "LoginPage"
     Then verify that element with text "errorHint2" "exists" on "LoginPage"
     Then verify that image "src/main/resources/imgs/savepassnotactive.png" exists
@@ -460,6 +460,7 @@ Feature: Business portal client service
     When execute method "clickImage" from class "ru.open.helpers.ImageHelper" on "src/main/resources/imgs/close.png"
     Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
     When press button with text "signOut" on "MainPage"
+
 
 
 
