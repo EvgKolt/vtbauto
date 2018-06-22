@@ -1,7 +1,6 @@
 @cschrometest
 Feature: Business portal client service
 
-  @last
   Scenario: Restore password(negative scenario)#157247
 
     Given open link from property "business.portal.link"
