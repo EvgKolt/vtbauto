@@ -473,7 +473,6 @@ Feature: Business portal client service
     Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
     When press button with text "signOut" on "MainPage"
 
-  @last
   Scenario: Change login #157184
 
     Given open link from property "business.portal.link"
