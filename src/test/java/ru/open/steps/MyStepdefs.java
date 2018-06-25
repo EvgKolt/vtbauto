@@ -67,7 +67,7 @@ public class MyStepdefs {
 
     @When("^press button with text \"([^\"]*)\" on \"([^\"]*)\"$")
     public void pressButtonWithTextOn(String button, String page) throws InterruptedException {
-        sleep(3000);
+        sleep(4000);
         if ("LoginPage".equals(page)) {
             loginPage.get(button).click();
         } else if ("MainPage".equals(page)) {

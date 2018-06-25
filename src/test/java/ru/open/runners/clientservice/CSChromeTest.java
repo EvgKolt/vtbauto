@@ -23,7 +23,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
         plugin = {"html:target/cucumber-report/clientservice/chrome", "json:target/cucumber.json"},
         features = "src/test/java/ru/open/features/clientservice",
         glue = "ru/open/steps",
-        tags = "@cschrometest"
+        tags = "@last"
 )
 
 public class CSChromeTest {

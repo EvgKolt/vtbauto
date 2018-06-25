@@ -449,6 +449,60 @@ Feature: Business portal client service
     When press button with text "signIn" on "LoginPage"
     Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
     When press button with text "signOut" on "MainPage"
+  #need to refresh password after tests, so just restore pass again
+  Scenario: Restore password of the personal account #157180
+
+    Given open link from property "business.portal.link"
+    And type to input with name "userName" property: "login" on "LoginPage"
+    When press button with text "restore" on "LoginPage"
+    And type to input with name "login" property: "login" on "LoginPage"
+    When press button with text "restore1" on "LoginPage"
+    When get param from class "ru.open.parsers.LogParser" by method "getLastReference" and save as property "reference.to.confirm"
+    Given open link from property "reference.to.confirm"
+    When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
+    And type to input with name "smsCode" property: "smscode" on "LoginPage"
+    When press button with text "confirm" on "LoginPage"
+    When get param from class "ru.open.helpers.TextGenerator" by method "generatePassword" and save as property "password"
+    When type to input with name "newPassword" property: "password" on "LoginPage"
+    When type to input with name "repeatNewPassword" property: "password" on "LoginPage"
+    When press button with text "savePassword" on "LoginPage"
+    Given open link from property "business.portal.link"
+    And type to input with name "userName" property: "login" on "LoginPage"
+    And type to input with name "password" property: "password" on "LoginPage"
+    When press button with text "signIn" on "LoginPage"
+    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
+    When press button with text "signOut" on "MainPage"
+
+  @last
+  Scenario: Change login #157184
+
+    Given open link from property "business.portal.link"
+    And type to input with name "userName" property: "login" on "LoginPage"
+    And type to input with name "password" property: "password" on "LoginPage"
+    When press button with text "signIn" on "LoginPage"
+    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
+    When press button with text "settings" on "MainPage"
+    When press button with text "changeLogin" on "ActionPage"
+    And type to input with name "currentPass" property: "password" on "ActionPage"
+    When get param from class "ru.open.helpers.TextGenerator" by method "generateLogin" and save as property "login"
+    And type to input with name "newLogin" property: "login" on "ActionPage"
+    When press button with text "saveLogin" on "ActionPage"
+    When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
+    And type to input with name "smsCode1" property: "smscode" on "ActionPage"
+    When press button with text "confirm1" on "ActionPage"
+    When press button with text "signOut" on "MainPage"
+    Given open link from property "business.portal.link"
+    And type to input with name "userName" property: "login" on "LoginPage"
+    And type to input with name "password" property: "password" on "LoginPage"
+    When press button with text "signIn" on "LoginPage"
+    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
+    When press button with text "signOut" on "MainPage"
+
+
+
+
+
+
 
 
 

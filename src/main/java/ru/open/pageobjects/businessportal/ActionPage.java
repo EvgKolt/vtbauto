@@ -35,6 +35,9 @@ public class ActionPage extends AbstractPage {
     @FindBy(xpath = "(//*[contains(text(),'Изменить')])[2]")
     private SelenideElement changePhone;
 
+    @FindBy(xpath = "(//*[contains(text(),'Изменить')])[3]")
+    private SelenideElement changeLogin;
+
     @FindBy(xpath = "//*[@id=\"widget0\"]/div/div[2]/div[2]/div[2]/div/div[2]/div/div/div[2]/div[1]/div/form/div[3]/div/div/div/input")
     private SelenideElement inputNumber;
 
@@ -53,4 +56,18 @@ public class ActionPage extends AbstractPage {
     @FindBy(className = "drawer-exit__button")
     private SelenideElement close;
 
+    @FindBy(xpath = "//input[@type='password']")
+    private SelenideElement currentPass;
+
+    @FindBy(xpath = "//*[@id=\"widget0\"]/div/div[2]/div[2]/div[2]/div/div[2]/div/div[2]/div[1]/div/form/div[3]/div/div/div/input")
+    private SelenideElement newLogin;
+
+    @FindBy(xpath = "//button[@class='btn-wrapper' and @type='submit']")
+    private SelenideElement saveLogin;
+
+    @FindBy(id = "smsCode")
+    private SelenideElement smsCode1;
+
+    @FindBy(xpath = "//button[@class='btn-wrapper' and @type='submit']")
+    private SelenideElement confirm1;
 }

@@ -22,6 +22,6 @@ public final class TextGenerator {
     }
 
     public String generateLogin() {
-        return null;
+        return UUID.randomUUID().toString().replaceAll("-", "").substring(SUBINDEX);
     }
 }
