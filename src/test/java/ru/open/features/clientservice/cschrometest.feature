@@ -470,7 +470,7 @@ Feature: Business portal client service
     And type to input with name "userName" property: "login" on "LoginPage"
     And type to input with name "password" property: "password" on "LoginPage"
     When press button with text "signIn" on "LoginPage"
-    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
+    Then verify that page with url "http://rumskapt273.open.ru/main" is opened
     When press button with text "signOut" on "MainPage"
 
   Scenario: Change login #157184
@@ -495,6 +495,30 @@ Feature: Business portal client service
     And type to input with name "password" property: "password" on "LoginPage"
     When press button with text "signIn" on "LoginPage"
     Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
+    When press button with text "signOut" on "MainPage"
+
+  Scenario: Change email #157224
+
+    Given open link from property "business.portal.link"
+    And type to input with name "userName" property: "login" on "LoginPage"
+    And type to input with name "password" property: "password" on "LoginPage"
+    When press button with text "signIn" on "LoginPage"
+    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
+    When press button with text "settings" on "MainPage"
+    When get param from class "ru.open.helpers.TextGenerator" by method "generateEmail" and save as property "email"
+    When press button with text "changeEmail" on "ActionPage"
+    And type to input with name "newEmail" property: "email" on "ActionPage"
+    When press button with text "saveEmail" on "ActionPage"
+    When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
+    And type to input with name "smsCode2" property: "smscode" on "ActionPage"
+    When press button with text "confirm1" on "ActionPage"
+    When get param from class "ru.open.parsers.LogParser" by method "getReferenceToChangeEmail" and save as property "reference.to.change.email"
+    Given open link from property "reference.to.change.email"
+    When wait "20000"ms
+    When press button with text "settings" on "MainPage"
+    Then verify that element with text "email" contains property "email" on "ActionPage"
+    When press button with text "close" on "ActionPage"
+    Then verify that page with url "http://rumskapt273.open.ru/main" is opened
     When press button with text "signOut" on "MainPage"
 
 

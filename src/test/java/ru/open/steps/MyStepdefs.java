@@ -51,7 +51,7 @@ public class MyStepdefs {
 
     @And("^type to input with name \"([^\"]*)\" property: \"([^\"]*)\" on \"([^\"]*)\"$")
     public void typeToInputWithNamePropertyOn(String nameOfElement, String property, String page) throws InterruptedException, IOException {
-        sleep(5000);
+        sleep(2000);
         Properties properties = new Properties();
         try (FileReader fileReader = new FileReader(Constants.PROPERTY_PATH)) {
             properties.load(fileReader);
@@ -67,7 +67,7 @@ public class MyStepdefs {
 
     @When("^press button with text \"([^\"]*)\" on \"([^\"]*)\"$")
     public void pressButtonWithTextOn(String button, String page) throws InterruptedException {
-        sleep(4000);
+        sleep(2000);
         if ("LoginPage".equals(page)) {
             loginPage.get(button).click();
         } else if ("MainPage".equals(page)) {
@@ -93,7 +93,7 @@ public class MyStepdefs {
 
     @When("^get param from class \"([^\"]*)\" by method \"([^\"]*)\" and save as property \"([^\"]*)\"$")
     public void getParamFromClassByMethodAndSaveAsProperty(String obj, String methodName, String property) throws NoSuchMethodException, IOException, ClassNotFoundException, IllegalAccessException, InstantiationException, InvocationTargetException, InterruptedException {
-        sleep(4000);
+        sleep(5000);
         Class c = Class.forName(obj);
         Object object = c.newInstance();
         Method method = object.getClass().getMethod(methodName);
@@ -116,7 +116,7 @@ public class MyStepdefs {
     @When("^execute method \"([^\"]*)\" from class \"([^\"]*)\" on \"([^\"]*)\"$")
     public void executeMethodFromClassOn(String methodName, String obj, String param) throws InterruptedException, ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
         if (!("".equals(param))) {
-            sleep(4000);
+            sleep(2000);
             Class c = Class.forName(obj);
             Object object = c.newInstance();
             Method method = object.getClass().getMethod(methodName, String.class);
@@ -133,14 +133,14 @@ public class MyStepdefs {
 
     @Then("^verify that page with url \"([^\"]*)\" is opened$")
     public void verifyThatPageWithUrlIsOpened(String verifyUrl) throws InterruptedException {
-        sleep(5000);
+        sleep(2000);
         String currentUrl = url();
         assertThat(currentUrl, containsString(verifyUrl));
     }
 
     @Then("^verify that element with text \"([^\"]*)\" \"([^\"]*)\" on \"([^\"]*)\"$")
     public void verifyThatElementWithTextOn(String nameOfElement, String condition, String page) throws Throwable {
-        sleep(3000);
+        sleep(2000);
         if ("exists".equals(condition)) {
             if ("LoginPage".equals(page)) {
                 loginPage.get(nameOfElement).waitUntil((Condition.exist), 30000);
@@ -163,7 +163,7 @@ public class MyStepdefs {
 
     @Then("^verify that element with text \"([^\"]*)\" contains property \"([^\"]*)\" on \"([^\"]*)\"$")
     public void verifyThatElementWithTextContainsPropertyOn(String nameOfElement, String property, String page) throws InterruptedException {
-        sleep(3000);
+        sleep(2000);
         if ("LoginPage".equals(page)) {
             String text = loginPage.get(nameOfElement).getText();
             assertThat(property, containsString(text));

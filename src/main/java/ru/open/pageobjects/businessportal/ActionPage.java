@@ -35,6 +35,9 @@ public class ActionPage extends AbstractPage {
     @FindBy(xpath = "(//*[contains(text(),'Изменить')])[2]")
     private SelenideElement changePhone;
 
+    @FindBy(xpath = "(//*[contains(text(),'Изменить')])[1]")
+    private SelenideElement changeEmail;
+
     @FindBy(xpath = "(//*[contains(text(),'Изменить')])[3]")
     private SelenideElement changeLogin;
 
@@ -70,4 +73,21 @@ public class ActionPage extends AbstractPage {
 
     @FindBy(xpath = "//button[@class='btn-wrapper' and @type='submit']")
     private SelenideElement confirm1;
+
+    @FindBy(xpath = "//label[text()='Новый e-mail']/../..//input")
+    private SelenideElement newEmail;
+
+    @FindBy(xpath = "//button[@class='btn-wrapper' and @type='submit']")
+    private SelenideElement saveEmail;
+
+    @FindBy(className = "input-style")
+    private SelenideElement smsCode2;
+
+    @FindBy(xpath = "//*[@id=\"widget0\"]/div/div[2]/div[2]/div[2]/div/div[2]/div[2]/div[1]/div/div[2]/div[1]/div/div/input")
+    private SelenideElement currentEmail;
+
+    @FindBy(xpath = "(//div[contains(@class, 'row middle-xs between-xs')]/div[contains(@class, 'col-xs-9')]/div/div[contains(@class, 'input-ui__ok')]/input)[1]")
+    private SelenideElement email;
+
+
 }
