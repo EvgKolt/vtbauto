@@ -20,8 +20,8 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import lombok.extern.slf4j.Slf4j;
 import ru.open.Constants;
-import ru.open.helpers.ImageHelper;
 import ru.open.helpers.Keyboard;
 import ru.open.pageobjects.businessportal.ActionPage;
 import ru.open.pageobjects.businessportal.LoginPage;
@@ -32,7 +32,7 @@ import ru.open.pageobjects.businessportal.MainPage;
  * WHEN(AND) steps are used to describe an event, or an action.
  * THEN steps are used to describe an expected outcome, or result.
  **/
-
+@Slf4j
 public class MyStepdefs {
 
     private LoginPage loginPage = page(LoginPage.class);
@@ -124,13 +124,6 @@ public class MyStepdefs {
         }
     }
 
-    @Then("^verify that image \"([^\"]*)\" exists$")
-    public void verifyThatImageExists(String imageName) throws InterruptedException {
-        sleep(5000);
-        ImageHelper imageHelper = new ImageHelper();
-        assertThat("no such image", imageHelper.checkImage(imageName) != null);
-    }
-
     @Then("^verify that page with url \"([^\"]*)\" is opened$")
     public void verifyThatPageWithUrlIsOpened(String verifyUrl) throws InterruptedException {
         sleep(2000);
@@ -162,17 +155,21 @@ public class MyStepdefs {
     }
 
     @Then("^verify that element with text \"([^\"]*)\" contains property \"([^\"]*)\" on \"([^\"]*)\"$")
-    public void verifyThatElementWithTextContainsPropertyOn(String nameOfElement, String property, String page) throws InterruptedException {
+    public void verifyThatElementWithTextContainsPropertyOn(String nameOfElement, String property, String page) throws InterruptedException, IOException {
         sleep(2000);
+        Properties properties = new Properties();
+        try (FileReader fileReader = new FileReader(Constants.PROPERTY_PATH)) {
+            properties.load(fileReader);
+        }
         if ("LoginPage".equals(page)) {
             String text = loginPage.get(nameOfElement).getText();
-            assertThat(property, containsString(text));
+            assertThat(properties.getProperty(property), containsString(text));
         } else if ("MainPage".equals(page)) {
             String text = mainPage.get(nameOfElement).getText();
-            assertThat(property, containsString(text));
+            assertThat(properties.getProperty(property), containsString(text));
         } else if ("ActionPage".equals(page)) {
             String text = actionPage.get(nameOfElement).getText();
-            assertThat(property, containsString(text));
+            assertThat(properties.getProperty(property), containsString(text));
         }
 
     }

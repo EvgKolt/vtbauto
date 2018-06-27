@@ -521,7 +521,17 @@ Feature: Business portal client service
     Then verify that page with url "http://rumskapt273.open.ru/main" is opened
     When press button with text "signOut" on "MainPage"
 
-#    Scenario: Check rates #157204
+  Scenario: Check rates #157204
+
+    Given open link from property "business.portal.link"
+    And type to input with name "userName" property: "login" on "LoginPage"
+    And type to input with name "password" property: "password" on "LoginPage"
+    When press button with text "signIn" on "LoginPage"
+    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
+    When press button with text "rate" on "MainPage"
+    Then verify that element with text "rate1" contains property "rate1" on "ActionPage"
+    Then verify that element with text "rate2" contains property "rate2" on "ActionPage"
+    Then verify that element with text "rate3" contains property "rate3" on "ActionPage"
 
 
 

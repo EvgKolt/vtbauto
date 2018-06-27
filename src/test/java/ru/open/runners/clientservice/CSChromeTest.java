@@ -3,6 +3,9 @@ package ru.open.runners.clientservice;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static com.codeborne.selenide.WebDriverRunner.setWebDriver;
 
+import java.lang.reflect.Field;
+import java.nio.charset.Charset;
+
 import com.codeborne.selenide.Configuration;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
@@ -28,7 +31,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class CSChromeTest {
     @BeforeClass
-    static public void setupTimeout() {
+    static public void setupTimeout() throws NoSuchFieldException, IllegalAccessException {
+        System.setProperty("file.encoding", "UTF-8");
+        Field charset = Charset.class.getDeclaredField("defaultCharset");
+        charset.setAccessible(true);
+        charset.set(null, null);
         System.setProperty("webdriver.chrome.driver", "src/main/resources/webdrivers/chromedriver.exe");
         Configuration.timeout = 10000;
         ChromeDriver driver = new ChromeDriver();

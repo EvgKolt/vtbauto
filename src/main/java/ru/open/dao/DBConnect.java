@@ -11,7 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public final class DBConnect {
     private static final String DB_URL = "jdbc:postgresql://rumskapp266.open.ru:5432/RX_SD";
-    //  Database credentials (example)
+    //  Database credentials
     private static final String USER = "RX_SD";
     private static final String PASS = "password";
     private static Connection connection;
@@ -34,7 +34,7 @@ public final class DBConnect {
         }
     }
 
-    public static String getCurrentEmail() throws SQLException, ClassNotFoundException {
+    public static String getCurrentEmail() throws SQLException {
         openConnection();
         Statement statement = connection.createStatement();
         //contact_id(tb_contact)->tb_person_contact->tb_organization
