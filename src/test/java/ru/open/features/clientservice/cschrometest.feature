@@ -1,6 +1,29 @@
 @cschrometest
 Feature: Business portal client service
 
+  Scenario: Restore password of the personal account #157180
+
+    Given open link from property "business.portal.link"
+    And type to input with name "userName" property: "login" on "LoginPage"
+    When press button with text "restore" on "LoginPage"
+    And type to input with name "login" property: "login" on "LoginPage"
+    When press button with text "restore1" on "LoginPage"
+    When get param from class "ru.open.parsers.LogParser" by method "getLastReference" and save as property "reference.to.confirm"
+    Given open link from property "reference.to.confirm"
+    When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
+    And type to input with name "smsCode" property: "smscode" on "LoginPage"
+    When press button with text "confirm" on "LoginPage"
+    When get param from class "ru.open.helpers.TextGenerator" by method "generatePassword" and save as property "password"
+    When type to input with name "newPassword" property: "password" on "LoginPage"
+    When type to input with name "repeatNewPassword" property: "password" on "LoginPage"
+    When press button with text "savePassword" on "LoginPage"
+    Given open link from property "business.portal.link"
+    And type to input with name "userName" property: "login" on "LoginPage"
+    And type to input with name "password" property: "password" on "LoginPage"
+    When press button with text "signIn" on "LoginPage"
+    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
+    When press button with text "signOut" on "MainPage"
+
   Scenario: Restore password(negative scenario)#157247
 
     Given open link from property "business.portal.link"
@@ -123,29 +146,6 @@ Feature: Business portal client service
     When type to input with name "newPassword" property: "password.negative9" on "LoginPage"
     When type to input with name "repeatNewPassword" property: "password.negative10" on "LoginPage"
     Then verify that element with text "errorHint2" "exists" on "LoginPage"
-
-  Scenario: Restore password of the personal account #157180
-
-    Given open link from property "business.portal.link"
-    And type to input with name "userName" property: "login" on "LoginPage"
-    When press button with text "restore" on "LoginPage"
-    And type to input with name "login" property: "login" on "LoginPage"
-    When press button with text "restore1" on "LoginPage"
-    When get param from class "ru.open.parsers.LogParser" by method "getLastReference" and save as property "reference.to.confirm"
-    Given open link from property "reference.to.confirm"
-    When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
-    And type to input with name "smsCode" property: "smscode" on "LoginPage"
-    When press button with text "confirm" on "LoginPage"
-    When get param from class "ru.open.helpers.TextGenerator" by method "generatePassword" and save as property "password"
-    When type to input with name "newPassword" property: "password" on "LoginPage"
-    When type to input with name "repeatNewPassword" property: "password" on "LoginPage"
-    When press button with text "savePassword" on "LoginPage"
-    Given open link from property "business.portal.link"
-    And type to input with name "userName" property: "login" on "LoginPage"
-    And type to input with name "password" property: "password" on "LoginPage"
-    When press button with text "signIn" on "LoginPage"
-    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
-    When press button with text "signOut" on "MainPage"
 
   Scenario: Authorization and logout of the user in the personal account#157175#157177
 
@@ -520,6 +520,9 @@ Feature: Business portal client service
     When press button with text "close" on "ActionPage"
     Then verify that page with url "http://rumskapt273.open.ru/main" is opened
     When press button with text "signOut" on "MainPage"
+
+#    Scenario: Check rates #157204
+
 
 
 
