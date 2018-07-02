@@ -92,11 +92,48 @@ public class ActionPage extends AbstractPage {
     @FindBy(xpath = "(//span[contains(@class, 'card-item__name')])[1]")
     private SelenideElement rate1;
 
+    @FindBy(xpath = "//span/div/span")
+    private SelenideElement rateInfo;
+
     @FindBy(xpath = "(//span[contains(@class, 'card-item__name')])[2]")
     private SelenideElement rate2;
 
     @FindBy(xpath = "(//span[contains(@class, 'card-item__name')])[3]")
     private SelenideElement rate3;
+
+    @FindBy(xpath = "//span/a")
+    private SelenideElement account;
+
+    @FindBy(xpath = "//h3[contains(@class, 'small-title')]")
+    private SelenideElement rateInfo1;
+
+    @FindBy(xpath = "//a[contains(@class, 'collapse-panel_false')]")
+    private SelenideElement rateInfo2;
+
+    @FindBy(xpath = "//span[contains(@class, 'tariff_item__description tariff_item__small')]")
+    private SelenideElement rateInfo3;
+
+    @FindBy(xpath = "//li[contains(@class, 'actions-item actions__item actions-item_change')]")
+    private SelenideElement changeRate;
+
+    @FindBy(xpath = "//div[contains(@class, 'Select-value')]")
+    private SelenideElement ratesTable;
+
+    @FindBy(xpath = "//div[@id='react-select-5--option-0']")
+    private SelenideElement ratesTableFirstOption;
+
+    @FindBy(xpath = "//div[@id='react-select-5--option-1']")
+    private SelenideElement ratesTableSecondOption;
+
+    @FindBy(xpath = "//div[@id='react-select-5--option-2']")
+    private SelenideElement ratesTableThirdOption;
+
+    @FindBy(xpath = "//div[contains(@class, 'btn-container primary-btn__active label-as-text')]")
+    private SelenideElement changeRateButton;
+
+
+
+
 
 
 }
