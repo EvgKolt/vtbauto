@@ -124,7 +124,6 @@ Feature: Business portal client service
     When type to input with name "repeatNewPassword" property: "password.negative10" on "LoginPage"
     Then verify that element with text "errorHint2" "exists" on "LoginPage"
 
-  @last
   Scenario: Restore password of the personal account #157180
 
     Given open link from property "business.portal.link"
