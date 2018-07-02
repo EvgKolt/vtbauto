@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import lombok.extern.slf4j.Slf4j;
 import ru.open.dao.DBConnect;
+import ru.open.parsers.LogParser;
 
 @Slf4j
 public final class TextGenerator {
@@ -22,17 +23,31 @@ public final class TextGenerator {
         return "!Qw" + uuid;
     }
 
-    public static String generateEmail() throws SQLException, ClassNotFoundException {
-        if ("evgeniy.koltunovskiy@open.ru".equals(DBConnect.getCurrentEmail())) {
-            return "qa.automation@open.ru";
-        } else {
-            return "evgeniy.koltunovskiy@open.ru";
-        }
+    public static String generateEmail() throws SQLException {
+        return "evgeniy.koltunovskiy@open.ru".equals(DBConnect.getCurrentEmail())
+                ? "qa.automation@open.ru"
+                : "evgeniy.koltunovskiy@open.ru";
     }
 
     public String generateLogin() {
         return UUID.randomUUID().toString().replaceAll("-", "").substring(SUBINDEX);
     }
 
+    public String generateNewRate() throws SQLException {
+        //get current rate from bdUIDM
+        LogParser logParser = new LogParser();
+        String currentRate = logParser.getLastRate();
+        //choose new rate
+        switch (currentRate) {
+        case "PROMO":
+            return "COMFORT";
+        case "COMFORT":
+            return "BUSINESS";
+        case "BUSINESS":
+            return "PROMO";
+        }
+        log.info(currentRate);
+        throw new IllegalArgumentException();
+    }
 }
 
