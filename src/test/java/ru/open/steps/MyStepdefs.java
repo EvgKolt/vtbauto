@@ -13,6 +13,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 import com.codeborne.selenide.Condition;
@@ -23,6 +25,7 @@ import cucumber.api.java.en.When;
 import lombok.extern.slf4j.Slf4j;
 import ru.open.Constants;
 import ru.open.helpers.Keyboard;
+import ru.open.pageobjects.AbstractPage;
 import ru.open.pageobjects.businessportal.ActionPage;
 import ru.open.pageobjects.businessportal.LoginPage;
 import ru.open.pageobjects.businessportal.MainPage;
@@ -35,9 +38,13 @@ import ru.open.pageobjects.businessportal.MainPage;
 @Slf4j
 public class MyStepdefs {
 
-    private LoginPage loginPage = page(LoginPage.class);
-    private MainPage mainPage = page(MainPage.class);
-    private ActionPage actionPage = page(ActionPage.class);
+    private Map<String, AbstractPage> pages = new HashMap<>();
+
+    {
+        pages.put("LoginPage", page(LoginPage.class));
+        pages.put("MainPage", page(MainPage.class));
+        pages.put("ActionPage", page(ActionPage.class));
+    }
 
     @Given("^open link from property \"([^\"]*)\"$")
     public void openLinkFromProperty(String property) throws IOException, InterruptedException {
@@ -46,7 +53,7 @@ public class MyStepdefs {
             properties.load(fileReader);
         }
         open(properties.getProperty(property));
-        sleep(4000);
+        sleep(3000);
     }
 
     @And("^type to input with name \"([^\"]*)\" property: \"([^\"]*)\" on \"([^\"]*)\"$")
@@ -56,24 +63,22 @@ public class MyStepdefs {
         try (FileReader fileReader = new FileReader(Constants.PROPERTY_PATH)) {
             properties.load(fileReader);
         }
-        if ("LoginPage".equals(page)) {
-            loginPage.get(nameOfElement).sendKeys(properties.getProperty(property));
-        } else if ("MainPage".equals(page)) {
-            mainPage.get(nameOfElement).sendKeys(properties.getProperty(property));
-        } else if ("ActionPage".equals(page)) {
-            actionPage.get(nameOfElement).sendKeys(properties.getProperty(property));
+        AbstractPage abstractPage = pages.get(page);
+        if (abstractPage != null) {
+            abstractPage.get(nameOfElement).sendKeys(properties.getProperty(property));
+        } else {
+            log.error("no such page " + page);
         }
     }
 
     @When("^press button with text \"([^\"]*)\" on \"([^\"]*)\"$")
     public void pressButtonWithTextOn(String button, String page) throws InterruptedException {
         sleep(2000);
-        if ("LoginPage".equals(page)) {
-            loginPage.get(button).click();
-        } else if ("MainPage".equals(page)) {
-            mainPage.get(button).click();
-        } else if ("ActionPage".equals(page)) {
-            actionPage.get(button).click();
+        AbstractPage abstractPage = pages.get(page);
+        if (abstractPage != null) {
+            abstractPage.get(button).click();
+        } else {
+            log.error("no such page " + page);
         }
     }
 
@@ -93,7 +98,7 @@ public class MyStepdefs {
 
     @When("^get param from class \"([^\"]*)\" by method \"([^\"]*)\" and save as property \"([^\"]*)\"$")
     public void getParamFromClassByMethodAndSaveAsProperty(String obj, String methodName, String property) throws NoSuchMethodException, IOException, ClassNotFoundException, IllegalAccessException, InstantiationException, InvocationTargetException, InterruptedException {
-        sleep(5000);
+        sleep(2000);
         Class c = Class.forName(obj);
         Object object = c.newInstance();
         Method method = object.getClass().getMethod(methodName);
@@ -115,12 +120,14 @@ public class MyStepdefs {
 
     @When("^execute method \"([^\"]*)\" from class \"([^\"]*)\" on \"([^\"]*)\"$")
     public void executeMethodFromClassOn(String methodName, String obj, String param) throws InterruptedException, ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
+        sleep(2000);
+        Class c = Class.forName(obj);
+        Object object = c.newInstance();
         if (!("".equals(param))) {
-            sleep(2000);
-            Class c = Class.forName(obj);
-            Object object = c.newInstance();
             Method method = object.getClass().getMethod(methodName, String.class);
             method.invoke(object, param);
+        } else {
+            object.getClass().getMethod(methodName, String.class).invoke(object);
         }
     }
 
@@ -132,25 +139,16 @@ public class MyStepdefs {
     }
 
     @Then("^verify that element with text \"([^\"]*)\" \"([^\"]*)\" on \"([^\"]*)\"$")
-    public void verifyThatElementWithTextOn(String nameOfElement, String condition, String page) throws Throwable {
-        sleep(2000);
-        if ("exists".equals(condition)) {
-            if ("LoginPage".equals(page)) {
-                loginPage.get(nameOfElement).waitUntil((Condition.exist), 30000);
-            } else if ("MainPage".equals(page)) {
-                mainPage.get(nameOfElement).waitUntil(Condition.exist, 30000);
-            } else if ("ActionPage".equals(page)) {
-                actionPage.get(nameOfElement).waitUntil(Condition.exist, 30000);
+    public void verifyThatElementWithTextOn(String nameOfElement, String condition, String page) {
+        AbstractPage abstractPage = pages.get(page);
+        if (abstractPage != null) {
+            if ("exists".equals(condition)) {
+                abstractPage.get(nameOfElement).waitUntil((Condition.exist), 15000);
+            } else {
+                abstractPage.get(nameOfElement).waitUntil((Condition.not(Condition.exist)), 15000);
             }
-            sleep(5000);
         } else {
-            if ("LoginPage".equals(page)) {
-                loginPage.get(nameOfElement).waitUntil((Condition.not(Condition.exist)), 10000);
-            } else if ("MainPage".equals(page)) {
-                mainPage.get(nameOfElement).waitUntil((Condition.not(Condition.exist)), 10000);
-            } else if ("ActionPage".equals(page)) {
-                actionPage.get(nameOfElement).waitUntil((Condition.not(Condition.exist)), 10000);
-            }
+            log.error("no such page " + page);
         }
     }
 
@@ -161,17 +159,13 @@ public class MyStepdefs {
         try (FileReader fileReader = new FileReader(Constants.PROPERTY_PATH)) {
             properties.load(fileReader);
         }
-        if ("LoginPage".equals(page)) {
-            String text = loginPage.get(nameOfElement).getText();
+        AbstractPage abstractPage = pages.get(page);
+        if (abstractPage != null) {
+            String text = abstractPage.get(nameOfElement).getText().replaceAll("\\s+", "");
             assertThat(properties.getProperty(property), containsString(text));
-        } else if ("MainPage".equals(page)) {
-            String text = mainPage.get(nameOfElement).getText();
-            assertThat(properties.getProperty(property), containsString(text));
-        } else if ("ActionPage".equals(page)) {
-            String text = actionPage.get(nameOfElement).getText();
-            assertThat(properties.getProperty(property), containsString(text));
+        } else {
+            log.error("no such page " + page);
         }
-
     }
 
 }
