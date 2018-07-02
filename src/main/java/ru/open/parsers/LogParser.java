@@ -3,11 +3,16 @@ package ru.open.parsers;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Properties;
 
 import ru.open.Constants;
+import ru.open.dao.DBConnect;
+import ru.open.pageobjects.AbstractPage;
+import ru.open.pageobjects.businessportal.ActionPage;
 
 public final class LogParser {
 
@@ -89,6 +94,37 @@ public final class LogParser {
             }
         }
         return null;
+    }
+
+    public String getLastRate() throws SQLException {
+        //get current rate from bdUIDM
+        String rez = DBConnect.getRateChangeLogs();
+        return rez.substring(rez.lastIndexOf("<new_value>") + "<new_value>".length(), rez.lastIndexOf("</new_value>"));
+    }
+
+    public void verifyLogs() throws IOException {
+        //client can't change rate at the end of month, so check:
+        Calendar cal = Calendar.getInstance();
+        int dayOfMonth = cal.get(Calendar.DAY_OF_MONTH);
+        if (dayOfMonth > 25) {
+            return;
+        }
+        AbstractPage abstractPage = new ActionPage();
+        Properties properties = new Properties();
+        try (FileReader fileReader = new FileReader(Constants.PROPERTY_PATH)) {
+            properties.load(fileReader);
+        }
+        //choose new rate from property new.rate(generated before)
+        switch (properties.getProperty("new.rate")) {
+        case "PROMO":
+            abstractPage.get("ratesTableSecondOption").click();
+        case "COMFORT":
+            abstractPage.get("ratesTableThirdOption").click();
+        case "BUSINESS":
+            abstractPage.get("ratesTableFirstOption").click();
+        }
+        abstractPage.get("changeRateButton").click();
+        //todo - доделать - bugs
     }
 }
 
