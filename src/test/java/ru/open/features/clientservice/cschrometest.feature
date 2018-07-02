@@ -124,6 +124,7 @@ Feature: Business portal client service
     When type to input with name "repeatNewPassword" property: "password.negative10" on "LoginPage"
     Then verify that element with text "errorHint2" "exists" on "LoginPage"
 
+  @last
   Scenario: Restore password of the personal account #157180
 
     Given open link from property "business.portal.link"
@@ -532,6 +533,67 @@ Feature: Business portal client service
     Then verify that element with text "rate1" contains property "rate1" on "ActionPage"
     Then verify that element with text "rate2" contains property "rate2" on "ActionPage"
     Then verify that element with text "rate3" contains property "rate3" on "ActionPage"
+    Then verify that element with text "account" "exists" on "ActionPage"
+    When press button with text "rate1" on "ActionPage"
+    Then verify that element with text "rateInfo" contains property "rate1" on "ActionPage"
+    Then verify that element with text "rateInfo1" "exists" on "ActionPage"
+    Then verify that element with text "rateInfo2" "exists" on "ActionPage"
+    Then verify that element with text "rateInfo3" "exists" on "ActionPage"
+    When press button with text "rate" on "MainPage"
+    When press button with text "rate2" on "ActionPage"
+    Then verify that element with text "rateInfo" contains property "rate2" on "ActionPage"
+    Then verify that element with text "rateInfo1" "exists" on "ActionPage"
+    Then verify that element with text "rateInfo2" "exists" on "ActionPage"
+    Then verify that element with text "rateInfo3" "exists" on "ActionPage"
+    When press button with text "rate" on "MainPage"
+    When press button with text "rate3" on "ActionPage"
+    Then verify that element with text "rateInfo" contains property "rate3" on "ActionPage"
+    Then verify that element with text "rateInfo1" "exists" on "ActionPage"
+    Then verify that element with text "rateInfo2" "exists" on "ActionPage"
+    Then verify that element with text "rateInfo3" "exists" on "ActionPage"
+
+  # Scenario: Khabenskiy's fund#247871
+    #wait for access to system
+
+  # Scenario: filling out a draft#157236
+    #functional has not been developed yet
+
+  # Scenario: filling out a draft#157237
+    #functional has not been developed yet
+
+  # Scenario: filling out a draft#157238
+    #functional has not been developed yet
+
+  # Scenario: filling out a draft#157239
+    #functional has not been developed yet
+
+  # Scenario: filling out a draft#157239
+    #functional has not been developed yet
+
+#  bugs
+#  Scenario: UIDM logging #218218
+#    #doesn't work last 5 days of month
+#    Given open link from property "business.portal.link"
+#    And type to input with name "userName" property: "login" on "LoginPage"
+#    And type to input with name "password" property: "password" on "LoginPage"
+#    When press button with text "signIn" on "LoginPage"
+#    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
+#    When press button with text "rate" on "MainPage"
+#    When get param from class "ru.open.parsers.LogParser" by method "getLastRate" and save as property "current.rate"
+#    When get param from class "ru.open.helpers.TextGenerator" by method "generateNewRate" and save as property "new.rate"
+#    When press button with text "account" on "ActionPage"
+#    When press button with text "changeRate" on "ActionPage"
+#    When press button with text "ratesTable" on "ActionPage"
+#    When execute method "verifyLogs" from class "ru.open.parsers.LogParser" on ""
+
+# bugs
+#  Scenario: get help #226647
+
+
+
+    
+
+
 
 
 
