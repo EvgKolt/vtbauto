@@ -131,6 +131,36 @@ public class ActionPage extends AbstractPage {
     @FindBy(xpath = "//div[contains(@class, 'btn-container primary-btn__active label-as-text')]")
     private SelenideElement changeRateButton;
 
+    @FindBy(xpath = "//li[contains(@class, 'actions-item actions__item actions-item_certificates')]")
+    private SelenideElement help;
+
+    @FindBy(id = "react-select-2--value")
+    private SelenideElement helpMenu;
+
+    @FindBy(xpath = "//div[@id='react-select-2--option-1']")
+    private SelenideElement helpMenuOptionOne;
+
+    @FindBy(xpath = "//*[@class='btn-container primary-btn__active label-as-text' and contains(text(),'Заказать')]")
+    private SelenideElement order;
+
+    @FindBy(xpath = "//*[@class='btn-container primary-btn__active label-as-text' and contains(text(),'Подтвердить')]")
+    private SelenideElement confirm;
+
+    @FindBy(xpath = "//*[@class='btn-container primary-btn__active label-as-text' and contains(text(),'Закрыть')]")
+    private SelenideElement closeHelp;
+
+    @FindBy(xpath = "//p[contains(@class, 'template-list__item_header')]")
+    private SelenideElement helpDoc;
+
+    @FindBy(xpath = "//a[contains(@class, 'delete-btn')]")
+    private SelenideElement deleteDoc;
+
+    @FindBy(xpath = "//div[@class='btn-container primary-btn__active label-as-text' and contains(text(),'Удалить')]")
+    private SelenideElement deleteDoc1;
+
+
+
+
 
 
 
