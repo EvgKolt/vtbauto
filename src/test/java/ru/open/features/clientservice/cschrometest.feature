@@ -585,8 +585,29 @@ Feature: Business portal client service
 #    When press button with text "ratesTable" on "ActionPage"
 #    When execute method "verifyLogs" from class "ru.open.parsers.LogParser" on ""
 
-# bugs
-#  Scenario: get help #226647
+  Scenario: get help #226647
+
+    Given open link from property "business.portal.link"
+    And type to input with name "userName" property: "login" on "LoginPage"
+    And type to input with name "password" property: "password" on "LoginPage"
+    When press button with text "signIn" on "LoginPage"
+    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
+    When press button with text "help" on "ActionPage"
+    When press button with text "helpMenu" on "ActionPage"
+    When press button with text "helpMenuOptionOne" on "ActionPage"
+    When press button with text "order" on "ActionPage"
+    When press button with text "confirm" on "ActionPage"
+    When wait "10000"ms
+    When press button with text "closeHelp" on "ActionPage"
+    When press button with text "help" on "ActionPage"
+    Then verify that element with text "helpDoc" "exists" on "ActionPage"
+    Then press button with text "deleteDoc" on "ActionPage"
+    Then press button with text "deleteDoc1" on "ActionPage"
+
+
+
+
+
 
 
 
