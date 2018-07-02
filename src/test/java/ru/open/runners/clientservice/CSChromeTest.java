@@ -3,8 +3,7 @@ package ru.open.runners.clientservice;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static com.codeborne.selenide.WebDriverRunner.setWebDriver;
 
-import java.lang.reflect.Field;
-import java.nio.charset.Charset;
+import java.sql.SQLException;
 
 import com.codeborne.selenide.Configuration;
 import cucumber.api.CucumberOptions;
@@ -13,6 +12,7 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.chrome.ChromeDriver;
+import ru.open.dao.DBConnect;
 
 
 /**
@@ -31,21 +31,22 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class CSChromeTest {
     @BeforeClass
-    static public void setupTimeout() throws NoSuchFieldException, IllegalAccessException {
+    static public void setupTimeout() throws SQLException {
         System.setProperty("file.encoding", "UTF-8");
-        Field charset = Charset.class.getDeclaredField("defaultCharset");
-        charset.setAccessible(true);
-        charset.set(null, null);
         System.setProperty("webdriver.chrome.driver", "src/main/resources/webdrivers/chromedriver.exe");
         Configuration.timeout = 10000;
         ChromeDriver driver = new ChromeDriver();
         setWebDriver(driver);
         driver.manage().window().maximize();
+        DBConnect.openConnection();
+        DBConnect.openConnectionUIDM();
+
     }
 
     @AfterClass
     static public void doAfter() {
         getWebDriver().close();
+        DBConnect.closeConnections();
     }
 }
 
