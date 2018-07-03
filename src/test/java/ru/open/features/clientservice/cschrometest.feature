@@ -521,7 +521,7 @@ Feature: Business portal client service
     Then verify that page with url "http://rumskapt273.open.ru/main" is opened
     When press button with text "signOut" on "MainPage"
 
-  Scenario: Check rates #157204
+  Scenario: Check rates #157204 and get help#226647
 
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
@@ -550,6 +550,19 @@ Feature: Business portal client service
     Then verify that element with text "rateInfo1" "exists" on "ActionPage"
     Then verify that element with text "rateInfo2" "exists" on "ActionPage"
     Then verify that element with text "rateInfo3" "exists" on "ActionPage"
+    Given open link from property "business.portal.link"
+    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
+    When press button with text "help" on "ActionPage"
+    When press button with text "helpMenu" on "ActionPage"
+    When press button with text "helpMenuOptionOne" on "ActionPage"
+    When press button with text "order" on "ActionPage"
+    When press button with text "confirm" on "ActionPage"
+    When wait "30000"ms
+    When press button with text "closeHelp" on "ActionPage"
+    When press button with text "help" on "ActionPage"
+    Then verify that element with text "helpDoc" "exists" on "ActionPage"
+    Then press button with text "deleteDoc" on "ActionPage"
+    Then press button with text "deleteDoc1" on "ActionPage"
 
   # Scenario: Khabenskiy's fund#247871
     #wait for access to system
@@ -585,24 +598,6 @@ Feature: Business portal client service
 #    When press button with text "ratesTable" on "ActionPage"
 #    When execute method "verifyLogs" from class "ru.open.parsers.LogParser" on ""
 
-  Scenario: get help #226647
-
-    Given open link from property "business.portal.link"
-    And type to input with name "userName" property: "login" on "LoginPage"
-    And type to input with name "password" property: "password" on "LoginPage"
-    When press button with text "signIn" on "LoginPage"
-    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
-    When press button with text "help" on "ActionPage"
-    When press button with text "helpMenu" on "ActionPage"
-    When press button with text "helpMenuOptionOne" on "ActionPage"
-    When press button with text "order" on "ActionPage"
-    When press button with text "confirm" on "ActionPage"
-    When wait "10000"ms
-    When press button with text "closeHelp" on "ActionPage"
-    When press button with text "help" on "ActionPage"
-    Then verify that element with text "helpDoc" "exists" on "ActionPage"
-    Then press button with text "deleteDoc" on "ActionPage"
-    Then press button with text "deleteDoc1" on "ActionPage"
 
 
 
