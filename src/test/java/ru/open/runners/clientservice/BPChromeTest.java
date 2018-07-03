@@ -24,12 +24,12 @@ import ru.open.dao.DBConnect;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         plugin = {"html:target/cucumber-report/clientservice/chrome", "json:target/cucumber.json"},
-        features = "src/test/java/ru/open/features/clientservice",
+        features = "src/test/java/ru/open/features/",
         glue = "ru/open/steps",
-        tags = "@cschrometest"
+        tags = "@BPtest"
 )
 
-public class CSChromeTest {
+public class BPChromeTest {
     @BeforeClass
     static public void setupTimeout() throws SQLException {
         System.setProperty("file.encoding", "UTF-8");
