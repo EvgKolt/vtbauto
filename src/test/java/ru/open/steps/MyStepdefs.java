@@ -27,6 +27,7 @@ import ru.open.Constants;
 import ru.open.helpers.Keyboard;
 import ru.open.pageobjects.AbstractPage;
 import ru.open.pageobjects.businessportal.ActionPage;
+import ru.open.pageobjects.businessportal.CardPage;
 import ru.open.pageobjects.businessportal.LoginPage;
 import ru.open.pageobjects.businessportal.MainPage;
 
@@ -44,6 +45,7 @@ public class MyStepdefs {
         pages.put("LoginPage", page(LoginPage.class));
         pages.put("MainPage", page(MainPage.class));
         pages.put("ActionPage", page(ActionPage.class));
+        pages.put("CardPage", page(CardPage.class));
     }
 
     @Given("^open link from property \"([^\"]*)\"$")
@@ -127,7 +129,8 @@ public class MyStepdefs {
             Method method = object.getClass().getMethod(methodName, String.class);
             method.invoke(object, param);
         } else {
-            object.getClass().getMethod(methodName, String.class).invoke(object);
+            Method method = object.getClass().getMethod(methodName, null);
+            method.invoke(object);
         }
     }
 
