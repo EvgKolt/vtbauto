@@ -38,8 +38,10 @@ public class BPChromeTest {
         ChromeDriver driver = new ChromeDriver();
         setWebDriver(driver);
         driver.manage().window().maximize();
+
         DBConnect.openConnection();
         DBConnect.openConnectionUIDM();
+        DBConnect.openConnectionCards();
 
     }
 
