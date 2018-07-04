@@ -16,44 +16,17 @@ import ru.open.pageobjects.businessportal.ActionPage;
 
 public final class LogParser {
 
-    private String getSmsLogFilePath() throws IOException {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        try (FileReader fileReader = new FileReader(Constants.PROPERTY_PATH)) {
-            Properties properties = new Properties();
-            properties.load(fileReader);
-            return properties.getProperty("sms.logs.pattern")
-                    + dateFormat.format(new Date())
-                    + ".log";
-        }
-    }
-
-    private String getEmailLogFilePath() throws IOException {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        try (FileReader fileReader = new FileReader(Constants.PROPERTY_PATH)) {
-            Properties properties = new Properties();
-            properties.load(fileReader);
-            return properties.getProperty("email.logs.pattern")
-                    + dateFormat.format(new Date())
-                    + ".log";
-        }
-    }
-
     public String getLastSmsCode() throws IOException {
         //find last log's message with sms
-        try (FileReader fileReader = new FileReader(getSmsLogFilePath());
-             BufferedReader bufferedReader = new BufferedReader(fileReader)) {
-            String result = "";
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                if (line.contains("internetbankmb.open.ru")) {
-                    result = line;
-                }
-            }
-            if (!result.isEmpty()) {
-                return result.substring(result.indexOf(":")
-                        + 2, result.lastIndexOf("<"));
-            }
-        }
+        String result = getStringWithSms(getSmsLogFilePath("sms.logs.pattern"));
+        if (result != null) return result;
+        return null;
+    }
+
+    public String getLastSmsCodeForCard() throws IOException {
+        //find last log's message with sms
+        String result = getStringWithSms(getSmsLogFilePath("sms.logs.pattern2"));
+        if (result != null) return result;
         return null;
     }
 
@@ -125,6 +98,47 @@ public final class LogParser {
         }
         abstractPage.get("changeRateButton").click();
         //todo - доделать - bugs
+    }
+
+    /////////////////////////////////////service methods////////////////////////////////////
+    private String getStringWithSms(String smsLogFilePath) throws IOException {
+        try (FileReader fileReader = new FileReader(smsLogFilePath);
+             BufferedReader bufferedReader = new BufferedReader(fileReader)) {
+            String result = "";
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                if (line.contains("internetbankmb.open.ru")) {
+                    result = line;
+                }
+            }
+            if (!result.isEmpty()) {
+                return result.substring(result.indexOf(":")
+                        + 2, result.lastIndexOf("<"));
+            }
+        }
+        return null;
+    }
+
+    private String getSmsLogFilePath(String property) throws IOException {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        try (FileReader fileReader = new FileReader(Constants.PROPERTY_PATH)) {
+            Properties properties = new Properties();
+            properties.load(fileReader);
+            return properties.getProperty(property)
+                    + dateFormat.format(new Date())
+                    + ".log";
+        }
+    }
+
+    private String getEmailLogFilePath() throws IOException {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        try (FileReader fileReader = new FileReader(Constants.PROPERTY_PATH)) {
+            Properties properties = new Properties();
+            properties.load(fileReader);
+            return properties.getProperty("email.logs.pattern")
+                    + dateFormat.format(new Date())
+                    + ".log";
+        }
     }
 }
 
