@@ -125,11 +125,11 @@ public class MyStepdefs {
         sleep(2000);
         Class c = Class.forName(obj);
         Object object = c.newInstance();
-        if (!("".equals(param))) {
+        if (!param.isEmpty()) {
             Method method = object.getClass().getMethod(methodName, String.class);
             method.invoke(object, param);
         } else {
-            Method method = object.getClass().getMethod(methodName, null);
+            Method method = object.getClass().getMethod(methodName);
             method.invoke(object);
         }
     }
