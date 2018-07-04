@@ -524,7 +524,7 @@ Feature: Business portal client service
   Scenario: Check rates #157204 and get help#226647
 
     Given open link from property "business.portal.link"
-    And type to input with name "userName" property: "login1" on "LoginPage"
+    And type to input with name "userName" property: "login" on "LoginPage"
     And type to input with name "password" property: "password" on "LoginPage"
     When press button with text "signIn" on "LoginPage"
     Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
