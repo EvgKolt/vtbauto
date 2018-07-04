@@ -8,6 +8,7 @@ import java.sql.Statement;
 
 import lombok.extern.slf4j.Slf4j;
 
+//statements todo заменить на препаред стейтмент
 @Slf4j
 public final class DBConnect {
     //db273
@@ -18,20 +19,29 @@ public final class DBConnect {
     private static final String DB_URL_UIDM = "jdbc:postgresql://rumskapp445.open.ru:5432/RX_AUDIT";
     private static final String USER_UIDM = "RX_AUDIT";
     private static final String PASS_UIDM = "RX_AUDIT";
+    //dbCards
+    private static final String DB_URL_CARDS = "jdbc:postgresql://rumskapt242.open.ru:5432/RX_SD";
+    private static final String USER_CARDS = "RX_SD";
+    private static final String PASS_CARDS = "password";
+
     private static Connection connection;
-    //statements todo заменить на препаред стейтмент
+    private static final String DELETE_CARD_ORDER =
+            "delete from tb_corporate_card where organization_id = 'sso_____ffaa9da9-4f4b-47b3-8341-ad52e98cbce0'";
+    private static Connection connectionUIDM;
+
     //contact_id(tb_contact)->tb_person_contact->tb_organization
     private static final String CURRENT_EMAIL =
             "SELECT address FROM tb_contact WHERE contact_id = 4172";
     private static final String RATE_CHANGE_LOG =
             "select data from \"OperationAudit\" where \"url\" like '%tarif%' and id = 'sso_____b544fcfa-7fd7-45a2-bb41-6ed86e0f8b39' order by \"timeStart\" DESC limit 1";
-    private static Connection connectionUIDM;
-
-    private DBConnect() {
-    }
+    private static Connection connectionCards;
 
     public static void openConnection() throws SQLException {
         connection = DriverManager.getConnection(DB_URL, USER, PASS);
+    }
+
+    public static void openConnectionCards() throws SQLException {
+        connectionCards = DriverManager.getConnection(DB_URL_CARDS, USER_CARDS, PASS_CARDS);
     }
 
     public static void closeConnections() {
@@ -45,11 +55,24 @@ public final class DBConnect {
         } catch (SQLException e) {
             log.error("connectionUIDM doesnt close", e);
         }
+        try {
+            connectionCards.close();
+        } catch (SQLException e) {
+            log.error("connection doesnt close", e);
+        }
 
     }
 
     public static void openConnectionUIDM() throws SQLException {
         connectionUIDM = DriverManager.getConnection(DB_URL_UIDM, USER_UIDM, PASS_UIDM);
+    }
+
+    //todo не работает делит-пофиксить
+    public static void deleteCardOrderStatusFromBase() throws SQLException {
+        try (Statement statement = connectionCards.createStatement()) {
+            statement.executeUpdate(DELETE_CARD_ORDER);
+            log.info("cardOrderDeleted");
+        }
     }
 
     public static String getCurrentEmail() throws SQLException {
