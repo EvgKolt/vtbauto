@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 import lombok.extern.slf4j.Slf4j;
 
-//statements todo заменить на препаред стейтмент
+//todo заменить на препаред стейтмент
 @Slf4j
 public final class DBConnect {
     //db273
@@ -25,9 +25,9 @@ public final class DBConnect {
     private static final String PASS_CARDS = "password";
 
     private static Connection connection;
-    private static final String DELETE_CARD_ORDER =
-            "delete from tb_corporate_card where organization_id = 'sso_____ffaa9da9-4f4b-47b3-8341-ad52e98cbce0'";
     private static Connection connectionUIDM;
+    private static final String DELETE_CARD_ORDER =
+            "delete from tb_corporate_card where organization_id = 'sso_____9a27d584-bff6-457f-919a-fa406a6c0be2'";
 
     //contact_id(tb_contact)->tb_person_contact->tb_organization
     private static final String CURRENT_EMAIL =
@@ -67,11 +67,10 @@ public final class DBConnect {
         connectionUIDM = DriverManager.getConnection(DB_URL_UIDM, USER_UIDM, PASS_UIDM);
     }
 
-    //todo не работает делит-пофиксить
     public static void deleteCardOrderStatusFromBase() throws SQLException {
         try (Statement statement = connectionCards.createStatement()) {
-            statement.executeUpdate(DELETE_CARD_ORDER);
-            log.info("cardOrderDeleted");
+            int n = statement.executeUpdate(DELETE_CARD_ORDER);
+            log.info("cardOrderDeleted {}", n);
         }
     }
 
