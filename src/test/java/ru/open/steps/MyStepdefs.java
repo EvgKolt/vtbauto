@@ -30,6 +30,9 @@ import ru.open.pageobjects.businessportal.ActionPage;
 import ru.open.pageobjects.businessportal.CardPage;
 import ru.open.pageobjects.businessportal.LoginPage;
 import ru.open.pageobjects.businessportal.MainPage;
+import ru.open.pageobjects.shugar.ShugarActionPage;
+import ru.open.pageobjects.shugar.ShugarLoginPage;
+import ru.open.pageobjects.shugar.ShugarMenuPage;
 
 /**
  * GIVEN steps are used to describe the initial context of the system - the scene of the scenario.
@@ -46,6 +49,9 @@ public class MyStepdefs {
         pages.put("MainPage", page(MainPage.class));
         pages.put("ActionPage", page(ActionPage.class));
         pages.put("CardPage", page(CardPage.class));
+        pages.put("ShugarActionPage", page(ShugarActionPage.class));
+        pages.put("ShugarMenuPage", page(ShugarMenuPage.class));
+        pages.put("ShugarLoginPage", page(ShugarLoginPage.class));
     }
 
     @Given("^open link from property \"([^\"]*)\"$")

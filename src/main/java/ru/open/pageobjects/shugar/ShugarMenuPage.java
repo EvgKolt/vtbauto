@@ -14,13 +14,4 @@ public class ShugarMenuPage extends AbstractPage {
     @FindBy(id = "moduleTab_7_MoneyAccount")
     private SelenideElement accounts;
 
-    @FindBy(id = "inn_advanced")
-    private SelenideElement inn;
-
-    @FindBy(xpath = "//option[contains(text(),'Корп.карты / самоинкассация – Бизнес Портал')]")
-    private SelenideElement requestType;
-
-    @FindBy(id = "search_form_submit")
-    private SelenideElement search;
-
 }

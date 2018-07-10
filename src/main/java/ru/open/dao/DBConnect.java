@@ -27,13 +27,12 @@ public final class DBConnect {
     private static Connection connection;
     private static Connection connectionUIDM;
     private static final String DELETE_CARD_ORDER =
-            "delete from tb_corporate_card where organization_id = 'sso_____9a27d584-bff6-457f-919a-fa406a6c0be2'";
-
+            "DELETE FROM tb_corporate_card WHERE organization_id = 'sso_____9a27d584-bff6-457f-919a-fa406a6c0be2'";
     //contact_id(tb_contact)->tb_person_contact->tb_organization
     private static final String CURRENT_EMAIL =
             "SELECT address FROM tb_contact WHERE contact_id = 4172";
     private static final String RATE_CHANGE_LOG =
-            "select data from \"OperationAudit\" where \"url\" like '%tarif%' and id = 'sso_____b544fcfa-7fd7-45a2-bb41-6ed86e0f8b39' order by \"timeStart\" DESC limit 1";
+            "SELECT data FROM \"OperationAudit\" where \"url\" like '%tarif%' and id = 'sso_____b544fcfa-7fd7-45a2-bb41-6ed86e0f8b39' order by \"timeStart\" DESC limit 1";
     private static Connection connectionCards;
 
     public static void openConnection() throws SQLException {

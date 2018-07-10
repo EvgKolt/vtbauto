@@ -15,7 +15,7 @@ public class ShugarLoginPage extends AbstractPage {
     private SelenideElement password;
 
     @FindBy(xpath = "//input[@id='login_button']")
-    private SelenideElement enter;
+    private SelenideElement signIn;
 
 
 }
