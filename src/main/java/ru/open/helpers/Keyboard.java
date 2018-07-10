@@ -1,5 +1,6 @@
 package ru.open.helpers;
 
+import static com.codeborne.selenide.Selenide.$;
 import static java.awt.event.KeyEvent.VK_0;
 import static java.awt.event.KeyEvent.VK_1;
 import static java.awt.event.KeyEvent.VK_2;
@@ -64,6 +65,11 @@ import static java.awt.event.KeyEvent.VK_Y;
 import static java.awt.event.KeyEvent.VK_Z;
 
 import java.awt.*;
+import java.awt.event.InputEvent;
+
+import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Point;
 
 public final class Keyboard {
 
@@ -386,6 +392,14 @@ public final class Keyboard {
         default:
             throw new IllegalArgumentException("Cannot type character " + character);
         }
+    }
+
+    public void moveMouseToPoint(String path) {
+        SelenideElement selenideElement = $(By.xpath(path));
+        Point coordinates = selenideElement.getLocation();
+        robot.mouseMove(coordinates.getX(), coordinates.getY());
+        robot.mousePress(InputEvent.BUTTON1_MASK);
+        robot.mouseWheel(11150);
     }
 
     private void doType(int... keyCodes) {
