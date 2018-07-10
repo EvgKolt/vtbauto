@@ -59,10 +59,16 @@ public class CardPage extends AbstractPage {
     @FindBy(xpath = "//div[@id='react-select-6--option-0']")
     private SelenideElement officeBank1;
 
+    @FindBy(xpath = "(//span[contains(@class, 'Select-arrow-zone')])[4]")
+    private SelenideElement officeBank2;
+
+    @FindBy(xpath = "//div/span[contains(@class, 'Select-option')][1]")
+    private SelenideElement officeBank3;
+
     @FindBy(xpath = "//input[@id='city']")
     private SelenideElement placeOfBirth;
 
-    @FindBy(xpath = "(//div[contains(@class, 'btn-container primary-btn__active label-as-text')])[2]")
+    @FindBy(xpath = "//div[contains(@class, 'col-xs-12')]/button[contains(@class, 'btn-wrapper')][1]")
     private SelenideElement getCard;
 
     @FindBy(xpath = "//input")
@@ -76,6 +82,23 @@ public class CardPage extends AbstractPage {
 
     @FindBy(xpath = "//div/span[contains(@class, 'select-account')][1]")
     private SelenideElement account1;
+
+    @FindBy(xpath = "//*[contains(text(),'Белоконь')]")
+    private SelenideElement card;
+
+    @FindBy(xpath = "//div[contains(@class, 'btn-container primary-btn__active label-as-text')]")
+    private SelenideElement replenishment;
+
+    @FindBy(xpath = "(//div[contains(@class, 'input-ui')]/input)[5]")
+    private SelenideElement sum;
+
+    @FindBy(xpath = "//*[contains(text(),'Далее')]")
+    private SelenideElement nextStep;
+
+    @FindBy(xpath = "//div[contains(@class, 'drawer__left')]/div[2]/div[3]/div")
+    private SelenideElement scroller;
+
+
 
 
 }
