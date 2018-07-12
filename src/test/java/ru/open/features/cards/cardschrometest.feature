@@ -58,6 +58,26 @@ Feature: Business portal card service
     #убрать когда заработают шаги по проверкам статуса: Prepare Card for checking statuses SKS #217603
     When execute method "deleteCardOrderStatusFromBase" from class "ru.open.dao.DBConnect" on ""
 
+
+  Scenario: check Card account's requisites#218188
+
+    Given open link from property "business.portal.link.cards"
+    And type to input with name "userName" property: "cards.login1" on "LoginPage"
+    And type to input with name "password" property: "cards.password1" on "LoginPage"
+    When press button with text "signIn" on "LoginPage"
+    When wait "20000"ms
+    When press button with text "myAccounts" on "MainPage"
+    When press button with text "myAccount" on "CardPage"
+    When press button with text "requisites" on "CardPage"
+    Then verify that element with text "myRequisites" "exists" on "CardPage"
+    Then verify that element with text "bankRequisites" "exists" on "CardPage"
+    Then verify that element with text "accountNumber" "exists" on "CardPage"
+    Then verify that element with text "name" "exists" on "CardPage"
+    Then verify that element with text "inn" "exists" on "CardPage"
+    Then verify that element with text "kpp" "exists" on "CardPage"
+    Then verify that element with text "bik" "exists" on "CardPage"
+    Then verify that element with text "saveRequisites" "exists" on "CardPage"
+
 #  Scenario: Check status "closed_refuse_client"#217603
 #    #bugs todo доделать проверку статусов
 #    When wait "3000"ms
