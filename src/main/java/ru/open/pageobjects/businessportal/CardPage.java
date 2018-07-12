@@ -107,4 +107,34 @@ public class CardPage extends AbstractPage {
     @FindBy(xpath = "//*[contains(text(), 'Ожидайте открытия карточного счета')]")
     private SelenideElement waitForAccount;
 
+    @FindBy(xpath = "(//div[contains(@class, 'card-item__container')])[1]")
+    private SelenideElement myAccount;
+
+    @FindBy(xpath = "//a[contains(@class, 'toolbar-link')]")
+    private SelenideElement requisites;
+
+    @FindBy(xpath = "//*[contains(text(), 'Реквизиты компании')]")
+    private SelenideElement myRequisites;
+
+    @FindBy(xpath = "//*[contains(text(), 'Реквизиты банка')]")
+    private SelenideElement bankRequisites;
+
+    @FindBy(xpath = "//*[contains(text(), 'Счет №')]")
+    private SelenideElement accountNumber;
+
+    @FindBy(xpath = "//*[contains(text(), 'Наименование')]")
+    private SelenideElement name;
+
+    @FindBy(xpath = "//*[contains(text(), 'ИНН:')]")
+    private SelenideElement inn;
+
+    @FindBy(xpath = "//*[contains(text(), 'КПП:')]")
+    private SelenideElement kpp;
+
+    @FindBy(xpath = "//*[contains(text(), 'БИК:')]")
+    private SelenideElement bik;
+
+    @FindBy(xpath = "//*[contains(text(), 'Сохранить')]")
+    private SelenideElement saveRequisites;
+
 }
