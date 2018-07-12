@@ -98,7 +98,13 @@ public class CardPage extends AbstractPage {
     @FindBy(xpath = "//div[contains(@class, 'drawer__left')]/div[2]/div[3]/div")
     private SelenideElement scroller;
 
+    @FindBy(xpath = "(//tr[contains(@class, 'oddListRowS1')]/td[11]/a)[1]")
+    private SelenideElement firstResult;
 
+    @FindBy(xpath = "//*[contains(text(), 'Ваша заявка в работе')]")
+    private SelenideElement inWork;
 
+    @FindBy(xpath = "//*[contains(text(), 'Ожидайте открытия карточного счета')]")
+    private SelenideElement waitForAccount;
 
 }
