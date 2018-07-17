@@ -17,9 +17,6 @@ Feature: Business portal api tests
   Scenario: ACCOUNT_ENROLLMENT_CONTROLLER #GET list of applications for opening an account
     Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/accountEnrolments"
 
-#  Scenario: ACCOUNT_ENROLLMENT_CONTROLLER #GET Document Bundles
-#    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/accountEnrolments/1624/attachments"
-
   Scenario: ACCOUNT_ENROLLMENT_CONTROLLER #GET HtmlForm
     Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/accountEnrolments/1624/form"
 
@@ -52,10 +49,6 @@ Feature: Business portal api tests
 
   Scenario: CITY_CONTROLLER #GET cities
     Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/cities?pageNumber=1&pageSize=1"
-
-#   Doesn't use %(
-#  Scenario: CLIENT_MANAGER_CONTROLLER #GET applications list
-#    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "
 
   Scenario: CORPORATE_CARD_APP_CONTROLLER #GET cards list with statuses
     Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/cardApplications"
