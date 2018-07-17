@@ -57,5 +57,62 @@ Feature: Business portal api tests
 #  Scenario: CLIENT_MANAGER_CONTROLLER #GET applications list
 #    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "
 
-  Scenario: CORPORATE_CARD_APP_CONTROLLER #GET cards list
+  Scenario: CORPORATE_CARD_APP_CONTROLLER #GET cards list with statuses
     Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/cardApplications"
+
+  Scenario: CORPORATE_CARD_CONTROLLER #GET corp cards list
+    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/cards"
+
+  Scenario: COUNTRY_CONTROLLER #GET country by id
+    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/country?countryId=1"
+
+  Scenario: CURRENCY_CONTROLLER #GET currency list
+    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/currency"
+
+  Scenario: CURRENCY_OPER_CONTROLLER #GET currency operlist
+    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/currency-opers"
+
+  Scenario: DEPARTMENT_CONTROLLER #GET cities
+    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/departments/-6/cities?pageNumber=1&pageSize=1"
+
+  Scenario: DICTIONARY_CONTROLLER #GET dictionaries
+    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/dictionaries?pageNumber=1&pageSize=1"
+
+  Scenario: DICTIONARY_CONTROLLER #GET dictionary
+    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/dictionaries/2"
+
+  Scenario: DOCUMENT_BUNDLE_CONTROLLER #GET document bundle
+    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/documentBundles/9f021964-b0f2-4fb0-b9ae-7ed55c10f0df"
+
+  Scenario: MESSAGE_CONTROLLER #GET all messages
+    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/messages?pageNumber=1&pageSize=1"
+
+  Scenario: MESSAGE_GROUP_CONTROLLER #GET all group
+    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/messageGroups?pageNumber=1&pageSize=1"
+
+  Scenario: NOTIFICATION_CONTROLLER #GET document bundle
+    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/notifications"
+
+  Scenario: NSO_CONTROLLER #GET nso contracts
+    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/nsoContracts?accountId=2185"
+
+  Scenario: NSO_CONTROLLER #GET nso tariffs
+    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/nsoTariffs"
+
+  Scenario: OFFICE_CONTROLLER #GET office list
+    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/offices"
+
+  Scenario: ORGANIZATION_CONTROLLER #GET organization
+    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/km/orgs?fetchPersonId=true&inn=7721564013"
+
+  Scenario: PAYMENT_CONTROLLER #GET payment
+    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/payments/7648"
+
+  Scenario: PAYMENT_PATTERN_CONTROLLER #GET payment pattern list
+    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/paymentTemplates?template=false"
+
+  Scenario: SMS_INFO_CONTROLLER #GET sms info service
+    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/services/smsInfo/2185"
+
+
+
