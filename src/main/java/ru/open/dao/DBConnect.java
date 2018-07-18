@@ -27,7 +27,7 @@ public final class DBConnect {
     private static Connection connection;
     private static Connection connectionUIDM;
     private static final String DELETE_CARD_ORDER =
-            "DELETE FROM tb_corporate_card WHERE organization_id = 'sso_____9a27d584-bff6-457f-919a-fa406a6c0be2'";
+            "DELETE FROM tb_corporate_card WHERE organization_id = 'sso_____6b64347f-3c39-4c7c-8db1-a25e04d22375'";
     //contact_id(tb_contact)->tb_person_contact->tb_organization
     private static final String CURRENT_EMAIL =
             "SELECT address FROM tb_contact WHERE contact_id = 4172";
