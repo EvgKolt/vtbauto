@@ -137,4 +137,9 @@ public class CardPage extends AbstractPage {
     @FindBy(xpath = "//*[contains(text(), 'Сохранить')]")
     private SelenideElement saveRequisites;
 
+    @FindBy(xpath = "(//div[contains(@class, 'btn-container primary-btn__active label-as-text')])[2]")
+    private SelenideElement close;
+
+
+
 }
