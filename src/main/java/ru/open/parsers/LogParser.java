@@ -30,6 +30,24 @@ public final class LogParser {
         return null;
     }
 
+    public String getLastSmsCodeForReplenishment() throws IOException {
+        try (FileReader fileReader = new FileReader(getSmsLogFilePath("sms.logs.pattern2"));
+             BufferedReader bufferedReader = new BufferedReader(fileReader)) {
+            String result = "";
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                if (line.contains("N1")) {
+                    result = line;
+                }
+            }
+            if (!result.isEmpty()) {
+                return result.substring(result.indexOf(":")
+                        + 2, result.lastIndexOf("<"));
+            }
+        }
+        return null;
+    }
+
     public String getLastReference() throws IOException {
         //find last log's message with sms
         try (FileReader fileReader = new FileReader(getEmailLogFilePath());
