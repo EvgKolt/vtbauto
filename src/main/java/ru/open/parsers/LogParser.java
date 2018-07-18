@@ -36,7 +36,7 @@ public final class LogParser {
             String result = "";
             String line;
             while ((line = bufferedReader.readLine()) != null) {
-                if (line.contains("N1")) {
+                if (line.contains("N") && line.contains("*0241")) {
                     result = line;
                 }
             }
