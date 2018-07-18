@@ -1,20 +1,28 @@
 @BPtest
 Feature: Business portal card service
-# bugs
-#  Scenario: card replenishment#217623
-#
-#    Given open link from property "business.portal.link.cards"
-#    And type to input with name "userName" property: "cards.login" on "LoginPage"
-#    And type to input with name "password" property: "cards.password" on "LoginPage"
-#    When press button with text "signIn" on "LoginPage"
-#    When wait "5000"ms
-#    When press button with text "businessCards" on "CardPage"
-#    When press button with text "card" on "CardPage"
-#    When press button with text "replenishment" on "CardPage"
-#    And type to input with name "sum" property: "sum" on "CardPage"
-#    When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
-#    And type to input with name "smsCode" property: "smscode" on "CardPage"
-#    When press button with text "sign" on "CardPage"
+
+  Scenario: card replenishment#217623
+
+    Given open link from property "business.portal.link.cards"
+    And type to input with name "userName" property: "cards.login" on "LoginPage"
+    And type to input with name "password" property: "cards.password" on "LoginPage"
+    When press button with text "signIn" on "LoginPage"
+    When wait "5000"ms
+    When press button with text "businessCards" on "CardPage"
+    When press button with text "card" on "CardPage"
+    When press button with text "replenishment" on "CardPage"
+    And type to input with name "sum" property: "sum" on "CardPage"
+    When wait "35000"ms
+    When press button with text "nextStep" on "CardPage"
+    When wait "35000"ms
+    When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCodeForReplenishment" and save as property "smscode"
+    And type to input with name "smsCode" property: "smscode" on "CardPage"
+    When press button with text "sign" on "CardPage"
+    When wait "5000"ms
+    When press button with text "close" on "CardPage"
+    When press button with text "signOut" on "MainPage"
+    When wait "5000"ms
+
 
   Scenario: Order card on BP#217560
 #  bugs- todo & Prepare Card for checking statuses SKS #217603
@@ -58,7 +66,6 @@ Feature: Business portal card service
     #убрать когда заработают шаги по проверкам статуса: Prepare Card for checking statuses SKS #217603
     When execute method "deleteCardOrderStatusFromBase" from class "ru.open.dao.DBConnect" on ""
 
-
   Scenario: check Card account's requisites#218188
 
     Given open link from property "business.portal.link.cards"
@@ -77,6 +84,17 @@ Feature: Business portal card service
     Then verify that element with text "kpp" "exists" on "CardPage"
     Then verify that element with text "bik" "exists" on "CardPage"
     Then verify that element with text "saveRequisites" "exists" on "CardPage"
+
+#
+#  Scenario: check validation for fields on card order#221003
+#
+#    Given open link from property "business.portal.link.cards"
+#    And type to input with name "userName" property: "cards.login1" on "LoginPage"
+#    And type to input with name "password" property: "cards.password1" on "LoginPage"
+#    When press button with text "signIn" on "LoginPage"
+#    When wait "20000"ms
+
+
 
 #  Scenario: Check status "closed_refuse_client"#217603
 #    #bugs todo доделать проверку статусов
