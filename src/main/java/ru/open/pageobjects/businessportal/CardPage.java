@@ -89,10 +89,10 @@ public class CardPage extends AbstractPage {
     @FindBy(xpath = "//div[contains(@class, 'btn-container primary-btn__active label-as-text')]")
     private SelenideElement replenishment;
 
-    @FindBy(xpath = "(//div[contains(@class, 'input-ui')]/input)[5]")
+    @FindBy(xpath = "(//div[contains(@class, 'input-ui')]/input)[1]")
     private SelenideElement sum;
 
-    @FindBy(xpath = "//*[contains(text(),'Далее')]")
+    @FindBy(xpath = "(//button[contains(@class, 'btn-wrapper')]/div[contains(@class, 'btn-container primary-btn__active label-as-text')])[2]")
     private SelenideElement nextStep;
 
     @FindBy(xpath = "//div[contains(@class, 'drawer__left')]/div[2]/div[3]/div")
