@@ -26,7 +26,7 @@ import ru.open.dao.DBConnect;
         plugin = {"html:target/cucumber-report/clientservice/chrome", "json:target/cucumber.json"},
         features = "src/test/java/ru/open/features/",
         glue = "ru/open/steps",
-        tags = "@BPtest"
+        tags = "@last"
 )
 
 public class BPChromeTest {
@@ -38,7 +38,6 @@ public class BPChromeTest {
         ChromeDriver driver = new ChromeDriver();
         setWebDriver(driver);
         driver.manage().window().maximize();
-
         DBConnect.openConnection();
         DBConnect.openConnectionUIDM();
         DBConnect.openConnectionCards();
