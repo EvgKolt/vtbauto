@@ -1,7 +1,7 @@
 @BPtest
 Feature: Business portal api tests
 #http://rumskapp266.open.ru:11218/webapi-2.1/swagger-ui.html#/account-enrolment-controller
-  @last
+
   Scenario: ACCOUNT_CONTROLLER #GET acc list
     Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/accounts/"
 
