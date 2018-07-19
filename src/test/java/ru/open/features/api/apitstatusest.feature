@@ -1,7 +1,7 @@
 @BPtest
 Feature: Business portal api tests
 #http://rumskapp266.open.ru:11218/webapi-2.1/swagger-ui.html#/account-enrolment-controller
-
+  @last
   Scenario: ACCOUNT_CONTROLLER #GET acc list
     Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/accounts/"
 
@@ -27,9 +27,9 @@ Feature: Business portal api tests
     Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/banks"
 
   Scenario: BANK_CONTROLLER #GET bank by id
-    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/banks/-1"
+    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/banks/-4"
 
-  Scenario: BASIC_ERROR_CONTROLLER #GET errorHTML
+  Scenario: BASIC_ERROR_CONTROLLER #GET error
     Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/error"
 
   Scenario: CALENDAR_CONTROLLER #GET calendar
