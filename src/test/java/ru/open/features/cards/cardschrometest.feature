@@ -23,7 +23,7 @@ Feature: Business portal card service
     When press button with text "signOut" on "MainPage"
     When wait "5000"ms
 
-
+  @cleancookies
   Scenario: Order card on BP#217560
 #  bugs- todo & Prepare Card for checking statuses SKS #217603
 
@@ -55,11 +55,12 @@ Feature: Business portal card service
     When press button with text "officeBank2" on "CardPage"
     When press button with text "officeBank3" on "CardPage"
     When execute method "moveMouseToPoint" from class "ru.open.helpers.Keyboard" on "//div[contains(@class, 'drawer__left')]/div[2]/div[3]/div"
+    When wait "15000"ms
     When press button with text "getCard" on "CardPage"
     When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCodeForCard" and save as property "smscode"
     And type to input with name "smsCode" property: "smscode" on "CardPage"
     When press button with text "sign" on "CardPage"
-    When wait "10000"ms
+    When wait "35000"ms
     Then verify that element with text "inWork" "exists" on "CardPage"
     Then verify that element with text "waitForAccount" "exists" on "CardPage"
     When press button with text "signOut" on "MainPage"
