@@ -400,7 +400,7 @@ public final class Keyboard {
         robot.mouseMove(coordinates.getX(), coordinates.getY());
         robot.mousePress(InputEvent.BUTTON1_MASK);
         robot.mouseRelease(InputEvent.BUTTON1_MASK);
-        robot.mouseWheel(11150);
+        robot.mouseWheel(11400);
     }
 
     private void doType(int... keyCodes) {
