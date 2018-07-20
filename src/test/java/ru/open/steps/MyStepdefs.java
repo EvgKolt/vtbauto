@@ -2,6 +2,7 @@ package ru.open.steps;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static com.codeborne.selenide.WebDriverRunner.url;
 import static java.lang.Thread.sleep;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -18,6 +19,7 @@ import java.util.Map;
 import java.util.Properties;
 
 import com.codeborne.selenide.Condition;
+import cucumber.api.java.After;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -52,6 +54,11 @@ public class MyStepdefs {
         pages.put("ShugarActionPage", page(ShugarActionPage.class));
         pages.put("ShugarMenuPage", page(ShugarMenuPage.class));
         pages.put("ShugarLoginPage", page(ShugarLoginPage.class));
+    }
+
+    @After("@cleancookies")
+    public void afterScenario() {
+        getWebDriver().manage().deleteAllCookies();
     }
 
     @Given("^open link from property \"([^\"]*)\"$")
