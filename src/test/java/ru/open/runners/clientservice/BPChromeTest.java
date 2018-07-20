@@ -35,6 +35,7 @@ public class BPChromeTest {
         System.setProperty("file.encoding", "UTF-8");
         System.setProperty("webdriver.chrome.driver", "src/main/resources/webdrivers/chromedriver.exe");
         Configuration.timeout = 10000;
+        Configuration.reportsFolder = "C:\\Jenkins513\\workspace\\MSB-Portal\\CucumberTests\\target\\cucumber-html-reports";
         ChromeDriver driver = new ChromeDriver();
         setWebDriver(driver);
         driver.manage().window().maximize();
