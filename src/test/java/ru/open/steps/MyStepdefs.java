@@ -30,6 +30,7 @@ import ru.open.helpers.Keyboard;
 import ru.open.pageobjects.AbstractPage;
 import ru.open.pageobjects.businessportal.ActionPage;
 import ru.open.pageobjects.businessportal.CardPage;
+import ru.open.pageobjects.businessportal.KhabenskiyPage;
 import ru.open.pageobjects.businessportal.LoginPage;
 import ru.open.pageobjects.businessportal.MainPage;
 import ru.open.pageobjects.shugar.ShugarActionPage;
@@ -54,6 +55,7 @@ public class MyStepdefs {
         pages.put("ShugarActionPage", page(ShugarActionPage.class));
         pages.put("ShugarMenuPage", page(ShugarMenuPage.class));
         pages.put("ShugarLoginPage", page(ShugarLoginPage.class));
+        pages.put("KhabenskiyPage", page(KhabenskiyPage.class));
     }
 
     @After("@cleancookies")

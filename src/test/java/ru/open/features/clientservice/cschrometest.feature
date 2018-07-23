@@ -564,39 +564,30 @@ Feature: Business portal client service
     Then press button with text "deleteDoc" on "ActionPage"
     Then press button with text "deleteDoc1" on "ActionPage"
 
-  # Scenario: Khabenskiy's fund#247871
-    #wait for access to system
+  Scenario: UIDM logging #218218
+    #check the logs of changing phone and mail
+    When execute method "verifyUidmLogs" from class "ru.open.parsers.LogParser" on ""
 
-  # Scenario: filling out a draft#157236
-    #functional has not been developed yet
+  @cleancookies
+  Scenario: Khabenskiy's fond - payment #247871(without 6 step)
 
-  # Scenario: filling out a draft#157237
-    #functional has not been developed yet
+    Given open link from property "business.portal.link"
+    And type to input with name "userName" property: "fond.client.login" on "LoginPage"
+    And type to input with name "password" property: "fond.client.password" on "LoginPage"
+    When press button with text "signIn" on "LoginPage"
+    When press button with text "fond" on "KhabenskiyPage"
+    When press button with text "thousand" on "KhabenskiyPage"
+    When press button with text "next" on "KhabenskiyPage"
+    When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
+    And type to input with name "smsCode" property: "smscode" on "ActionPage"
+    When press button with text "charityAgreement" on "KhabenskiyPage"
+    When press button with text "sign" on "CardPage"
 
-  # Scenario: filling out a draft#157238
-    #functional has not been developed yet
+  Scenario:
 
-  # Scenario: filling out a draft#157239
-    #functional has not been developed yet
 
-  # Scenario: filling out a draft#157239
-    #functional has not been developed yet
 
-#  bugs
-#  Scenario: UIDM logging #218218
-#    #doesn't work last 5 days of month
-#    Given open link from property "business.portal.link"
-#    And type to input with name "userName" property: "login" on "LoginPage"
-#    And type to input with name "password" property: "password" on "LoginPage"
-#    When press button with text "signIn" on "LoginPage"
-#    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
-#    When press button with text "rate" on "MainPage"
-#    When get param from class "ru.open.parsers.LogParser" by method "getLastRate" and save as property "current.rate"
-#    When get param from class "ru.open.helpers.TextGenerator" by method "generateNewRate" and save as property "new.rate"
-#    When press button with text "account" on "ActionPage"
-#    When press button with text "changeRate" on "ActionPage"
-#    When press button with text "ratesTable" on "ActionPage"
-#    When execute method "verifyLogs" from class "ru.open.parsers.LogParser" on ""
+
 
 
 

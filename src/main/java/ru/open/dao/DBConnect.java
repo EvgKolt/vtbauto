@@ -26,13 +26,16 @@ public final class DBConnect {
 
     private static Connection connection;
     private static Connection connectionUIDM;
+    private static final String EMAIL_CHANGE_LOG =
+            "SELECT data FROM \"OperationAudit\" where \"url\" like '%mail%'  order by \"timeStart\" DESC limit 1";
+
     private static final String DELETE_CARD_ORDER =
             "DELETE FROM tb_corporate_card WHERE organization_id = 'sso_____c4e86202-68cd-4c02-9df9-206139ea09b3'";
     //contact_id(tb_contact)->tb_person_contact->tb_organization
     private static final String CURRENT_EMAIL =
             "SELECT address FROM tb_contact WHERE contact_id = 4172";
-    private static final String RATE_CHANGE_LOG =
-            "SELECT data FROM \"OperationAudit\" where \"url\" like '%tarif%' and id = 'sso_____b544fcfa-7fd7-45a2-bb41-6ed86e0f8b39' order by \"timeStart\" DESC limit 1";
+    private static final String PHONE_CHANGE_LOG =
+            "SELECT data FROM \"OperationAudit\" where \"url\" like '%Phone%' order by \"timeStart\" DESC limit 1";
     private static Connection connectionCards;
 
     public static void openConnection() throws SQLException {
@@ -77,8 +80,12 @@ public final class DBConnect {
         return getFirstOrNull(CURRENT_EMAIL, "address", connection);
     }
 
-    public static String getRateChangeLogs() throws SQLException {
-        return getFirstOrNull(RATE_CHANGE_LOG, "data", connectionUIDM);
+    public static String getEmailChangeLogs() throws SQLException {
+        return getFirstOrNull(EMAIL_CHANGE_LOG, "data", connectionUIDM);
+    }
+
+    public static String getPhoneChangeLogs() throws SQLException {
+        return getFirstOrNull(PHONE_CHANGE_LOG, "data", connectionUIDM);
     }
 
     private static String getFirstOrNull(String currentEmail, String address, Connection con) throws SQLException {
