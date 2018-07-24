@@ -1,6 +1,7 @@
 @BPtest
 Feature: Business portal client service
 
+  @cleancookies
   Scenario: Restore password(negative scenario)#157247
 
     Given open link from property "business.portal.link"
@@ -124,6 +125,7 @@ Feature: Business portal client service
     When type to input with name "repeatNewPassword" property: "password.negative10" on "LoginPage"
     Then verify that element with text "errorHint2" "exists" on "LoginPage"
 
+  @cleancookies
   Scenario: Restore password of the personal account #157180
 
     Given open link from property "business.portal.link"
@@ -147,6 +149,7 @@ Feature: Business portal client service
     Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
     When press button with text "signOut" on "MainPage"
 
+  @cleancookies
   Scenario: Authorization and logout of the user in the personal account#157175#157177
 
     Given open link from property "business.portal.link"
@@ -157,6 +160,7 @@ Feature: Business portal client service
     When press button with text "signOut" on "MainPage"
     Then verify that page with url "http://rumskapt273.open.ru/273/login" is opened
 
+  @cleancookies
   Scenario: Authorization of the user in the personal account(negative scenario - wrong pass)#157191
 
     Given open link from property "business.portal.link"
@@ -165,6 +169,7 @@ Feature: Business portal client service
     When press button with text "signIn" on "LoginPage"
     Then verify that element with text "errorMessage" "exists" on "LoginPage"
 
+  @cleancookies
   Scenario: Authorization of the user in the personal account(negative scenario - wrong login)#157191
 
     Given open link from property "business.portal.link"
@@ -173,6 +178,7 @@ Feature: Business portal client service
     When press button with text "signIn" on "LoginPage"
     Then verify that element with text "errorMessage" "exists" on "LoginPage"
 
+  @cleancookies
   Scenario: Send message #157198
 
     Given open link from property "business.portal.link"
@@ -192,6 +198,7 @@ Feature: Business portal client service
     When press button with text "signOut" on "MainPage"
     Then verify that page with url "http://rumskapt273.open.ru/273/login" is opened
 
+  @cleancookies
   Scenario: Change phone number#157222
 
     Given open link from property "business.portal.link"
@@ -217,6 +224,7 @@ Feature: Business portal client service
     Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
     When press button with text "signOut" on "MainPage"
 
+  @cleancookies
   Scenario: Restore password of the personal account(Resending smscode by timer)#166768
 
     Given open link from property "business.portal.link"
@@ -243,6 +251,7 @@ Feature: Business portal client service
     Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
     When press button with text "signOut" on "MainPage"
 
+  @cleancookies
   Scenario: Restore password of the personal account with wrong smscode#157210
 
     Given open link from property "business.portal.link"
@@ -257,6 +266,7 @@ Feature: Business portal client service
     When press button with text "confirm" on "LoginPage"
     Then verify that element with text "wrongCode" "exists" on "LoginPage"
 
+  @cleancookies
   Scenario: Restore password by signer#166770
 
     Given open link from property "business.portal.link"
@@ -280,6 +290,7 @@ Feature: Business portal client service
     Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
     When press button with text "signOut" on "MainPage"
 
+  @cleancookies
   Scenario: Restore password with validation#157243
 
     Given open link from property "business.portal.link"
@@ -449,7 +460,9 @@ Feature: Business portal client service
     When press button with text "signIn" on "LoginPage"
     Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
     When press button with text "signOut" on "MainPage"
+
   #need to refresh password after tests, so just restore pass again
+  @cleancookies
   Scenario: Restore password of the personal account #157180
 
     Given open link from property "business.portal.link"
@@ -473,6 +486,7 @@ Feature: Business portal client service
     Then verify that page with url "http://rumskapt273.open.ru/main" is opened
     When press button with text "signOut" on "MainPage"
 
+  @cleancookies
   Scenario: Change login #157184
 
     Given open link from property "business.portal.link"
@@ -497,6 +511,7 @@ Feature: Business portal client service
     Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
     When press button with text "signOut" on "MainPage"
 
+  @cleancookies
   Scenario: Change email #157224
 
     Given open link from property "business.portal.link"
@@ -521,6 +536,7 @@ Feature: Business portal client service
     Then verify that page with url "http://rumskapt273.open.ru/main" is opened
     When press button with text "signOut" on "MainPage"
 
+  @cleancookies
   Scenario: Check rates #157204 and get help#226647
 
     Given open link from property "business.portal.link"
@@ -564,6 +580,7 @@ Feature: Business portal client service
     Then press button with text "deleteDoc" on "ActionPage"
     Then press button with text "deleteDoc1" on "ActionPage"
 
+  @cleancookies
   Scenario: UIDM logging #218218
     #check the logs of changing phone and mail
     When execute method "verifyUidmLogs" from class "ru.open.parsers.LogParser" on ""
@@ -583,7 +600,6 @@ Feature: Business portal client service
     When press button with text "charityAgreement" on "KhabenskiyPage"
     When press button with text "sign" on "CardPage"
 
-  Scenario:
 
 
 
