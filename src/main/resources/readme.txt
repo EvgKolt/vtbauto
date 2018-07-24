@@ -9,3 +9,17 @@ card.login, card.password
 login, password +
 (contact_id(tb_contact)->tb_person_contact->tb_organization)
 DBConnect(CURRENT_EMAIL) = contact_id = "****";
+
+////////////////////
+Если сбился логин его можно найти так:
+
+RX_SSO
+RX_SSO
+логин и пароль
+хост rumskapp445
+Колтуновский Евгений Александрович [10:58]:
+ок,  грасиас
+Санжаков Илья Александрович [10:58]:
+select * from "Credentials"
+where "principalId"='sso_____8c5890a8-7d53-4268-89e9-947ff1a5dbda'
+principalId=person_id(from tb_personj msbdb)
