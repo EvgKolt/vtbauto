@@ -1,6 +1,7 @@
 @BPtest
 Feature: Business portal card service
 
+  @cleancookies
   Scenario: card replenishment#217623
 
     Given open link from property "business.portal.link.cards"
@@ -67,6 +68,7 @@ Feature: Business portal card service
     #убрать когда заработают шаги по проверкам статуса: Prepare Card for checking statuses SKS #217603
     When execute method "deleteCardOrderStatusFromBase" from class "ru.open.dao.DBConnect" on ""
 
+  @cleancookies
   Scenario: check Card account's requisites#218188
 
     Given open link from property "business.portal.link.cards"

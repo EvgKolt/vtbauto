@@ -583,6 +583,28 @@ Feature: Business portal client service
   @cleancookies
   Scenario: UIDM logging #218218
     #check the logs of changing phone and mail
+    Given open link from property "business.portal.link"
+    And type to input with name "userName" property: "login" on "LoginPage"
+    And type to input with name "password" property: "password" on "LoginPage"
+    When press button with text "signIn" on "LoginPage"
+    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
+    When press button with text "settings" on "MainPage"
+    When press button with text "changePhone" on "ActionPage"
+    When get param from class "ru.open.helpers.TextGenerator" by method "generatePhone" and save as property "phone"
+    And type to input with name "inputNumber" property: "phone" on "ActionPage"
+    When press button with text "savePhone" on "ActionPage"
+    When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
+    And type to input with name "smsCode" property: "smscode" on "ActionPage"
+    When press button with text "sign" on "ActionPage"
+    When wait "25000"ms
+    When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
+    And type to input with name "smsCode" property: "smscode" on "ActionPage"
+    When press button with text "sign" on "ActionPage"
+    When press button with text "settings" on "MainPage"
+    Then verify that element with text "phone" contains property "phone" on "ActionPage"
+    When press button with text "close" on "ActionPage"
+    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
+    When press button with text "signOut" on "MainPage"
     When execute method "verifyUidmLogs" from class "ru.open.parsers.LogParser" on ""
 
   @cleancookies

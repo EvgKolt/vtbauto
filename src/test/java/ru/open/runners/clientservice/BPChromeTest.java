@@ -12,6 +12,8 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import ru.open.dao.DBConnect;
 
 
@@ -32,11 +34,15 @@ import ru.open.dao.DBConnect;
 public class BPChromeTest {
     @BeforeClass
     static public void setupTimeout() throws SQLException {
+        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--incognito");
+        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
         System.setProperty("file.encoding", "UTF-8");
         System.setProperty("webdriver.chrome.driver", "src/main/resources/webdrivers/chromedriver.exe");
         Configuration.timeout = 10000;
         Configuration.reportsFolder = "C:\\Jenkins513\\workspace\\MSB-Portal\\CucumberTests\\target\\cucumber-html-reports";
-        ChromeDriver driver = new ChromeDriver();
+        ChromeDriver driver = new ChromeDriver(capabilities);
         setWebDriver(driver);
         driver.manage().window().maximize();
         DBConnect.openConnection();
@@ -47,7 +53,8 @@ public class BPChromeTest {
 
     @AfterClass
     static public void doAfter() {
-        getWebDriver().close();
+        getWebDriver().quit();
+        //getWebDriver().close();
         DBConnect.closeConnections();
     }
 }
