@@ -29,9 +29,6 @@ Feature: Business portal api tests
   Scenario: BANK_CONTROLLER #GET bank by id
     Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/banks/-4"
 
-  Scenario: BASIC_ERROR_CONTROLLER #GET error
-    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/error"
-
   Scenario: CALENDAR_CONTROLLER #GET calendar
     Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/calendar?from=2018-03-06&pageNumber=1&pageSize=1&paginationParams.pageNumber=1&paginationParams.pageSize=1&to=2018-07-06"
 
