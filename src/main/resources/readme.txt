@@ -1,4 +1,4 @@
-Настройка пропертиз при смене клиента:
+Настройка пропертиз при сменах клиента:
 1-Клиент по картам(для заказа карты) -
 card.login1, card.password1 +
 (Cards base 241)select * from tb_organization where inn = '***********'->
@@ -23,3 +23,6 @@ RX_SSO
 select * from "Credentials"
 where "principalId"='sso_____8c5890a8-7d53-4268-89e9-947ff1a5dbda'
 principalId=person_id(from tb_personj msbdb)
+\\\\\\\\\\\\\\\\\
+4-Тест со сменой ответственного в шуге#223371
+inn,kpp

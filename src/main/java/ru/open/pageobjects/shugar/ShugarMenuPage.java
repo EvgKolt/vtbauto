@@ -14,4 +14,7 @@ public class ShugarMenuPage extends AbstractPage {
     @FindBy(id = "moduleTab_7_MoneyAccount")
     private SelenideElement accounts;
 
+    @FindBy(xpath = "//ul[@id='ul_shortcuts']/li[1]/a")
+    private SelenideElement createAccount;
+
 }

@@ -1,12 +1,19 @@
 package ru.open.steps;
 
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.page;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-import static com.codeborne.selenide.WebDriverRunner.url;
-import static java.lang.Thread.sleep;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.StringContains.containsString;
+import com.codeborne.selenide.Condition;
+import cucumber.api.java.After;
+import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import lombok.extern.slf4j.Slf4j;
+import ru.open.Constants;
+import ru.open.helpers.Keyboard;
+import ru.open.pageobjects.AbstractPage;
+import ru.open.pageobjects.businessportal.*;
+import ru.open.pageobjects.shugar.ShugarActionPage;
+import ru.open.pageobjects.shugar.ShugarLoginPage;
+import ru.open.pageobjects.shugar.ShugarMenuPage;
 
 import java.awt.*;
 import java.io.FileReader;
@@ -18,24 +25,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-import com.codeborne.selenide.Condition;
-import cucumber.api.java.After;
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-import lombok.extern.slf4j.Slf4j;
-import ru.open.Constants;
-import ru.open.helpers.Keyboard;
-import ru.open.pageobjects.AbstractPage;
-import ru.open.pageobjects.businessportal.ActionPage;
-import ru.open.pageobjects.businessportal.CardPage;
-import ru.open.pageobjects.businessportal.KhabenskiyPage;
-import ru.open.pageobjects.businessportal.LoginPage;
-import ru.open.pageobjects.businessportal.MainPage;
-import ru.open.pageobjects.shugar.ShugarActionPage;
-import ru.open.pageobjects.shugar.ShugarLoginPage;
-import ru.open.pageobjects.shugar.ShugarMenuPage;
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.page;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static com.codeborne.selenide.WebDriverRunner.url;
+import static java.lang.Thread.sleep;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.StringContains.containsString;
 
 /**
  * GIVEN steps are used to describe the initial context of the system - the scene of the scenario.
@@ -108,9 +104,9 @@ public class MyStepdefs {
         }
         Keyboard keyboard = new Keyboard();
         keyboard.type(properties.getProperty(fileLocation));
-        sleep(2000);
+        sleep(5000);
         keyboard.pressKey('\n');
-        sleep(3000);
+        sleep(5000);
     }
 
     @When("^get param from class \"([^\"]*)\" by method \"([^\"]*)\" and save as property \"([^\"]*)\"$")
