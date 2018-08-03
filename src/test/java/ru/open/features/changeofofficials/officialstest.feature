@@ -106,6 +106,7 @@ Feature: Change of officials(shugar)
     When press button with text "saveStatus" on "ShugarActionPage"
     When press button with text "checking" on "ShugarActionPage"
     When press button with text "saveZone" on "ShugarActionPage"
+    When wait "10000"ms
     When press button with text "working" on "ShugarActionPage"
     When wait "5000"ms
     When execute method "typeEnter" from class "ru.open.helpers.Keyboard" on ""
