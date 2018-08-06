@@ -228,7 +228,7 @@ Feature: Change of officials(shugar)
 #    When wait "5000"ms
 #    When execute method "typeEnter" from class "ru.open.helpers.Keyboard" on ""
 #    When press button with text "statusChange" on "ShugarActionPage"
-#    When press button with text "status" on "ShugarActionPage"
+#    When press button with text "status" on "ShugarActio nPage"
 #    When wait "3000"ms
 #    When execute method "clickOnStatus" from class "ru.open.helpers.Keyboard" on "-14"
 #    When press button with text "assignedUser" on "ShugarActionPage"
