@@ -343,6 +343,11 @@ public final class Keyboard {
         Point coordinates = selenideElement.getLocation();
         robot.mouseMove(coordinates.getX(), coordinates.getY());
         robot.mousePress(InputEvent.BUTTON1_MASK);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         robot.mouseRelease(InputEvent.BUTTON1_MASK);
         robot.mouseWheel(11400);
     }
