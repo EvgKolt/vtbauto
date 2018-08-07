@@ -23,4 +23,8 @@ public final class SelenHelper {
         JavascriptExecutor javascriptExecutor = (JavascriptExecutor) getWebDriver();
         javascriptExecutor.executeScript("arguments[0].click();", selenideElement);
     }
+
+    public void refreshPage() {
+        getWebDriver().navigate().refresh();
+    }
 }
