@@ -102,7 +102,7 @@ Feature: Business portal api tests
     Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/paymentTemplates?template=false"
 
   Scenario: SMS_INFO_CONTROLLER #GET sms info service
-    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/services/smsInfo/2185"
+    Then execute method "checkStatusCodeGETSMS" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/services/smsInfo/4"
 
 
 
