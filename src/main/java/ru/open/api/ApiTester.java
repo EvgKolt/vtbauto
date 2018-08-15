@@ -12,6 +12,13 @@ public class ApiTester {
                 when().get(uri).then().statusCode(200);
     }
 
+    public void checkStatusCodeGETSMS(String uri) {
+        //header helps to ignore authorisation
+        given().
+                header("Authorization", "Bearer dev_1.0_sso_____d4ea8475-b39e-4074-9cd2-b274d26fe33c").
+                when().get(uri).then().statusCode(200);
+    }
+
     public void checkResponseBody() {
 
     }
