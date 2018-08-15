@@ -45,8 +45,11 @@ public class ShugarActionPage extends AbstractPage {
     @FindBy(xpath = "//input[@value = 'Найти']")
     private SelenideElement find;
 
-    @FindBy(xpath = "/html/body/table[4]/tbody/tr[3]/td[1]/a")
+    @FindBy(xpath = "(//a[contains(@onclick, 'send_back')])[2]")
     private SelenideElement client;
+
+    @FindBy(xpath = "//a[contains(@onclick, 'send_back')]")
+    private SelenideElement coworker;
 
     @FindBy(xpath = "//select[@id='opportunity_type']")
     private SelenideElement type;
@@ -56,6 +59,15 @@ public class ShugarActionPage extends AbstractPage {
 
     @FindBy(xpath = "//input[@id='kpp']")
     private SelenideElement kpp;
+
+    @FindBy(xpath = "//input[@id='short_name']")
+    private SelenideElement shortName;
+
+    @FindBy(xpath = "//select[@id='document_pack']")
+    private SelenideElement documentType;
+
+    @FindBy(xpath = "//select/option[@value='full']")
+    private SelenideElement documentTypeOption1;
 
     @FindBy(xpath = "//select[@id='type_dbo']")
     private SelenideElement typeDbo;
@@ -95,6 +107,12 @@ public class ShugarActionPage extends AbstractPage {
 
     @FindBy(xpath = "//form[@id='formformNotes']/input[contains(@class, 'button')]")
     private SelenideElement addDoc;
+
+    @FindBy(xpath = "//select[@id='type']")
+    private SelenideElement docTypeFile;
+
+    @FindBy(xpath = "//select/option[@value='10']")
+    private SelenideElement docTypeOptionFile;
 
     @FindBy(xpath = "//span[@id='new_attachment']/input")
     private SelenideElement chooseDoc;
@@ -177,6 +195,12 @@ public class ShugarActionPage extends AbstractPage {
     @FindBy(xpath = "//input[@id='btn_kladdress_fact_fl_id_name']")
     private SelenideElement address;
 
+    @FindBy(xpath = "//input[@id='btn_coworker_user_fio']")
+    private SelenideElement chooseCoworker;
+
+    @FindBy(xpath = "//input[@name='user_name']")
+    private SelenideElement coworkerLogin;
+
     @FindBy(id = "addressString_input")
     private SelenideElement addressOneString;
 
@@ -198,7 +222,13 @@ public class ShugarActionPage extends AbstractPage {
     @FindBy(xpath = "//td/input[@id='Contacts_msb_subpanel_save_button']")
     private SelenideElement savePerson;
 
-    @FindBy(xpath = "//td[@id='status_value']/a/img")
+    @FindBy(xpath = "//span[@id='panel_title']")
+    private SelenideElement panelTitle;
+
+    @FindBy(xpath = "//textarea")
+    private SelenideElement textArea;
+
+    @FindBy(xpath = "//input[@id='confirm_btn']")
     private SelenideElement statusChange;
 
     @FindBy(xpath = "//select[@id='status']")
@@ -224,6 +254,9 @@ public class ShugarActionPage extends AbstractPage {
 
     @FindBy(xpath = "//select/option[@value='97ad7dca-f6c2-c155-e906-5b34c9ba8d9b']")
     private SelenideElement assignedUserOption1;
+
+    @FindBy(xpath = "//div/a[contains(@class, 'utilsLink')]")
+    private SelenideElement exit;
 
 
 
