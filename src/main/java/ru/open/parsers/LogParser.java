@@ -1,5 +1,9 @@
 package ru.open.parsers;
 
+import lombok.extern.slf4j.Slf4j;
+import ru.open.Constants;
+import ru.open.dao.DBConnect;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -8,16 +12,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
 
-import lombok.extern.slf4j.Slf4j;
-import ru.open.Constants;
-import ru.open.dao.DBConnect;
-
 @Slf4j
 public final class LogParser {
 
     public String getLastSmsCode() throws IOException {
         //find last log's message with sms
-        String result = getStringWithSms(getSmsLogFilePath("sms.logs.pattern"));
+        String result = getStringWithSms(getSmsLogFilePath("sms.logs.pattern2"));
         if (result != null) return result;
         return null;
     }
@@ -139,7 +139,7 @@ public final class LogParser {
         try (FileReader fileReader = new FileReader(Constants.PROPERTY_PATH)) {
             Properties properties = new Properties();
             properties.load(fileReader);
-            return properties.getProperty("email.logs.pattern")
+            return properties.getProperty("email.logs.pattern2")
                     + dateFormat.format(new Date())
                     + ".log";
         }
