@@ -1,20 +1,20 @@
 package ru.open.helpers;
 
-import java.sql.SQLException;
-import java.util.UUID;
-
 import lombok.extern.slf4j.Slf4j;
 import ru.open.dao.DBConnect;
+
+import java.sql.SQLException;
+import java.util.UUID;
 
 @Slf4j
 public final class TextGenerator {
     private static final int SUBINDEX = 20;
-    private static final long GETPHONE1 = 1_000_000_000L;
-    private static final long GETPHONE2 = 9_000_000_000L;
+    private static final long GETPHONE1 = 1_000_000_00L;
+    private static final long GETPHONE2 = 9_000_000_00L;
 
     public static String generatePhone() {
         long number = (long) Math.floor(Math.random() * GETPHONE2) + GETPHONE1;
-        return "+7" + number;
+        return "+79" + number;
     }
 
     public String generatePassword() {
@@ -33,4 +33,6 @@ public final class TextGenerator {
     }
 
 }
+
+
 
