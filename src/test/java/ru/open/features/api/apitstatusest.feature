@@ -46,12 +46,12 @@ Feature: Business portal api tests
 
   Scenario: CITY_CONTROLLER #GET cities
     Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/cities?pageNumber=1&pageSize=1"
-
-  Scenario: CORPORATE_CARD_APP_CONTROLLER #GET cards list with statuses
-    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/cardApplications"
-
-  Scenario: CORPORATE_CARD_CONTROLLER #GET corp cards list
-    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/cards"
+#
+#  Scenario: CORPORATE_CARD_APP_CONTROLLER #GET cards list with statuses
+#    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/cardApplications"
+#
+#  Scenario: CORPORATE_CARD_CONTROLLER #GET corp cards list
+#    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/cards"
 
   Scenario: COUNTRY_CONTROLLER #GET country by id
     Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/country?countryId=1"
