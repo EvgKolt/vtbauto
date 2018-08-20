@@ -60,6 +60,9 @@ public class ShugarActionPage extends AbstractPage {
     @FindBy(xpath = "//input[@id='kpp']")
     private SelenideElement kpp;
 
+    @FindBy(xpath = "//input[@id='ogrn_reg_date']")
+    private SelenideElement ogrnReg;
+
     @FindBy(xpath = "//input[@id='short_name']")
     private SelenideElement shortName;
 
@@ -240,7 +243,7 @@ public class ShugarActionPage extends AbstractPage {
     @FindBy(xpath = "//select/option[@value='work_secure']")
     private SelenideElement statusOption2;
 
-    @FindBy(xpath = "//div[@id='content']/table/tbody/tr/td/a")
+    @FindBy(xpath = "//*[contains(text(), 'Проверка УПКЗ РКО')]")
     private SelenideElement checking;
 
     @FindBy(xpath = "//input[@id='standard_form-save_id']")
@@ -257,6 +260,21 @@ public class ShugarActionPage extends AbstractPage {
 
     @FindBy(xpath = "//div/a[contains(@class, 'utilsLink')]")
     private SelenideElement exit;
+
+    @FindBy(xpath = "(//td[contains(@class, 'oddListRowS1')][2]/span)[1]")
+    private SelenideElement lead;
+
+    @FindBy(xpath = "//input[@id='edit_button']")
+    private SelenideElement refactor;
+
+    @FindBy(xpath = "//select[@id='status_options']")
+    private SelenideElement statusOptions;
+
+    @FindBy(xpath = "//select/option[@value='check_secure']")
+    private SelenideElement statusOptions1;
+
+    @FindBy(xpath = "(//tr[contains(@class, 'oddListRowS1')]/td[3]/a)[1]")
+    private SelenideElement account;
 
 
 
