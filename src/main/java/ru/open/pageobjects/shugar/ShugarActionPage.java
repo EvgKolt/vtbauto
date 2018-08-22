@@ -276,6 +276,9 @@ public class ShugarActionPage extends AbstractPage {
     @FindBy(xpath = "(//tr[contains(@class, 'oddListRowS1')]/td[3]/a)[1]")
     private SelenideElement account;
 
+    @FindBy(xpath = "//*[@id='single_executive_body']")
+    private SelenideElement eio;
+
 
 
 
