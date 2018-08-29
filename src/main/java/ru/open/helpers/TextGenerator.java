@@ -14,7 +14,7 @@ public final class TextGenerator {
 
     public static String generatePhone() {
         long number = (long) Math.floor(Math.random() * GETPHONE2) + GETPHONE1;
-        return "+79" + number;
+        return "9" + Long.toString(number);
     }
 
     public String generatePassword() {
