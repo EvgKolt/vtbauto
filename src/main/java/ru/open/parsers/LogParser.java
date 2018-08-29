@@ -92,13 +92,7 @@ public final class LogParser {
             properties.load(fileReader);
         }
         String rez = DBConnect.getPhoneChangeLogs();
-        String rez1 = DBConnect.getEmailChangeLogs();
-        log.info(rez);
-        log.info(properties.getProperty("phone").substring(1));
-        log.info(rez1);
-        log.info(properties.getProperty("email") + properties.getProperty("phone"));
-        //todo поправить
-        if (!(rez1.contains(properties.getProperty("email")) || rez.contains(properties.getProperty("phone").substring(1)))) {
+        if (!(rez.contains(properties.getProperty("phone").substring(1)))) {
             log.info("no logs in UIDM! check it manually");
             throw new IllegalArgumentException();
         }
