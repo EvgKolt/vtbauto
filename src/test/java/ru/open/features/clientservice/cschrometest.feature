@@ -199,7 +199,7 @@ Feature: Business portal client service
     Then verify that page with url "http://rumskapt273.open.ru/273/login" is opened
 
   @cleancookies
-  Scenario: Change phone number#157222
+  Scenario: Change phone number#157222 and UIDM's logs checking #218218
 
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
@@ -223,6 +223,7 @@ Feature: Business portal client service
     When press button with text "close" on "ActionPage"
     Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
     When press button with text "signOut" on "MainPage"
+    When execute method "verifyUidmLogs" from class "ru.open.parsers.LogParser" on ""
 
   @cleancookies
   Scenario: Restore password of the personal account(Resending smscode by timer)#166768
@@ -238,6 +239,15 @@ Feature: Business portal client service
     Then verify that element with text "resendCode" "exists" on "LoginPage"
     When press button with text "resendCode" on "LoginPage"
     When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
+    When press button with text "smsCode" on "LoginPage"
+    When execute method "typeLeft" from class "ru.open.helpers.Keyboard" on ""
+    When wait "1000"ms
+    When execute method "typeLeft" from class "ru.open.helpers.Keyboard" on ""
+    When wait "1000"ms
+    When execute method "typeLeft" from class "ru.open.helpers.Keyboard" on ""
+    When wait "1000"ms
+    When execute method "typeLeft" from class "ru.open.helpers.Keyboard" on ""
+    When wait "1000"ms
     And type to input with name "smsCode" property: "smscode" on "LoginPage"
     When press button with text "confirm" on "LoginPage"
     When get param from class "ru.open.helpers.TextGenerator" by method "generatePassword" and save as property "password"
@@ -537,7 +547,7 @@ Feature: Business portal client service
     When press button with text "signOut" on "MainPage"
 
   @cleancookies
-  Scenario: Check rates #157204 and get help#226647
+  Scenario: Check rates #157204
 
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
@@ -566,6 +576,9 @@ Feature: Business portal client service
     Then verify that element with text "rateInfo1" "exists" on "ActionPage"
     Then verify that element with text "rateInfo2" "exists" on "ActionPage"
     Then verify that element with text "rateInfo3" "exists" on "ActionPage"
+
+  @cleancookies
+  Scenario: Get help#226647
     Given open link from property "business.portal.link"
     Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
     When press button with text "help" on "ActionPage"
@@ -579,33 +592,6 @@ Feature: Business portal client service
     Then verify that element with text "helpDoc" "exists" on "ActionPage"
     Then press button with text "deleteDoc" on "ActionPage"
     Then press button with text "deleteDoc1" on "ActionPage"
-
-  @cleancookies
-  Scenario: UIDM logging #218218
-    #check the logs of changing phone and mail
-    Given open link from property "business.portal.link"
-    And type to input with name "userName" property: "login" on "LoginPage"
-    And type to input with name "password" property: "password" on "LoginPage"
-    When press button with text "signIn" on "LoginPage"
-    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
-    When press button with text "settings" on "MainPage"
-    When press button with text "changePhone" on "ActionPage"
-    When get param from class "ru.open.helpers.TextGenerator" by method "generatePhone" and save as property "phone"
-    And type to input with name "inputNumber" property: "phone" on "ActionPage"
-    When press button with text "savePhone" on "ActionPage"
-    When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
-    And type to input with name "smsCode" property: "smscode" on "ActionPage"
-    When press button with text "sign" on "ActionPage"
-    When wait "25000"ms
-    When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
-    And type to input with name "smsCode" property: "smscode" on "ActionPage"
-    When press button with text "sign" on "ActionPage"
-    When press button with text "settings" on "MainPage"
-    Then verify that element with text "phone" contains property "phone" on "ActionPage"
-    When press button with text "close" on "ActionPage"
-    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
-    When press button with text "signOut" on "MainPage"
-    When execute method "verifyUidmLogs" from class "ru.open.parsers.LogParser" on ""
 
   @cleancookies
   Scenario: Khabenskiy's fond - payment #247871(without 6 step)
