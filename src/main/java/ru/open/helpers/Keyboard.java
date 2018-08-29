@@ -338,6 +338,10 @@ public final class Keyboard {
         doType(VK_ENTER);
     }
 
+    public void typeLeft() {
+        doType(VK_LEFT);
+    }
+
     public void moveMouseToPoint(String path) {
         SelenideElement selenideElement = $(By.xpath(path));
         Point coordinates = selenideElement.getLocation();
