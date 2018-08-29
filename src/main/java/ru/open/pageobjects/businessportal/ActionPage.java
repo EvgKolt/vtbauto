@@ -89,16 +89,16 @@ public class ActionPage extends AbstractPage {
     @FindBy(xpath = "(//div[contains(@class, 'row middle-xs between-xs')]/div[contains(@class, 'col-xs-9')]/div/div[contains(@class, 'input-ui__ok')]/input)[1]")
     private SelenideElement email;
 
-    @FindBy(xpath = "(//span[contains(@class, 'card-item__title')])[1]")
+    @FindBy(xpath = "(//div[contains(@class, 'card-item__title__text')])[1]")
     private SelenideElement rate1;
 
     @FindBy(xpath = "//span/div/span")
     private SelenideElement rateInfo;
 
-    @FindBy(xpath = "(//span[contains(@class, 'card-item__title')])[2]")
+    @FindBy(xpath = "(//div[contains(@class, 'card-item__title__text')])[2]")
     private SelenideElement rate2;
 
-    @FindBy(xpath = "(//span[contains(@class, 'card-item__title')])[3]")
+    @FindBy(xpath = "(//div[contains(@class, 'card-item__title__text')])[3]")
     private SelenideElement rate3;
 
     @FindBy(xpath = "//span/a")
