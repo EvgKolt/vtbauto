@@ -539,6 +539,10 @@ Feature: Business portal client service
     When press button with text "confirm1" on "ActionPage"
     When get param from class "ru.open.parsers.LogParser" by method "getReferenceToChangeEmail" and save as property "reference.to.change.email"
     Given open link from property "reference.to.change.email"
+    And type to input with name "userName" property: "login" on "LoginPage"
+    And type to input with name "password" property: "password" on "LoginPage"
+    When press button with text "signIn" on "LoginPage"
+    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
     When wait "20000"ms
     When press button with text "settings" on "MainPage"
     Then verify that element with text "email" contains property "email" on "ActionPage"
