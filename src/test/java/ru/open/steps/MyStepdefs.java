@@ -66,7 +66,7 @@ public class MyStepdefs {
             properties.load(fileReader);
         }
         open(properties.getProperty(property));
-        sleep(8000);
+        sleep(15000);
     }
 
     @And("^type to input with name \"([^\"]*)\" property: \"([^\"]*)\" on \"([^\"]*)\"$")
