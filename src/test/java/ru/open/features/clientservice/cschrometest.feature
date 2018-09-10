@@ -539,13 +539,10 @@ Feature: Business portal client service
     When press button with text "confirm1" on "ActionPage"
     When get param from class "ru.open.parsers.LogParser" by method "getReferenceToChangeEmail" and save as property "reference.to.change.email"
     Given open link from property "reference.to.change.email"
-    And type to input with name "userName" property: "login" on "LoginPage"
-    And type to input with name "password" property: "password" on "LoginPage"
-    When press button with text "signIn" on "LoginPage"
-    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
-    When wait "20000"ms
+    When wait "50000"ms
     When press button with text "settings" on "MainPage"
-    Then verify that element with text "email" contains property "email" on "ActionPage"
+    Then execute method "getValue" from class "ru.open.helpers.SelenHelper" on "(//input)[1]"
+    Then execute method "compareProperties" from class "ru.open.parsers.LogParser" on "tmp,email"
     When press button with text "close" on "ActionPage"
     Then verify that page with url "http://rumskapt273.open.ru/main" is opened
     When press button with text "signOut" on "MainPage"
@@ -584,6 +581,9 @@ Feature: Business portal client service
   @cleancookies
   Scenario: Get help#226647
     Given open link from property "business.portal.link"
+    And type to input with name "userName" property: "login" on "LoginPage"
+    And type to input with name "password" property: "password" on "LoginPage"
+    When press button with text "signIn" on "LoginPage"
     Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
     When press button with text "help" on "ActionPage"
     When press button with text "helpMenu" on "ActionPage"
