@@ -3,6 +3,12 @@ package ru.open.helpers;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import ru.open.Constants;
+
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Properties;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.switchTo;
@@ -26,5 +32,18 @@ public final class SelenHelper {
 
     public void refreshPage() {
         getWebDriver().navigate().refresh();
+    }
+
+    public String getValue(String xpath) throws IOException {
+        String value = $(By.xpath(xpath)).getValue();
+        Properties properties = new Properties();
+        try (FileReader fileReader = new FileReader(Constants.PROPERTY_PATH)) {
+            properties.load(fileReader);
+        }
+        properties.setProperty("tmp", value);
+        try (FileWriter fileWriter = new FileWriter(Constants.PROPERTY_PATH)) {
+            properties.store(fileWriter, "");
+        }
+        return value;
     }
 }
