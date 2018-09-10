@@ -86,7 +86,7 @@ public class ActionPage extends AbstractPage {
     @FindBy(xpath = "//*[@id=\"widget0\"]/div/div[2]/div[2]/div[2]/div/div[2]/div[2]/div[1]/div/div[2]/div[1]/div/div/input")
     private SelenideElement currentEmail;
 
-    @FindBy(xpath = "(//div[contains(@class, 'row middle-xs between-xs')]/div[contains(@class, 'col-xs-9')]/div/div[contains(@class, 'input-ui__ok')]/input)[1]")
+    @FindBy(xpath = "(//input)[1]")
     private SelenideElement email;
 
     @FindBy(xpath = "(//div[contains(@class, 'card-item__title__text')])[1]")
