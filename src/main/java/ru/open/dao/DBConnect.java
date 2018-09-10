@@ -1,12 +1,8 @@
 package ru.open.dao;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
 import lombok.extern.slf4j.Slf4j;
+
+import java.sql.*;
 
 //todo заменить на препаред стейтмент
 @Slf4j
@@ -33,7 +29,7 @@ public final class DBConnect {
             "DELETE FROM tb_corporate_card WHERE organization_id = 'sso_____c4e86202-68cd-4c02-9df9-206139ea09b3'";
     //contact_id(tb_contact)->tb_person_contact->tb_organization
     private static final String CURRENT_EMAIL =
-            "SELECT address FROM tb_contact WHERE contact_id = 4172";
+            "SELECT address FROM tb_contact WHERE contact_id = 4704";
     private static final String PHONE_CHANGE_LOG =
             "SELECT data FROM \"OperationAudit\" where \"url\" like '%Phone%' order by \"timeStart\" DESC limit 1";
     private static Connection connectionCards;
