@@ -8,7 +8,7 @@ import ru.open.pageobjects.AbstractPage;
 @Getter
 public class ActionPage extends AbstractPage {
 
-    @FindBy(xpath = "//button[contains(., 'Написать сообщение')]")
+    @FindBy(xpath = "//button[contains(., 'Новое сообщение')]")
     private SelenideElement writeLetter;
 
     @FindBy(className = "Select-placeholder")
