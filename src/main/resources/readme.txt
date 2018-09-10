@@ -9,6 +9,9 @@ card.login, card.password
 login, password +
 (contact_id(tb_contact)->tb_person_contact->tb_organization)
 DBConnect(CURRENT_EMAIL) = contact_id = "****";
+select * from tb_organization where inn = '7736244337';
+select * from tb_person where organization_id = '6852f577-be14-47e8-b7eb-321cffe4d5ec';
+select * from tb_person_contact where person_id = 'sso_____853711de-1567-4b12-b329-74869779b9f0';
 
 ////////////////////
 Если сбился логин его можно найти так:
