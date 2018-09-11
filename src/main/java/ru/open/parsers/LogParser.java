@@ -25,6 +25,13 @@ public final class LogParser {
         return null;
     }
 
+    public String getLastSmsCodeForKhabensky() throws IOException {
+        //find last log's message with sms
+        String result = getStringWithSmsForKhabensky(getSmsLogFilePath("sms.logs.pattern2"));
+        if (result != null) return result;
+        return null;
+    }
+
     public String getLastSmsCodeForCard() throws IOException {
         //find last log's message with sms
         String result = getStringWithSms(getSmsLogFilePath("sms.logs.pattern2"));
@@ -122,6 +129,24 @@ public final class LogParser {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 if (line.contains("internetbankmb.open.ru")) {
+                    result = line;
+                }
+            }
+            if (!result.isEmpty()) {
+                return result.substring(result.indexOf(":")
+                        + 2, result.lastIndexOf("<"));
+            }
+        }
+        return null;
+    }
+
+    private String getStringWithSmsForKhabensky(String smsLogFilePath) throws IOException {
+        try (FileReader fileReader = new FileReader(smsLogFilePath);
+             BufferedReader bufferedReader = new BufferedReader(fileReader)) {
+            String result = "";
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                if (line.contains("<Body>") && line.contains("1,000.00")) {
                     result = line;
                 }
             }

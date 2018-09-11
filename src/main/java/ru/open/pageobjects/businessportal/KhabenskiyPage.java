@@ -7,10 +7,10 @@ import ru.open.pageobjects.AbstractPage;
 
 @Getter
 public class KhabenskiyPage extends AbstractPage {
-    @FindBy(xpath = "//div[contains(@class, 'partner-banner__title')]")
+    @FindBy(xpath = "//div[contains(@class, 'col-xs-3 partner-banner__logo')]")
     private SelenideElement fond;
 
-    @FindBy(xpath = "(//div[contains(@class, 'btn-container primary-btn__active label-as-number')])[1]")
+    @FindBy(xpath = "(//div[contains(@class, 'btn-container btn-container_primary-btn label-as-number')])[1]")
     private SelenideElement thousand;
 
     @FindBy(xpath = "//*[contains(text(), 'Далее')]")
@@ -18,4 +18,7 @@ public class KhabenskiyPage extends AbstractPage {
 
     @FindBy(xpath = "//label/label")
     private SelenideElement charityAgreement;
+
+    @FindBy(xpath = "//*[contains(text(),'Закрыть')]")
+    private SelenideElement close;
 }
