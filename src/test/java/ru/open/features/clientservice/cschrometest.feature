@@ -601,17 +601,20 @@ Feature: Business portal client service
   Scenario: Khabenskiy's fond - payment #247871(without 6 step)
 
     Given open link from property "business.portal.link"
-    And type to input with name "userName" property: "fond.client.login" on "LoginPage"
-    And type to input with name "password" property: "fond.client.password" on "LoginPage"
+    And type to input with name "userName" property: "login" on "LoginPage"
+    And type to input with name "password" property: "password" on "LoginPage"
     When press button with text "signIn" on "LoginPage"
+    When wait "15000"ms
     When press button with text "fond" on "KhabenskiyPage"
     When press button with text "thousand" on "KhabenskiyPage"
     When press button with text "next" on "KhabenskiyPage"
-    When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
+    When wait "10000"ms
+    When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCodeForKhabensky" and save as property "smscode"
     And type to input with name "smsCode" property: "smscode" on "ActionPage"
-    When press button with text "charityAgreement" on "KhabenskiyPage"
+    When wait "15000"ms
     When press button with text "sign" on "CardPage"
-
+    When wait "5000"ms
+    When press button with text "close" on "KhabenskiyPage"
 
 
 
