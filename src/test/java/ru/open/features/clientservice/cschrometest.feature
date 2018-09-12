@@ -225,7 +225,7 @@ Feature: Business portal client service
     When press button with text "signOut" on "MainPage"
     When execute method "verifyUidmLogs" from class "ru.open.parsers.LogParser" on ""
 
-  @cleancookies @last
+  @cleancookies
   Scenario: Restore password of the personal account(Resending smscode by timer)#166768
 
     Given open link from property "business.portal.link"
@@ -541,7 +541,7 @@ Feature: Business portal client service
     Given open link from property "reference.to.change.email"
     When wait "50000"ms
     When press button with text "settings" on "MainPage"
-    Then execute method "getValue" from class "ru.open.helpers.SelenHelper" on "(//input)[1]"
+    Then execute method "getValue" from class "ru.open.helpers.SelenHelper" on "(//div[contains(@class, 'col-xs-9')]//div[contains(@class, 'input-ui__ok')]/input)[1]"
     Then execute method "compareProperties" from class "ru.open.parsers.LogParser" on "tmp,email"
     When press button with text "close" on "ActionPage"
     Then verify that page with url "http://rumskapt273.open.ru/main" is opened
