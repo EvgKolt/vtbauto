@@ -112,7 +112,6 @@ public final class LogParser {
         String[] prop = props.split(",");
         String prop1 = prop[0];
         String prop2 = prop[1];
-        log.info(prop1 + prop2);
         Properties properties = new Properties();
         try (FileReader fileReader = new FileReader(Constants.PROPERTY_PATH)) {
             properties.load(fileReader);

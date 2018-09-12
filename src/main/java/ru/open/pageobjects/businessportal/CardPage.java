@@ -8,20 +8,38 @@ import ru.open.pageobjects.AbstractPage;
 @Getter
 public class CardPage extends AbstractPage {
 
-    @FindBy(xpath = "//a[contains(@class, 'menu__item_add')]")
+    @FindBy(xpath = "//*[contains(text(), 'Бизнес-карты')]")
     private SelenideElement businessCards;
 
-    @FindBy(xpath = "//div[contains(@class, 'btn-container primary-btn__active label-as-text')]")
+    @FindBy(xpath = "//div[contains(@class, 'btn-container btn-container_primary-btn label-as-text')]")
     private SelenideElement orderCard;
 
     @FindBy(xpath = "//div[contains(@class, 'Select-placeholder')]")
     private SelenideElement cardHolder;
 
-    @FindBy(xpath = "//div[@id='react-select-4--option-0']")
+    @FindBy(xpath = "//div[@id='react-select-4--option-1']")
     private SelenideElement cardHolderOption1;
+
+    @FindBy(xpath = "(//input[@id='fio_russian'])[1]")
+    private SelenideElement lastName;
+
+    @FindBy(xpath = "(//input[@id='fio_russian'])[2]")
+    private SelenideElement mainName;
+
+    @FindBy(xpath = "(//input[@id='fio_russian'])[3]")
+    private SelenideElement midName;
+
+    @FindBy(xpath = "(//div[contains(@class, 'ui-kit-datepicker')]//input)[1]")
+    private SelenideElement dateOfBirth;
 
     @FindBy(xpath = "//input[@id='organ']")
     private SelenideElement organ;
+
+    @FindBy(xpath = "(//input[@id='passport'])[1]")
+    private SelenideElement series;
+
+    @FindBy(xpath = "(//input[@id='passport'])[2]")
+    private SelenideElement number;
 
     @FindBy(xpath = "(//div[contains(@class, 'ui-kit-datepicker')])[2]")
     private SelenideElement dateOfReg;
@@ -140,6 +158,11 @@ public class CardPage extends AbstractPage {
     @FindBy(xpath = "(//div[contains(@class, 'btn-container primary-btn__active label-as-text')])[2]")
     private SelenideElement close;
 
+    @FindBy(xpath = "//input[@id='email']")
+    private SelenideElement email;
+
+    @FindBy(xpath = "//input[@id='phone']")
+    private SelenideElement phone;
 
 
 }

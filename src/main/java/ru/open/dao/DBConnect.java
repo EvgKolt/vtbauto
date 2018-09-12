@@ -26,7 +26,7 @@ public final class DBConnect {
             "SELECT data FROM \"OperationAudit\" where \"url\" like '%mail%'  order by \"timeStart\" DESC limit 1";
 
     private static final String DELETE_CARD_ORDER =
-            "DELETE FROM tb_corporate_card WHERE organization_id = 'sso_____c4e86202-68cd-4c02-9df9-206139ea09b3'";
+            "DELETE FROM tb_corporate_card WHERE organization_id = '6852f577-be14-47e8-b7eb-321cffe4d5ec'";
     //contact_id(tb_contact)->tb_person_contact->tb_organization
     private static final String CURRENT_EMAIL =
             "SELECT address FROM tb_contact WHERE contact_id = 4704";
@@ -66,7 +66,7 @@ public final class DBConnect {
     }
 
     public static void deleteCardOrderStatusFromBase() throws SQLException {
-        try (Statement statement = connectionCards.createStatement()) {
+        try (Statement statement = connection.createStatement()) {
             int n = statement.executeUpdate(DELETE_CARD_ORDER);
             log.info("cardOrderDeleted {}", n);
         }
