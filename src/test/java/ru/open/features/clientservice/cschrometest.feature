@@ -225,7 +225,7 @@ Feature: Business portal client service
     When press button with text "signOut" on "MainPage"
     When execute method "verifyUidmLogs" from class "ru.open.parsers.LogParser" on ""
 
-  @cleancookies
+  @cleancookies @last
   Scenario: Restore password of the personal account(Resending smscode by timer)#166768
 
     Given open link from property "business.portal.link"
