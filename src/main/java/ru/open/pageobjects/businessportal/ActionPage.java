@@ -137,16 +137,16 @@ public class ActionPage extends AbstractPage {
     @FindBy(id = "react-select-2--value")
     private SelenideElement helpMenu;
 
-    @FindBy(xpath = "//div[@id='react-select-2--option-1']")
+    @FindBy(xpath = "//div[@id='react-select-2--option-2']")
     private SelenideElement helpMenuOptionOne;
 
-    @FindBy(xpath = "//*[@class='btn-container primary-btn__active label-as-text' and contains(text(),'Заказать')]")
+    @FindBy(xpath = "//*[contains(text(),'Заказать')]")
     private SelenideElement order;
 
-    @FindBy(xpath = "//*[@class='btn-container primary-btn__active label-as-text' and contains(text(),'Подтвердить')]")
+    @FindBy(xpath = "//*[contains(text(),'Подтвердить')]")
     private SelenideElement confirm;
 
-    @FindBy(xpath = "//*[@class='btn-container primary-btn__active label-as-text' and contains(text(),'Закрыть')]")
+    @FindBy(xpath = "//*[contains(text(),'Закрыть')]")
     private SelenideElement closeHelp;
 
     @FindBy(xpath = "//p[contains(@class, 'template-list__item_header')]")
@@ -155,7 +155,7 @@ public class ActionPage extends AbstractPage {
     @FindBy(xpath = "//a[contains(@class, 'delete-btn')]")
     private SelenideElement deleteDoc;
 
-    @FindBy(xpath = "//div[@class='btn-container primary-btn__active label-as-text' and contains(text(),'Удалить')]")
+    @FindBy(xpath = "//*[contains(text(),'Удалить')]")
     private SelenideElement deleteDoc1;
 
 

@@ -1,10 +1,10 @@
 package ru.open.dao;
 
 import lombok.extern.slf4j.Slf4j;
+import ru.open.entities.MSBClient;
 
 import java.sql.*;
 
-//todo заменить на препаред стейтмент
 @Slf4j
 public final class DBConnect {
     //db273
@@ -26,12 +26,14 @@ public final class DBConnect {
             "SELECT data FROM \"OperationAudit\" where \"url\" like '%mail%'  order by \"timeStart\" DESC limit 1";
 
     private static final String DELETE_CARD_ORDER =
-            "DELETE FROM tb_corporate_card WHERE organization_id = '6852f577-be14-47e8-b7eb-321cffe4d5ec'";
+            "DELETE FROM tb_corporate_card WHERE organization_id = ?";
     //contact_id(tb_contact)->tb_person_contact->tb_organization
     private static final String CURRENT_EMAIL =
-            "SELECT address FROM tb_contact WHERE contact_id = 4704";
+            "SELECT address FROM tb_contact WHERE contact_id = ?";
     private static final String PHONE_CHANGE_LOG =
             "SELECT data FROM \"OperationAudit\" where \"url\" like '%Phone%' order by \"timeStart\" DESC limit 1";
+
+
     private static Connection connectionCards;
 
     public static void openConnection() throws SQLException {
@@ -66,15 +68,20 @@ public final class DBConnect {
     }
 
     public static void deleteCardOrderStatusFromBase() throws SQLException {
-        try (Statement statement = connection.createStatement()) {
+        try (PreparedStatement statement = connection.prepareStatement(DELETE_CARD_ORDER)) {
+            statement.setInt(1, MSBClient.CONTACT_ID);
             int n = statement.executeUpdate(DELETE_CARD_ORDER);
             log.info("cardOrderDeleted {}", n);
         }
     }
 
     public static String getCurrentEmail() throws SQLException {
-        return getFirstOrNull(CURRENT_EMAIL, "address", connection);
+        PreparedStatement statement = connection.prepareStatement(CURRENT_EMAIL);
+        statement.setInt(1, MSBClient.CONTACT_ID);
+        ResultSet resultSet = statement.executeQuery();
+        return resultSet.next() ? resultSet.getString("address") : null;
     }
+
 
     public static String getEmailChangeLogs() throws SQLException {
         return getFirstOrNull(EMAIL_CHANGE_LOG, "data", connectionUIDM);

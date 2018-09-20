@@ -1,15 +1,15 @@
 Настройка пропертиз при сменах клиента:
-1-Клиент по картам(для заказа карты) -
-->DBConnect(DELETE_CARD_ORDER ->organization_id)
-2-Клиент по картам для остальных операций
-card.login, card.password
-3-Клиент на 273:
-login, password +
-(contact_id(tb_contact)->tb_person_contact->tb_organization)
-DBConnect(CURRENT_EMAIL) = contact_id = "****";
+login, password
+1 - organization_id(MSBClient class)
 select * from tb_organization where inn = '7736244337';
+2 - contact_id(MSBClient class)
 select * from tb_person where organization_id = '6852f577-be14-47e8-b7eb-321cffe4d5ec';
 select * from tb_person_contact where person_id = 'sso_____853711de-1567-4b12-b329-74869779b9f0';
+select * from tb_person_contact where person_id = 'sso_____853711de-1567-4b12-b329-74869779b9f0';
+select * from tb_contact where contact_id = '4798';
+
+
+
 
 ////////////////////
 Если сбился логин его можно найти так:

@@ -1,6 +1,7 @@
 package ru.open.helpers;
 
 import com.codeborne.selenide.SelenideElement;
+import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import ru.open.Constants;
@@ -14,6 +15,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.switchTo;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
+@Slf4j
 public final class SelenHelper {
     public void clear(String path) {
         SelenideElement selenideElement = $(By.xpath(path));
@@ -36,6 +38,7 @@ public final class SelenHelper {
 
     public String getValue(String xpath) throws IOException {
         String value = $(By.xpath(xpath)).getValue();
+        log.info(value);
         Properties properties = new Properties();
         try (FileReader fileReader = new FileReader(Constants.PROPERTY_PATH)) {
             properties.load(fileReader);

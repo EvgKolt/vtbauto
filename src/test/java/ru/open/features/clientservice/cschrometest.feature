@@ -609,6 +609,7 @@ Feature: Business portal client service
     When press button with text "thousand" on "KhabenskiyPage"
     When press button with text "next" on "KhabenskiyPage"
     When wait "10000"ms
+    When press button with text "charityAgreement" on "KhabenskiyPage"
     When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCodeForKhabensky" and save as property "smscode"
     And type to input with name "smsCode" property: "smscode" on "ActionPage"
     When wait "15000"ms

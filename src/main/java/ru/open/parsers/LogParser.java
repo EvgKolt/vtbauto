@@ -116,6 +116,8 @@ public final class LogParser {
         try (FileReader fileReader = new FileReader(Constants.PROPERTY_PATH)) {
             properties.load(fileReader);
         }
+        log.info(properties.getProperty(prop1));
+        log.info(properties.getProperty(prop2));
         assertThat(properties.getProperty(prop2),
                 containsString(properties.getProperty(prop1)));
     }

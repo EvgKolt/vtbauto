@@ -66,7 +66,7 @@ public class MyStepdefs {
             properties.load(fileReader);
         }
         open(properties.getProperty(property));
-        sleep(15000);
+        sleep(10000);
     }
 
     @And("^type to input with name \"([^\"]*)\" property: \"([^\"]*)\" on \"([^\"]*)\"$")
@@ -147,7 +147,7 @@ public class MyStepdefs {
 
     @Then("^verify that page with url \"([^\"]*)\" is opened$")
     public void verifyThatPageWithUrlIsOpened(String verifyUrl) throws InterruptedException {
-        sleep(2000);
+        sleep(10000);
         String currentUrl = url();
         assertThat(currentUrl, containsString(verifyUrl));
     }
