@@ -240,6 +240,7 @@ Feature: Business portal client service
     When press button with text "resendCode" on "LoginPage"
     When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCode" and save as property "smscode"
     When press button with text "smsCode" on "LoginPage"
+    When wait "3000"ms
     When execute method "typeLeft" from class "ru.open.helpers.Keyboard" on ""
     When wait "1000"ms
     When execute method "typeLeft" from class "ru.open.helpers.Keyboard" on ""
