@@ -3,6 +3,7 @@ package ru.open.parsers;
 import lombok.extern.slf4j.Slf4j;
 import ru.open.Constants;
 import ru.open.dao.DBConnect;
+import ru.open.entities.MSBClient;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -45,7 +46,7 @@ public final class LogParser {
             String result = "";
             String line;
             while ((line = bufferedReader.readLine()) != null) {
-                if (line.contains("N") && line.contains("*0241")) {
+                if (line.contains("N") && line.contains(MSBClient.ACC_LAST_NUMBER)) {
                     result = line;
                 }
             }
