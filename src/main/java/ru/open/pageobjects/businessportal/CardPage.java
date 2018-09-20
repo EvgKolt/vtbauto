@@ -104,13 +104,13 @@ public class CardPage extends AbstractPage {
     @FindBy(xpath = "//*[contains(text(),'Белоконь')]")
     private SelenideElement card;
 
-    @FindBy(xpath = "//div[contains(@class, 'btn-container primary-btn__active label-as-text')]")
+    @FindBy(xpath = "//*[contains(text(),'Пополнить карту')]")
     private SelenideElement replenishment;
 
     @FindBy(xpath = "(//div[contains(@class, 'input-ui')]/input)[1]")
     private SelenideElement sum;
 
-    @FindBy(xpath = "(//button[contains(@class, 'btn-wrapper')]/div[contains(@class, 'btn-container primary-btn__active label-as-text')])[2]")
+    @FindBy(xpath = "//*[contains(text(),'Далее')]")
     private SelenideElement nextStep;
 
     @FindBy(xpath = "//div[contains(@class, 'drawer__left')]/div[2]/div[3]/div")
@@ -155,7 +155,7 @@ public class CardPage extends AbstractPage {
     @FindBy(xpath = "//*[contains(text(), 'Сохранить')]")
     private SelenideElement saveRequisites;
 
-    @FindBy(xpath = "(//div[contains(@class, 'btn-container primary-btn__active label-as-text')])[2]")
+    @FindBy(xpath = "//*[contains(text(),'Закрыть')]")
     private SelenideElement close;
 
     @FindBy(xpath = "//input[@id='email']")
