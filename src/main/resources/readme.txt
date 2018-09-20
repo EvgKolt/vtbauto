@@ -7,6 +7,7 @@ select * from tb_person where organization_id = '6852f577-be14-47e8-b7eb-321cffe
 select * from tb_person_contact where person_id = 'sso_____853711de-1567-4b12-b329-74869779b9f0';
 select * from tb_person_contact where person_id = 'sso_____853711de-1567-4b12-b329-74869779b9f0';
 select * from tb_contact where contact_id = '4798';
+3 - acclastnumber(MSBClient) - last 4 numbers of card account
 
 
 
