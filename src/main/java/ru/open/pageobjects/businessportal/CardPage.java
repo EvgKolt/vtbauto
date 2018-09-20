@@ -86,7 +86,7 @@ public class CardPage extends AbstractPage {
     @FindBy(xpath = "//input[@id='city']")
     private SelenideElement placeOfBirth;
 
-    @FindBy(xpath = "//div[contains(@class, 'col-xs-12')]/button[contains(@class, 'btn-wrapper')][1]/div[contains(@class, 'btn-container primary-btn__active label-as-text')]")
+    @FindBy(xpath = "(//*[contains(text(), 'Заказать карту')])[2]")
     private SelenideElement getCard;
 
     @FindBy(xpath = "//input")
@@ -163,6 +163,9 @@ public class CardPage extends AbstractPage {
 
     @FindBy(xpath = "//input[@id='phone']")
     private SelenideElement phone;
+
+    @FindBy(xpath = "//div[contains(@class, 'input-container_files')]")
+    private SelenideElement downloadImg;
 
 
 }
