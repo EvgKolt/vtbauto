@@ -24,7 +24,6 @@ public final class DBConnect {
     private static Connection connectionUIDM;
     private static final String EMAIL_CHANGE_LOG =
             "SELECT data FROM \"OperationAudit\" where \"url\" like '%mail%'  order by \"timeStart\" DESC limit 1";
-
     private static final String DELETE_CARD_ORDER =
             "DELETE FROM tb_corporate_card WHERE organization_id = ?";
     //contact_id(tb_contact)->tb_person_contact->tb_organization
@@ -69,17 +68,18 @@ public final class DBConnect {
 
     public static void deleteCardOrderStatusFromBase() throws SQLException {
         try (PreparedStatement statement = connection.prepareStatement(DELETE_CARD_ORDER)) {
-            statement.setInt(1, MSBClient.CONTACT_ID);
-            int n = statement.executeUpdate(DELETE_CARD_ORDER);
+            statement.setString(1, MSBClient.ORGANIZATION_ID);
+            int n = statement.executeUpdate();
             log.info("cardOrderDeleted {}", n);
         }
     }
 
     public static String getCurrentEmail() throws SQLException {
-        PreparedStatement statement = connection.prepareStatement(CURRENT_EMAIL);
-        statement.setInt(1, MSBClient.CONTACT_ID);
-        ResultSet resultSet = statement.executeQuery();
-        return resultSet.next() ? resultSet.getString("address") : null;
+        try (PreparedStatement statement = connection.prepareStatement(CURRENT_EMAIL)) {
+            statement.setInt(1, MSBClient.CONTACT_ID);
+            ResultSet resultSet = statement.executeQuery();
+            return resultSet.next() ? resultSet.getString("address") : null;
+        }
     }
 
 
