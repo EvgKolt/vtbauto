@@ -5,6 +5,9 @@ import ru.open.entities.MSBClient;
 
 import java.sql.*;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.StringContains.containsString;
+
 @Slf4j
 public final class DBConnect {
     //db273
@@ -22,6 +25,8 @@ public final class DBConnect {
 
     private static Connection connection;
     private static Connection connectionUIDM;
+    private static final String SET_CARD_STATUS =
+            "UPDATE tb_corporate_card SET status = ? WHERE organization_id = ?";
     private static final String EMAIL_CHANGE_LOG =
             "SELECT data FROM \"OperationAudit\" where \"url\" like '%mail%'  order by \"timeStart\" DESC limit 1";
     private static final String DELETE_CARD_ORDER =
@@ -31,8 +36,8 @@ public final class DBConnect {
             "SELECT address FROM tb_contact WHERE contact_id = ?";
     private static final String PHONE_CHANGE_LOG =
             "SELECT data FROM \"OperationAudit\" where \"url\" like '%Phone%' order by \"timeStart\" DESC limit 1";
-
-
+    private static final String GET_CARD_STATUS =
+            "SELECT status FROM tb_corporate_card WHERE organization_id = ?";
     private static Connection connectionCards;
 
     public static void openConnection() throws SQLException {
@@ -82,6 +87,28 @@ public final class DBConnect {
         }
     }
 
+    public static void verifyCardStatus(String status) throws SQLException {
+        try (PreparedStatement statement = connection.prepareStatement(GET_CARD_STATUS)) {
+            statement.setString(1, MSBClient.ORGANIZATION_ID);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                assertThat(resultSet.getString("status"), containsString(status));
+                log.info("status ok");
+            } else {
+                log.info("mistake!! \"SELECT status FROM tb_corporate_card WHERE organization_id = ?\"");
+                throw new IllegalArgumentException();
+            }
+        }
+    }
+
+    public static void setCardStatus(String status) throws SQLException {
+        try (PreparedStatement statement = connection.prepareStatement(SET_CARD_STATUS)) {
+            statement.setString(1, status);
+            statement.setString(2, MSBClient.ORGANIZATION_ID);
+            statement.executeUpdate();
+            log.info(status + " status set");
+        }
+    }
 
     public static String getEmailChangeLogs() throws SQLException {
         return getFirstOrNull(EMAIL_CHANGE_LOG, "data", connectionUIDM);
