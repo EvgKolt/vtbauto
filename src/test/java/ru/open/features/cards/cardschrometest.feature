@@ -2,7 +2,7 @@
 Feature: Business portal card service
 
   @cleancookies
-  Scenario: Order card on BP#217560
+  Scenario: Order card on BP#217560 and status checking #217603
 
     Given open link from property "business.portal.link"
     When execute method "deleteCardOrderStatusFromBase" from class "ru.open.dao.DBConnect" on ""
@@ -49,10 +49,30 @@ Feature: Business portal card service
     And type to input with name "smsCode" property: "smscode" on "CardPage"
     When press button with text "sign" on "CardPage"
     When wait "35000"ms
+    When execute method "refreshPage" from class "ru.open.helpers.SelenHelper" on ""
     Then verify that element with text "inWork" "exists" on "CardPage"
     Then verify that element with text "waitForAccount" "exists" on "CardPage"
-    When press button with text "signOut" on "MainPage"
     When wait "10000"ms
+    When execute method "verifyCardStatus" from class "ru.open.dao.DBConnect" on "REQUEST_IS_IN_WORK"
+    When wait "10000"ms
+    When execute method "setCardStatus" from class "ru.open.dao.DBConnect" on "RETURN_APPLICATION_FOR_REVISION"
+    When wait "10000"ms
+    When execute method "refreshPage" from class "ru.open.helpers.SelenHelper" on ""
+    Then verify that element with text "needInfo" "exists" on "CardPage"
+    Then verify that element with text "waitForAccount" "exists" on "CardPage"
+    When execute method "setCardStatus" from class "ru.open.dao.DBConnect" on "REFUSAL_BANK"
+    When wait "10000"ms
+    When execute method "refreshPage" from class "ru.open.helpers.SelenHelper" on ""
+    Then verify that element with text "cantOpenCard" "exists" on "CardPage"
+    When execute method "setCardStatus" from class "ru.open.dao.DBConnect" on "REQUEST_ERROR"
+    When wait "10000"ms
+    When execute method "refreshPage" from class "ru.open.helpers.SelenHelper" on ""
+    Then verify that element with text "orderCard" "exists" on "CardPage"
+    When execute method "setCardStatus" from class "ru.open.dao.DBConnect" on "CANCELED_CLIENT"
+    When wait "10000"ms
+    When execute method "refreshPage" from class "ru.open.helpers.SelenHelper" on ""
+    Then verify that element with text "orderCard" "exists" on "CardPage"
+    When press button with text "signOut" on "MainPage"
     When execute method "deleteCardOrderStatusFromBase" from class "ru.open.dao.DBConnect" on ""
 
   @cleancookies
@@ -77,7 +97,6 @@ Feature: Business portal card service
     When press button with text "signOut" on "MainPage"
     When wait "5000"ms
 
-
   @cleancookies
   Scenario: check Card account's requisites#218188
 
@@ -98,82 +117,41 @@ Feature: Business portal card service
     Then verify that element with text "bik" "exists" on "CardPage"
     Then verify that element with text "saveRequisites" "exists" on "CardPage"
 
+  @cleancookies
+  Scenario: check Card's display#220933
+
+    Given open link from property "business.portal.link"
+    And type to input with name "userName" property: "login.card" on "LoginPage"
+    And type to input with name "password" property: "password.card" on "LoginPage"
+    When press button with text "signIn" on "LoginPage"
+    When wait "20000"ms
+    When press button with text "businessCards" on "CardPage"
+    When wait "10000"ms
+    Then verify that element with text "vizElemO" "exists" on "CardPage"
+    Then verify that element with text "vizElemN" "exists" on "CardPage"
+    Then verify that element with text "vizElemM" "exists" on "CardPage"
+    Then verify that element with text "vizElemL" "exists" on "CardPage"
+    Then verify that element with text "vizElemK" "exists" on "CardPage"
+    Then verify that element with text "vizElemJ" "exists" on "CardPage"
+    Then verify that element with text "vizElemI" "exists" on "CardPage"
+    Then verify that element with text "vizElemG" "exists" on "CardPage"
+    When press button with text "card" on "CardPage"
+    When wait "10000"ms
+    Then verify that element with text "vizElemA" "exists" on "CardPage"
+    Then verify that element with text "vizElemB" "exists" on "CardPage"
+    Then verify that element with text "vizElemC" "exists" on "CardPage"
+    Then verify that element with text "vizElemD" "exists" on "CardPage"
+    Then verify that element with text "vizElemE" "exists" on "CardPage"
+    Then verify that element with text "vizElemF" "exists" on "CardPage"
+
 #
-#  Scenario: check validation for fields on card order#221003
-#
-#    Given open link from property "business.portal.link.cards"
-#    And type to input with name "userName" property: "cards.login1" on "LoginPage"
-#    And type to input with name "password" property: "cards.password1" on "LoginPage"
+#  @cleancookies
+#  Scenario: Account renaming #223412
+#    Given open link from property "business.portal.link"
+#    And type to input with name "userName" property: "login.card" on "LoginPage"
+#    And type to input with name "password" property: "password.card" on "LoginPage"
 #    When press button with text "signIn" on "LoginPage"
 #    When wait "20000"ms
-
-
-
-#  Scenario: Check status "closed_refuse_client"#217603
-#    #bugs todo доделать проверку статусов
-#    When wait "3000"ms
-#    Given open link from property "shugar.link"
-#    And type to input with name "login" property: "shugar.login" on "ShugarLoginPage"
-#    And type to input with name "password" property: "shugar.password" on "ShugarLoginPage"
-#    When press button with text "signIn" on "ShugarLoginPage"
-#    When press button with text "different" on "ShugarMenuPage"
-#    When press button with text "accounts" on "ShugarMenuPage"
-#    When press button with text "searchAdvanced" on "ShugarActionPage"
-#    When wait "5000"ms
-#    When execute method "clear" from class "ru.open.helpers.SelenHelper" on "//input[@id='inn_advanced']"
-#    And type to input with name "inn" property: "cards.login1" on "ShugarActionPage"
-#    When press button with text "requestType" on "ShugarActionPage"
-#    When press button with text "search" on "ShugarActionPage"
-#    When press button with text "firstResult" on "CardPage"
-#    Then verify that element with text "inWork" "exists" on "ShugarActionPage"
-#    When press button with text "changeStatus" on "ShugarActionPage"
-#    When press button with text "statusMenu" on "ShugarActionPage"
-#    When press button with text "statusMenuOption1" on "ShugarActionPage"
-#    When press button with text "saveStatus" on "ShugarActionPage"
-#    Given open link from property "business.portal.link.cards"
-#    And type to input with name "userName" property: "cards.login1" on "LoginPage"
-#    And type to input with name "password" property: "cards.password1" on "LoginPage"
-#    When press button with text "signIn" on "LoginPage"
-#    When wait "5000"ms
-#    When press button with text "businessCards" on "CardPage"
-#    Then VERIFY!TODO
-
-#  Scenario: Check status "inWork"#217603
-#    #bugs todo доделать проверку статусов
-#    When wait "3000"ms
-#    Given open link from property "shugar.link"
-#    And type to input with name "login" property: "shugar.login" on "ShugarLoginPage"
-#    And type to input with name "password" property: "shugar.password" on "ShugarLoginPage"
-#    When press button with text "signIn" on "ShugarLoginPage"
-#    When press button with text "different" on "ShugarMenuPage"
-#    When press button with text "accounts" on "ShugarMenuPage"
-#    When press button with text "searchAdvanced" on "ShugarActionPage"
-#    When wait "5000"ms
-#    When execute method "clear" from class "ru.open.helpers.SelenHelper" on "//input[@id='inn_advanced']"
-#    And type to input with name "inn" property: "cards.login1" on "ShugarActionPage"
-#    When press button with text "requestType" on "ShugarActionPage"
-#    When press button with text "search" on "ShugarActionPage"
-#    When press button with text "firstResult" on "CardPage"
-#    Then verify that element with text "inWork" "exists" on "ShugarActionPage"
-#    When press button with text "changeStatus" on "ShugarActionPage"
-#    When press button with text "statusMenu" on "ShugarActionPage"
-#    When press button with text "statusMenuOption1" on "ShugarActionPage"
-#    When press button with text "saveStatus" on "ShugarActionPage"
-#    Given open link from property "business.portal.link.cards"
-#    And type to input with name "userName" property: "cards.login1" on "LoginPage"
-#    And type to input with name "password" property: "cards.password1" on "LoginPage"
-#    When press button with text "signIn" on "LoginPage"
-#    When wait "5000"ms
-#    When press button with text "businessCards" on "CardPage"
-#    Then VERIFY!TODO
-
-
-
-
-
-
-
-
 
 
 
