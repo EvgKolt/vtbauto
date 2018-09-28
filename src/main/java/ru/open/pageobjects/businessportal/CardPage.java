@@ -167,5 +167,51 @@ public class CardPage extends AbstractPage {
     @FindBy(xpath = "//div[contains(@class, 'input-container_files')]")
     private SelenideElement downloadImg;
 
+    @FindBy(xpath = "//*[contains(text(),'По вашей заявке необходима дополнительная информация')]")
+    private SelenideElement needInfo;
 
+    @FindBy(xpath = "//*[contains(text(),'Открыть корпоративную карту невозможно')]")
+    private SelenideElement cantOpenCard;
+
+    @FindBy(xpath = "//span[contains(@class, 'card-custom__name')]")
+    private SelenideElement vizElemA;
+
+    @FindBy(xpath = "//div[contains(@class, 'btn-container btn-container_primary-btn label-as-text')]")
+    private SelenideElement vizElemB;
+
+    @FindBy(xpath = "//a[contains(@class, 'card-info__link')]")
+    private SelenideElement vizElemC;
+
+    @FindBy(xpath = "//h2")
+    private SelenideElement vizElemD;
+
+    @FindBy(xpath = "//p")
+    private SelenideElement vizElemE;
+
+    @FindBy(xpath = "//h3")
+    private SelenideElement vizElemF;
+
+    @FindBy(xpath = "//*[contains(text(),'Последние операции')]")
+    private SelenideElement vizElemG;
+
+    @FindBy(xpath = "//div[contains(@class, 'timeline__date timeline__date_first row middle-xs between-xs')]/div[contains(@class, 'col-xs-3')]")
+    private SelenideElement vizElemI;
+
+    @FindBy(xpath = "//div[contains(@class, 'account-name')]/a")
+    private SelenideElement vizElemJ;
+
+    @FindBy(xpath = "//span[contains(@class, 'toolbar__balance')]/span[contains(@class, 'finance')]/span[1]")
+    private SelenideElement vizElemK;
+
+    @FindBy(xpath = "//a[contains(@class, 'toolbar-link')]")
+    private SelenideElement vizElemL;
+
+    @FindBy(xpath = "//*[contains(text(),'Пополнение')]")
+    private SelenideElement vizElemM;
+
+    @FindBy(xpath = "//*[contains(text(),'Расходы')]")
+    private SelenideElement vizElemN;
+
+    @FindBy(xpath = "//div[contains(@class, 'toolbar__card')]")
+    private SelenideElement vizElemO;
 }
