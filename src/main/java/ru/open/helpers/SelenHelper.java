@@ -4,8 +4,10 @@ import com.codeborne.selenide.SelenideElement;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Point;
 import ru.open.Constants;
 
+import java.awt.*;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -14,6 +16,8 @@ import java.util.Properties;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.switchTo;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.StringContains.containsString;
 
 @Slf4j
 public final class SelenHelper {
@@ -50,7 +54,18 @@ public final class SelenHelper {
         return value;
     }
 
-    public void fillIfemty(String propField) {
-
+    public void verifyElementFromtmp() throws IOException, AWTException {
+        Properties properties = new Properties();
+        try (FileReader fileReader = new FileReader(Constants.PROPERTY_PATH)) {
+            properties.load(fileReader);
+        }
+        String tmp = properties.getProperty("tmp");
+        String xpath = "(//*[contains(text(),'" + tmp + "')])[2]";
+        SelenideElement selenideElement = $(By.xpath(xpath));
+        Point coordinates = selenideElement.getLocation();
+        Robot robot = new Robot();
+        robot.mouseMove(coordinates.getX(), coordinates.getY());
+        log.info($(By.xpath(xpath)).getValue());
+        assertThat($(By.xpath(xpath)).getValue(), containsString(tmp));
     }
 }

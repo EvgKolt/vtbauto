@@ -1,6 +1,7 @@
 package ru.open.helpers;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.RandomStringUtils;
 import ru.open.dao.DBConnect;
 
 import java.sql.SQLException;
@@ -32,6 +33,10 @@ public final class TextGenerator {
         return UUID.randomUUID().toString().replaceAll("-", "").substring(SUBINDEX);
     }
 
+    public String generateSecretWord() {
+        int stringLength = 10;
+        return RandomStringUtils.randomAlphabetic(stringLength);
+    }
 }
 
 

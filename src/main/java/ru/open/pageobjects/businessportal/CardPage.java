@@ -214,4 +214,11 @@ public class CardPage extends AbstractPage {
 
     @FindBy(xpath = "//div[contains(@class, 'toolbar__card')]")
     private SelenideElement vizElemO;
+
+    @FindBy(xpath = "//div[contains(@class, 'account-name')]/a")
+    private SelenideElement accountName;
+
+    @FindBy(xpath = "//input")
+    private SelenideElement accountNameInput;
+
 }
