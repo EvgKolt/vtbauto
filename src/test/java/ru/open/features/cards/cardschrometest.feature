@@ -144,14 +144,31 @@ Feature: Business portal card service
     Then verify that element with text "vizElemE" "exists" on "CardPage"
     Then verify that element with text "vizElemF" "exists" on "CardPage"
 
-#
-#  @cleancookies
-#  Scenario: Account renaming #223412
-#    Given open link from property "business.portal.link"
-#    And type to input with name "userName" property: "login.card" on "LoginPage"
-#    And type to input with name "password" property: "password.card" on "LoginPage"
-#    When press button with text "signIn" on "LoginPage"
-#    When wait "20000"ms
+
+  @cleancookies
+  Scenario: Account renaming #223412
+    Given open link from property "business.portal.link"
+    And type to input with name "userName" property: "login.card" on "LoginPage"
+    And type to input with name "password" property: "password.card" on "LoginPage"
+    When press button with text "signIn" on "LoginPage"
+    When wait "20000"ms
+    When press button with text "businessCards" on "CardPage"
+    When press button with text "accountName" on "CardPage"
+    When execute method "clear" from class "ru.open.helpers.SelenHelper" on "//input"
+    When get param from class "ru.open.helpers.TextGenerator" by method "generateSecretWord" and save as property "secret.word"
+    When wait "10000"ms
+    And type to input with name "accountNameInput" property: "secret.word" on "CardPage"
+    When wait "5000"ms
+    When execute method "typeEnter" from class "ru.open.helpers.Keyboard" on ""
+    When wait "5000"ms
+    When execute method "refreshPage" from class "ru.open.helpers.SelenHelper" on ""
+    When press button with text "accountName" on "CardPage"
+    When execute method "getValue" from class "ru.open.helpers.SelenHelper" on "//input"
+    When execute method "compareProperties" from class "ru.open.parsers.LogParser" on "tmp,secret.word"
+    When wait "5000"ms
+    When press button with text "myAccounts" on "MainPage"
+    When execute method "verifyElementFromtmp" from class "ru.open.helpers.SelenHelper" on ""
+
 
 
 
