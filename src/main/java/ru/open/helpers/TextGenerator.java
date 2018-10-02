@@ -35,7 +35,7 @@ public final class TextGenerator {
 
     public String generateSecretWord() {
         int stringLength = 10;
-        return RandomStringUtils.randomAlphabetic(stringLength);
+        return RandomStringUtils.randomAlphabetic(stringLength).toUpperCase();
     }
 }
 
