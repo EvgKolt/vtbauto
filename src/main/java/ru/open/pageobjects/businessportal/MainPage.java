@@ -11,7 +11,7 @@ public class MainPage extends AbstractPage {
     @FindBy(xpath = "//button[contains(@class, 'topbar__logout')]")
     private SelenideElement signOut;
 
-    @FindBy(xpath = "//a[contains(@class, 'active')]")
+    @FindBy(xpath = "//*[contains(text(),'Мои счета')]")
     private SelenideElement myAccounts;
 
     @FindBy(xpath = "//a[contains(@href,'messages')]")
