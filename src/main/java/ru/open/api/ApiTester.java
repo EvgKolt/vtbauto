@@ -8,7 +8,7 @@ public class ApiTester {
     public void checkStatusCodeGET(String uri) {
         //header helps to ignore authorisation
         given().
-                header("Authorization", "Bearer dev_1.0_sso_____00a596c0-30ea-484c-8901-cefe36c31799").
+                header("Authorization", "Bearer dev_1.0_sso_____4060f58f-8b5f-4564-b339-8c1531cf0eaa").
                 when().get(uri).then().statusCode(200);
     }
 
