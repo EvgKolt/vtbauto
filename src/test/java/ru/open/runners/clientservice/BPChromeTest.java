@@ -32,7 +32,31 @@ import static com.codeborne.selenide.WebDriverRunner.setWebDriver;
 )
 
 public class BPChromeTest {
+    @BeforeClass
+    static public void setupTimeout() throws SQLException {
+        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--incognito");
+        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+        System.setProperty("file.encoding", "UTF-8");
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/webdrivers/chromedriver.exe");
+        Configuration.timeout = 10000;
+        Configuration.reportsFolder = "C:\\Jenkins513\\workspace\\MSB-Portal\\CucumberTests\\target\\cucumber-html-reports";
+        ChromeDriver driver = new ChromeDriver(capabilities);
+        setWebDriver(driver);
+        driver.manage().window().maximize();
+        DBConnect.openConnection();
+        DBConnect.openConnectionUIDM();
+        DBConnect.openConnectionCards();
 
+    }
+
+    @AfterClass
+    static public void doAfter() {
+        getWebDriver().quit();
+        //getWebDriver().close();
+        DBConnect.closeConnections();
+    }
 }
 
 
