@@ -14,7 +14,7 @@ public class MainPage extends AbstractPage {
     @FindBy(xpath = "//*[contains(text(),'Мои счета')]")
     private SelenideElement myAccounts;
 
-    @FindBy(xpath = "//a[contains(@href,'messages')]")
+    @FindBy(xpath = "//*[contains(text(),'Письма')]")
     private SelenideElement letters;
 
     @FindBy(xpath = "//button[@class='button_main' and contains(., 'Новый платеж')]")
