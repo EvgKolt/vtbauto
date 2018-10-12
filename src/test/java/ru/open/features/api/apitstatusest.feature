@@ -8,8 +8,8 @@ Feature: Business portal api tests
 #  Scenario: ACCOUNT_CONTROLLER #GET account statement
 #    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/accounts/2767/statement?format=TXT&from=2018-08-10&print=false&to=2018-09-13"
 
-  Scenario: ACCOUNT_CONTROLLER #GET negativeOperationPage
-    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/accounts/2185/negativeOperations?pageNumber=1&pageSize=1"
+#  Scenario: ACCOUNT_CONTROLLER #GET negativeOperationPage
+#    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/accounts/2185/negativeOperations?pageNumber=1&pageSize=1"
 
   Scenario: ACCOUNT_CONTROLLER #GET requisites
     Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/accounts/2185/requisites"
@@ -17,11 +17,11 @@ Feature: Business portal api tests
   Scenario: ACCOUNT_ENROLLMENT_CONTROLLER #GET list of applications for opening an account
     Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/accountEnrolments"
 
-  Scenario: ACCOUNT_ENROLLMENT_CONTROLLER #GET HtmlForm
-    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/accountEnrolments/1624/form"
+#  Scenario: ACCOUNT_ENROLLMENT_CONTROLLER #GET HtmlForm
+#    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/accountEnrolments/1624/form"
 
-  Scenario: ACCOUNT_ENROLLMENT_CONTROLLER #GET Persons
-    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/accountEnrolments/1624/persons"
+#  Scenario: ACCOUNT_ENROLLMENT_CONTROLLER #GET Persons
+#    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/accountEnrolments/1624/persons"
 
   Scenario: BANK_CONTROLLER #GET list of banks
     Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/banks"
@@ -71,8 +71,8 @@ Feature: Business portal api tests
   Scenario: DICTIONARY_CONTROLLER #GET dictionary
     Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/dictionaries/2"
 
-  Scenario: DOCUMENT_BUNDLE_CONTROLLER #GET document bundle
-    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/documentBundles/9f021964-b0f2-4fb0-b9ae-7ed55c10f0df"
+#  Scenario: DOCUMENT_BUNDLE_CONTROLLER #GET document bundle
+#    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/documentBundles/9f021964-b0f2-4fb0-b9ae-7ed55c10f0df"
 
   Scenario: MESSAGE_CONTROLLER #GET all messages
     Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/messages?pageNumber=1&pageSize=1"
@@ -95,8 +95,8 @@ Feature: Business portal api tests
   Scenario: ORGANIZATION_CONTROLLER #GET organization
     Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/km/orgs?fetchPersonId=true&inn=7721564013"
 
-  Scenario: PAYMENT_CONTROLLER #GET payment
-    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/payments/7648"
+#  Scenario: PAYMENT_CONTROLLER #GET payment
+#    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/payments/7648"
 
   Scenario: PAYMENT_PATTERN_CONTROLLER #GET payment pattern list
     Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/paymentTemplates?template=false"
