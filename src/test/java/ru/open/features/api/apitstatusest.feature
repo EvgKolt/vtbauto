@@ -11,8 +11,8 @@ Feature: Business portal api tests
 #  Scenario: ACCOUNT_CONTROLLER #GET negativeOperationPage
 #    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/accounts/2185/negativeOperations?pageNumber=1&pageSize=1"
 
-  Scenario: ACCOUNT_CONTROLLER #GET requisites
-    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/accounts/2185/requisites"
+#  Scenario: ACCOUNT_CONTROLLER #GET requisites
+#    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/accounts/2185/requisites"
 
   Scenario: ACCOUNT_ENROLLMENT_CONTROLLER #GET list of applications for opening an account
     Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/accountEnrolments"
