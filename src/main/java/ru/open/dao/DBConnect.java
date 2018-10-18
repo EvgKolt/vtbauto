@@ -73,7 +73,7 @@ public final class DBConnect {
 
     public static void deleteCardOrderStatusFromBase() throws SQLException {
         try (PreparedStatement statement = connection.prepareStatement(DELETE_CARD_ORDER)) {
-            statement.setString(1, MSBClient.ORGANIZATION_ID);
+            statement.setString(1, MSBClient.ORGANIZATION_ID_CARD);
             int n = statement.executeUpdate();
             log.info("cardOrderDeleted {}", n);
         }
