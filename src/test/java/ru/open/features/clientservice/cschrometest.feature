@@ -146,7 +146,7 @@ Feature: Business portal client service
     And type to input with name "userName" property: "login" on "LoginPage"
     And type to input with name "password" property: "password" on "LoginPage"
     When press button with text "signIn" on "LoginPage"
-    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
+    Then verify that page with url "http://rumskapt273.open.ru/app/accounts" is opened
     When press button with text "signOut" on "MainPage"
 
   @cleancookies
@@ -156,7 +156,7 @@ Feature: Business portal client service
     And type to input with name "userName" property: "login" on "LoginPage"
     And type to input with name "password" property: "password" on "LoginPage"
     When press button with text "signIn" on "LoginPage"
-    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
+    Then verify that page with url "http://rumskapt273.open.ru/app/accounts" is opened
     When press button with text "signOut" on "MainPage"
     Then verify that page with url "http://rumskapt273.open.ru/273/login" is opened
 
@@ -221,7 +221,7 @@ Feature: Business portal client service
     When press button with text "settings" on "MainPage"
     Then verify that element with text "phone" contains property "phone" on "ActionPage"
     When press button with text "close" on "ActionPage"
-    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
+    Then verify that page with url "http://rumskapt273.open.ru/app/accounts" is opened
     When press button with text "signOut" on "MainPage"
     When execute method "verifyUidmLogs" from class "ru.open.parsers.LogParser" on ""
 
@@ -259,7 +259,7 @@ Feature: Business portal client service
     And type to input with name "userName" property: "login" on "LoginPage"
     And type to input with name "password" property: "password" on "LoginPage"
     When press button with text "signIn" on "LoginPage"
-    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
+    Then verify that page with url "http://rumskapt273.open.ru/app/accounts" is opened
     When press button with text "signOut" on "MainPage"
 
   @cleancookies
@@ -298,7 +298,7 @@ Feature: Business portal client service
     And type to input with name "userName" property: "signer.login" on "LoginPage"
     And type to input with name "password" property: "signer.password" on "LoginPage"
     When press button with text "signIn" on "LoginPage"
-    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
+    Then verify that page with url "http://rumskapt273.open.ru/app/accounts" is opened
     When press button with text "signOut" on "MainPage"
 
   @cleancookies
@@ -322,7 +322,7 @@ Feature: Business portal client service
     And type to input with name "userName" property: "login" on "LoginPage"
     And type to input with name "password" property: "password.validation1" on "LoginPage"
     When press button with text "signIn" on "LoginPage"
-    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
+    Then verify that page with url "http://rumskapt273.open.ru/app/accounts" is opened
     When press button with text "signOut" on "MainPage"
 
     Given open link from property "business.portal.link"
@@ -343,7 +343,7 @@ Feature: Business portal client service
     And type to input with name "userName" property: "login" on "LoginPage"
     And type to input with name "password" property: "password.validation2" on "LoginPage"
     When press button with text "signIn" on "LoginPage"
-    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
+    Then verify that page with url "http://rumskapt273.open.ru/app/accounts" is opened
     When press button with text "signOut" on "MainPage"
 
     Given open link from property "business.portal.link"
@@ -364,7 +364,7 @@ Feature: Business portal client service
     And type to input with name "userName" property: "login" on "LoginPage"
     And type to input with name "password" property: "password.validation3" on "LoginPage"
     When press button with text "signIn" on "LoginPage"
-    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
+    Then verify that page with url "http://rumskapt273.open.ru/app/accounts" is opened
     When press button with text "signOut" on "MainPage"
 
     Given open link from property "business.portal.link"
@@ -385,7 +385,7 @@ Feature: Business portal client service
     And type to input with name "userName" property: "login" on "LoginPage"
     And type to input with name "password" property: "password.validation4" on "LoginPage"
     When press button with text "signIn" on "LoginPage"
-    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
+    Then verify that page with url "http://rumskapt273.open.ru/app/accounts" is opened
     When press button with text "signOut" on "MainPage"
 
     Given open link from property "business.portal.link"
@@ -406,7 +406,7 @@ Feature: Business portal client service
     And type to input with name "userName" property: "login" on "LoginPage"
     And type to input with name "password" property: "password.validation5" on "LoginPage"
     When press button with text "signIn" on "LoginPage"
-    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
+    Then verify that page with url "http://rumskapt273.open.ru/app/accounts" is opened
     When press button with text "signOut" on "MainPage"
 
     Given open link from property "business.portal.link"
@@ -427,7 +427,7 @@ Feature: Business portal client service
     And type to input with name "userName" property: "login" on "LoginPage"
     And type to input with name "password" property: "password.validation6" on "LoginPage"
     When press button with text "signIn" on "LoginPage"
-    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
+    Then verify that page with url "http://rumskapt273.open.ru/app/accounts" is opened
     When press button with text "signOut" on "MainPage"
 
     Given open link from property "business.portal.link"
@@ -448,7 +448,7 @@ Feature: Business portal client service
     And type to input with name "userName" property: "login" on "LoginPage"
     And type to input with name "password" property: "password.validation7" on "LoginPage"
     When press button with text "signIn" on "LoginPage"
-    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
+    Then verify that page with url "http://rumskapt273.open.ru/app/accounts" is opened
     When press button with text "signOut" on "MainPage"
 
     Given open link from property "business.portal.link"
@@ -469,7 +469,7 @@ Feature: Business portal client service
     And type to input with name "userName" property: "login" on "LoginPage"
     And type to input with name "password" property: "password.validation8" on "LoginPage"
     When press button with text "signIn" on "LoginPage"
-    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
+    Then verify that page with url "http://rumskapt273.open.ru/app/accounts" is opened
     When press button with text "signOut" on "MainPage"
 
   #need to refresh password after tests, so just restore pass again
@@ -494,7 +494,7 @@ Feature: Business portal client service
     And type to input with name "userName" property: "login" on "LoginPage"
     And type to input with name "password" property: "password" on "LoginPage"
     When press button with text "signIn" on "LoginPage"
-    Then verify that page with url "http://rumskapt273.open.ru/main" is opened
+    Then verify that page with url "http://rumskapt273.open.ru/app/accounts" is opened
     When press button with text "signOut" on "MainPage"
 
   @cleancookies
@@ -504,7 +504,7 @@ Feature: Business portal client service
     And type to input with name "userName" property: "login" on "LoginPage"
     And type to input with name "password" property: "password" on "LoginPage"
     When press button with text "signIn" on "LoginPage"
-    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
+    Then verify that page with url "http://rumskapt273.open.ru/app/accounts" is opened
     When press button with text "settings" on "MainPage"
     When press button with text "changeLogin" on "ActionPage"
     And type to input with name "currentPass" property: "password" on "ActionPage"
@@ -519,7 +519,7 @@ Feature: Business portal client service
     And type to input with name "userName" property: "login" on "LoginPage"
     And type to input with name "password" property: "password" on "LoginPage"
     When press button with text "signIn" on "LoginPage"
-    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
+    Then verify that page with url "http://rumskapt273.open.ru/app/accounts" is opened
     When press button with text "signOut" on "MainPage"
 
   @cleancookies
@@ -529,7 +529,7 @@ Feature: Business portal client service
     And type to input with name "userName" property: "login" on "LoginPage"
     And type to input with name "password" property: "password" on "LoginPage"
     When press button with text "signIn" on "LoginPage"
-    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
+    Then verify that page with url "http://rumskapt273.open.ru/app/accounts" is opened
     When press button with text "settings" on "MainPage"
     When get param from class "ru.open.helpers.TextGenerator" by method "generateEmail" and save as property "email"
     When press button with text "changeEmail" on "ActionPage"
@@ -545,7 +545,7 @@ Feature: Business portal client service
     Then execute method "getValue" from class "ru.open.helpers.SelenHelper" on "(//div[contains(@class, 'col-xs-9')]//div[contains(@class, 'input-ui__ok')]/input)[1]"
     Then execute method "compareProperties" from class "ru.open.parsers.LogParser" on "tmp,email"
     When press button with text "close" on "ActionPage"
-    Then verify that page with url "http://rumskapt273.open.ru/main" is opened
+    Then verify that page with url "http://rumskapt273.open.ru/app/accounts" is opened
     When press button with text "signOut" on "MainPage"
 
   @cleancookies
@@ -555,7 +555,7 @@ Feature: Business portal client service
     And type to input with name "userName" property: "login" on "LoginPage"
     And type to input with name "password" property: "password" on "LoginPage"
     When press button with text "signIn" on "LoginPage"
-    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
+    Then verify that page with url "http://rumskapt273.open.ru/app/accounts" is opened
     When press button with text "rate" on "MainPage"
     Then verify that element with text "rate1" contains property "rate1" on "ActionPage"
     Then verify that element with text "rate2" contains property "rate2" on "ActionPage"
@@ -585,7 +585,7 @@ Feature: Business portal client service
     And type to input with name "userName" property: "login" on "LoginPage"
     And type to input with name "password" property: "password" on "LoginPage"
     When press button with text "signIn" on "LoginPage"
-    Then verify that page with url "http://rumskapt273.open.ru/main/" is opened
+    Then verify that page with url "http://rumskapt273.open.ru/app/accounts" is opened
     When press button with text "help" on "ActionPage"
     When press button with text "helpMenu" on "ActionPage"
     When press button with text "helpMenuOptionOne" on "ActionPage"
