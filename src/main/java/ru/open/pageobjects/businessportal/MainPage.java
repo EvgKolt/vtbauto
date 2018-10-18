@@ -8,7 +8,7 @@ import ru.open.pageobjects.AbstractPage;
 @Getter
 public class MainPage extends AbstractPage {
 
-    @FindBy(xpath = "//button[contains(@class, 'topbar__logout')]")
+    @FindBy(xpath = "//*[contains(@title, 'Выйти из профиля')]")
     private SelenideElement signOut;
 
     @FindBy(xpath = "//*[contains(text(),'Мои счета')]")
