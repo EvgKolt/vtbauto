@@ -529,7 +529,6 @@ Feature: Business portal client service
     And type to input with name "userName" property: "login" on "LoginPage"
     And type to input with name "password" property: "password" on "LoginPage"
     When press button with text "signIn" on "LoginPage"
-    Then verify that page with url "http://rumskapt273.open.ru/app/accounts" is opened
     When press button with text "settings" on "MainPage"
     When get param from class "ru.open.helpers.TextGenerator" by method "generateEmail" and save as property "email"
     When press button with text "changeEmail" on "ActionPage"
