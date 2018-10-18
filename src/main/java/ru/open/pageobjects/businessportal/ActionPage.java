@@ -80,7 +80,7 @@ public class ActionPage extends AbstractPage {
     @FindBy(xpath = "//button[@class='btn-wrapper' and @type='submit']")
     private SelenideElement saveEmail;
 
-    @FindBy(className = "input-style")
+    @FindBy(xpath = "//input[contains(@class, 'input-style')]")
     private SelenideElement smsCode2;
 
     @FindBy(xpath = "//*[@id=\"widget0\"]/div/div[2]/div[2]/div[2]/div/div[2]/div[2]/div[1]/div/div[2]/div[1]/div/div/input")
