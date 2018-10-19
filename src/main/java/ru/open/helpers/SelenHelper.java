@@ -41,7 +41,7 @@ public final class SelenHelper {
     }
 
     public String getValue(String xpath) throws IOException {
-        $(By.xpath(xpath)).waitUntil(Condition.exist, 30000);
+        $(By.xpath(xpath)).waitUntil(Condition.exist, 15000);
         String value = $(By.xpath(xpath)).getValue();
         log.info(value);
         Properties properties = new Properties();
