@@ -78,6 +78,7 @@ public class MyStepdefs {
         }
         AbstractPage abstractPage = pages.get(page);
         if (abstractPage != null) {
+            abstractPage.get(nameOfElement).waitUntil(Condition.exist, 30000);
             abstractPage.get(nameOfElement).sendKeys(properties.getProperty(property));
         } else {
             log.error("no such page " + page);
@@ -89,6 +90,7 @@ public class MyStepdefs {
         sleep(2000);
         AbstractPage abstractPage = pages.get(page);
         if (abstractPage != null) {
+            abstractPage.get(button).waitUntil(Condition.exist, 30000);
             abstractPage.get(button).click();
         } else {
             log.error("no such page " + page);
