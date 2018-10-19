@@ -1,5 +1,6 @@
 package ru.open.helpers;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.By;
@@ -40,6 +41,7 @@ public final class SelenHelper {
     }
 
     public String getValue(String xpath) throws IOException {
+        $(By.xpath(xpath)).waitUntil(Condition.exist, 30000);
         String value = $(By.xpath(xpath)).getValue();
         log.info(value);
         Properties properties = new Properties();
