@@ -78,19 +78,27 @@ public final class LogParser {
         return null;
     }
 
-    public String getReferenceToChangeEmail() throws IOException {
+    public String getReferenceToChangeEmail() throws IOException, InterruptedException {
         //find last log's message with reference for changing email
         try (FileReader fileReader = new FileReader(getEmailLogFilePath());
              BufferedReader bufferedReader = new BufferedReader(fileReader)) {
             String result = "";
             String line;
             while ((line = bufferedReader.readLine()) != null) {
-                if (line.contains("http://rumskapt273.open.ru/main/persons/confirm-email")) {
+                if (line.contains("http://rumskapt273.open.ru/app/accounts/persons/confirm-email")) {
                     result = line;
                 }
             }
+            if (result.isEmpty()) {
+                Thread.sleep(30000);
+                while ((line = bufferedReader.readLine()) != null) {
+                    if (line.contains("http://rumskapt273.open.ru/app/accounts/persons/confirm-email")) {
+                        result = line;
+                    }
+                }
+            }
             if (!result.isEmpty()) {
-                return "http://rumskapt273.open.ru/main/persons/confirm-email/"
+                return "http://rumskapt273.open.ru/app/accounts/persons/confirm-email/"
                         + result.substring(result.indexOf("confirm-email/"), result.lastIndexOf("\"&gt;"));
             }
         }
