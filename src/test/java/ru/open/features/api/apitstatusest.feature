@@ -83,11 +83,11 @@ Feature: Business portal api tests
   Scenario: NOTIFICATION_CONTROLLER #GET document bundle
     Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/notifications"
 
-  Scenario: NSO_CONTROLLER #GET nso contracts
-    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/nsoContracts?accountId=2185"
+#  Scenario: NSO_CONTROLLER #GET nso contracts
+#    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/nsoContracts?accountId=2185"
 
-  Scenario: NSO_CONTROLLER #GET nso tariffs
-    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/nsoTariffs"
+#  Scenario: NSO_CONTROLLER #GET nso tariffs
+#    Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/nsoTariffs"
 
   Scenario: OFFICE_CONTROLLER #GET office list
     Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/offices"
@@ -101,8 +101,8 @@ Feature: Business portal api tests
   Scenario: PAYMENT_PATTERN_CONTROLLER #GET payment pattern list
     Then execute method "checkStatusCodeGET" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/paymentTemplates?template=false"
 
-  Scenario: SMS_INFO_CONTROLLER #GET sms info service
-    Then execute method "checkStatusCodeGETSMS" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/services/smsInfo/4"
+#  Scenario: SMS_INFO_CONTROLLER #GET sms info service
+#    Then execute method "checkStatusCodeGETSMS" from class "ru.open.api.ApiTester" on "http://rumskapp266.open.ru:11218/webapi-2.1/services/smsInfo/4"
 
 
 
