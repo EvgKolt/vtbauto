@@ -90,6 +90,7 @@ Feature: Business portal card service
     When press button with text "nextStep" on "CardPage"
     When wait "35000"ms
     When get param from class "ru.open.parsers.LogParser" by method "getLastSmsCodeForReplenishment" and save as property "smscode"
+    When wait "15000"ms
     And type to input with name "smsCode" property: "smscode" on "CardPage"
     When press button with text "sign" on "CardPage"
     When wait "5000"ms
@@ -155,7 +156,7 @@ Feature: Business portal card service
     When press button with text "businessCards" on "CardPage"
     When press button with text "accountName" on "CardPage"
     When execute method "clear" from class "ru.open.helpers.SelenHelper" on "//input"
-    When get param from class "ru.open.helpers.TextGenerator" by method "generateSecretWord" and save as property "secret.word"
+    When get param from class "ru.open.helpers.TextGenerator" by method "generateAccName" and save as property "secret.word"
     When wait "10000"ms
     And type to input with name "accountNameInput" property: "secret.word" on "CardPage"
     When wait "5000"ms
