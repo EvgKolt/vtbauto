@@ -299,7 +299,7 @@ Feature: Business portal client service
     And type to input with name "password" property: "signer.password" on "LoginPage"
     When press button with text "signIn" on "LoginPage"
     Then verify that page with url "http://rumskapt273.open.ru/app/accounts" is opened
-    When press button with text "signOut" on "MainPage"
+#    When press button with text "signOut" on "MainPage"
 
   @cleancookies
   Scenario: Restore password with validation#157243
@@ -586,6 +586,7 @@ Feature: Business portal client service
     And type to input with name "password" property: "password" on "LoginPage"
     When press button with text "signIn" on "LoginPage"
     Then verify that page with url "http://rumskapt273.open.ru/app/accounts" is opened
+    When press button with text "myAccount" on "ActionPage"
     When press button with text "help" on "ActionPage"
     When press button with text "helpMenu" on "ActionPage"
     When press button with text "helpMenuOptionOne" on "ActionPage"
