@@ -158,6 +158,9 @@ public class ActionPage extends AbstractPage {
     @FindBy(xpath = "//*[contains(text(),'Удалить')]")
     private SelenideElement deleteDoc1;
 
+    @FindBy(xpath = "//*[contains(text(),'счёт')]")
+    private SelenideElement myAccount;
+
 
 
 
