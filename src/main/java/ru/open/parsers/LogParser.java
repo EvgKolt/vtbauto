@@ -90,7 +90,7 @@ public final class LogParser {
                 }
             }
             if (result.isEmpty()) {
-                Thread.sleep(30000);
+                Thread.sleep(10000);
                 while ((line = bufferedReader.readLine()) != null) {
                     if (line.contains("http://rumskapt273.open.ru/app/accounts/persons/confirm-email")) {
                         result = line;
