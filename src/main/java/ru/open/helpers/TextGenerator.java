@@ -37,6 +37,11 @@ public final class TextGenerator {
         int stringLength = 10;
         return RandomStringUtils.randomAlphabetic(stringLength).toUpperCase();
     }
+
+    public String generateAccName() {
+        int stringLength = 6;
+        return RandomStringUtils.randomAlphabetic(stringLength).toUpperCase() + "КАРТ";
+    }
 }
 
 

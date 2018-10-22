@@ -101,7 +101,7 @@ public class CardPage extends AbstractPage {
     @FindBy(xpath = "//div/span[contains(@class, 'select-account')][1]")
     private SelenideElement account1;
 
-    @FindBy(xpath = "//*[contains(text(),'Белоконь')]")
+    @FindBy(xpath = "//span[contains(@class, 'tab__status tab__status_confirm')]")
     private SelenideElement card;
 
     @FindBy(xpath = "//*[contains(text(),'Пополнить карту')]")
