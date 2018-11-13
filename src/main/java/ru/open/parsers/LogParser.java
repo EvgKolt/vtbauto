@@ -65,12 +65,12 @@ public final class LogParser {
             String result = "";
             String line;
             while ((line = bufferedReader.readLine()) != null) {
-                if (line.contains("http://rumskapt273.open.ru/sso/auth/login-password-change")) {
+                if (line.contains("https://rumskapt273.open.ru/sso/auth/login-password-change")) {
                     result = line;
                 }
             }
             if (!result.isEmpty()) {
-                return "http://rumskapt273.open.ru/sso/auth/login-password-change"
+                return "https://rumskapt273.open.ru/sso/auth/login-password-change"
                         + result.substring(result.indexOf("?code="), result.lastIndexOf("&amp"))
                         + "&client_id=smeportal";
             }
@@ -85,20 +85,20 @@ public final class LogParser {
             String result = "";
             String line;
             while ((line = bufferedReader.readLine()) != null) {
-                if (line.contains("http://rumskapt273.open.ru/app/accounts/persons/confirm-email")) {
+                if (line.contains("https://rumskapt273.open.ru/app/accounts/persons/confirm-email")) {
                     result = line;
                 }
             }
             if (result.isEmpty()) {
                 Thread.sleep(10000);
                 while ((line = bufferedReader.readLine()) != null) {
-                    if (line.contains("http://rumskapt273.open.ru/app/accounts/persons/confirm-email")) {
+                    if (line.contains("https://rumskapt273.open.ru/app/accounts/persons/confirm-email")) {
                         result = line;
                     }
                 }
             }
             if (!result.isEmpty()) {
-                return "http://rumskapt273.open.ru/app/accounts/persons/confirm-email/"
+                return "https://rumskapt273.open.ru/app/accounts/persons/confirm-email/"
                         + result.substring(result.indexOf("confirm-email/"), result.lastIndexOf("\"&gt;"));
             }
         }
