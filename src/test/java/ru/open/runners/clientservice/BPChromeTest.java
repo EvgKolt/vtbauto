@@ -6,14 +6,11 @@ import cucumber.api.junit.Cucumber;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import ru.open.dao.DBConnect;
-import ru.open.helpers.Keyboard;
 
-import java.awt.*;
 import java.sql.SQLException;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
@@ -36,7 +33,7 @@ import static com.codeborne.selenide.WebDriverRunner.setWebDriver;
 
 public class BPChromeTest {
     @BeforeClass
-    static public void setupTimeout() throws SQLException, AWTException {
+    static public void setupTimeout() throws SQLException {
         DesiredCapabilities capabilities = DesiredCapabilities.chrome();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--incognito");
@@ -51,17 +48,17 @@ public class BPChromeTest {
         DBConnect.openConnection();
         DBConnect.openConnectionUIDM();
         DBConnect.openConnectionCards();
-        Keyboard keyboard = new Keyboard();
-        keyboard.type(Keys.chord(Keys.LEFT_SHIFT, Keys.LEFT_ALT));
+//        Keyboard keyboard = new Keyboard();
+//        keyboard.type(Keys.chord(Keys.LEFT_SHIFT, Keys.LEFT_ALT));
     }
 
     @AfterClass
-    static public void doAfter() throws AWTException {
+    static public void doAfter() {
         getWebDriver().quit();
         //getWebDriver().close();
         DBConnect.closeConnections();
-        Keyboard keyboard = new Keyboard();
-        keyboard.type(Keys.chord(Keys.LEFT_SHIFT, Keys.LEFT_ALT));
+//        Keyboard keyboard = new Keyboard();
+//        keyboard.type(Keys.chord(Keys.LEFT_SHIFT, Keys.LEFT_ALT));
     }
 }
 
