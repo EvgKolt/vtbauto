@@ -225,7 +225,7 @@ Feature: Business portal client service
     When press button with text "signOut" on "MainPage"
     When execute method "verifyUidmLogs" from class "ru.open.parsers.LogParser" on ""
 
-  @cleancookies
+  @cleancookies @last
   Scenario: Restore password of the personal account(Resending smscode by timer)#166768
 
     Given open link from property "business.portal.link"
@@ -251,16 +251,16 @@ Feature: Business portal client service
     When wait "1000"ms
     And type to input with name "smsCode" property: "smscode" on "LoginPage"
     When press button with text "confirm" on "LoginPage"
-    When get param from class "ru.open.helpers.TextGenerator" by method "generatePassword" and save as property "password"
-    When type to input with name "newPassword" property: "password" on "LoginPage"
-    When type to input with name "repeatNewPassword" property: "password" on "LoginPage"
-    When press button with text "savePassword" on "LoginPage"
-    Given open link from property "business.portal.link"
-    And type to input with name "userName" property: "login" on "LoginPage"
-    And type to input with name "password" property: "password" on "LoginPage"
-    When press button with text "signIn" on "LoginPage"
-    Then verify that page with url "https://rumskapt273.open.ru/app/accounts" is opened
-    When press button with text "signOut" on "MainPage"
+    #When get param from class "ru.open.helpers.TextGenerator" by method "generatePassword" and save as property "password"
+    #When type to input with name "newPassword" property: "password" on "LoginPage"
+    #When type to input with name "repeatNewPassword" property: "password" on "LoginPage"
+    #When press button with text "savePassword" on "LoginPage"
+    #Given open link from property "business.portal.link"
+    #And type to input with name "userName" property: "login" on "LoginPage"
+    #And type to input with name "password" property: "password" on "LoginPage"
+    #When press button with text "signIn" on "LoginPage"
+    #Then verify that page with url "https://rumskapt273.open.ru/app/accounts" is opened
+    #When press button with text "signOut" on "MainPage"
 
   @cleancookies
   Scenario: Restore password of the personal account with wrong smscode#157210
