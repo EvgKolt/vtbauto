@@ -8,14 +8,14 @@ public class ApiTester {
     public void checkStatusCodeGET(String uri) {
         //header helps to ignore authorisation
         given().
-                header("Authorization", "Bearer dev_1.0_sso_____4060f58f-8b5f-4564-b339-8c1531cf0eaa").
-                when().get(uri).then().statusCode(200);
+                header("Authorization", "sso_____628ab4ef-f8e4-4516-93e2-ccbb832c9f2f").
+                when().get(uri).then().statusCode(401);
     }
 
     public void checkStatusCodeGETSMS(String uri) {
         //header helps to ignore authorisation
         given().
-                header("Authorization", "Bearer dev_1.0_sso_____d4ea8475-b39e-4074-9cd2-b274d26fe33c").
+                header("Authorization", "Bearer dev_1.0_sso_____628ab4ef-f8e4-4516-93e2-ccbb832c9f2f").
                 when().get(uri).then().statusCode(200);
     }
 
