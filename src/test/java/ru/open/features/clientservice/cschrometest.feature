@@ -225,7 +225,7 @@ Feature: Business portal client service
     When press button with text "signOut" on "MainPage"
     When execute method "verifyUidmLogs" from class "ru.open.parsers.LogParser" on ""
 
-  @cleancookies @last
+  @cleancookies
   Scenario: Restore password of the personal account(Resending smscode by timer)#166768
 
     Given open link from property "business.portal.link"
@@ -548,7 +548,7 @@ Feature: Business portal client service
     Then verify that page with url "https://rumskapt273.open.ru/app/accounts" is opened
     When press button with text "signOut" on "MainPage"
 
-  @cleancookies
+  @cleancookies @last
   Scenario: Check rates #157204
 
     Given open link from property "business.portal.link"
@@ -557,27 +557,29 @@ Feature: Business portal client service
     When press button with text "signIn" on "LoginPage"
     Then verify that page with url "https://rumskapt273.open.ru/app/accounts" is opened
     When press button with text "rate" on "MainPage"
-    Then verify that element with text "rate1" contains property "rate1" on "ActionPage"
-    Then verify that element with text "rate2" contains property "rate2" on "ActionPage"
-    Then verify that element with text "rate3" contains property "rate3" on "ActionPage"
-    Then verify that element with text "account" "exists" on "ActionPage"
-    When press button with text "rate1" on "ActionPage"
-    Then verify that element with text "rateInfo" contains property "rate1" on "ActionPage"
-    Then verify that element with text "rateInfo1" "exists" on "ActionPage"
-    Then verify that element with text "rateInfo2" "exists" on "ActionPage"
-    Then verify that element with text "rateInfo3" "exists" on "ActionPage"
-    When press button with text "rate" on "MainPage"
-    When press button with text "rate2" on "ActionPage"
-    Then verify that element with text "rateInfo" contains property "rate2" on "ActionPage"
-    Then verify that element with text "rateInfo1" "exists" on "ActionPage"
-    Then verify that element with text "rateInfo2" "exists" on "ActionPage"
-    Then verify that element with text "rateInfo3" "exists" on "ActionPage"
-    When press button with text "rate" on "MainPage"
-    When press button with text "rate3" on "ActionPage"
-    Then verify that element with text "rateInfo" contains property "rate3" on "ActionPage"
-    Then verify that element with text "rateInfo1" "exists" on "ActionPage"
-    Then verify that element with text "rateInfo2" "exists" on "ActionPage"
-    Then verify that element with text "rateInfo3" "exists" on "ActionPage"
+    Then verify that page with url "https://rumskapt273.open.ru/app/tariffs" is opened
+    #to do выпилить эти кнопки из пейджей
+#    Then verify that element with text "rate1" contains property "rate1" on "ActionPage"
+#    Then verify that element with text "rate2" contains property "rate2" on "ActionPage"
+#    Then verify that element with text "rate3" contains property "rate3" on "ActionPage"
+#    Then verify that element with text "account" "exists" on "ActionPage"
+#    When press button with text "rate1" on "ActionPage"
+#    Then verify that element with text "rateInfo" contains property "rate1" on "ActionPage"
+#    Then verify that element with text "rateInfo1" "exists" on "ActionPage"
+#    Then verify that element with text "rateInfo2" "exists" on "ActionPage"
+#    Then verify that element with text "rateInfo3" "exists" on "ActionPage"
+#    When press button with text "rate" on "MainPage"
+#    When press button with text "rate2" on "ActionPage"
+#    Then verify that element with text "rateInfo" contains property "rate2" on "ActionPage"
+#    Then verify that element with text "rateInfo1" "exists" on "ActionPage"
+#    Then verify that element with text "rateInfo2" "exists" on "ActionPage"
+#    Then verify that element with text "rateInfo3" "exists" on "ActionPage"
+#    When press button with text "rate" on "MainPage"
+#    When press button with text "rate3" on "ActionPage"
+#    Then verify that element with text "rateInfo" contains property "rate3" on "ActionPage"
+#    Then verify that element with text "rateInfo1" "exists" on "ActionPage"
+#    Then verify that element with text "rateInfo2" "exists" on "ActionPage"
+#    Then verify that element with text "rateInfo3" "exists" on "ActionPage"
 
   @cleancookies
   Scenario: Get help#226647
