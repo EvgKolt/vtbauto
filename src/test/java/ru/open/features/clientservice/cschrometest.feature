@@ -548,7 +548,7 @@ Feature: Business portal client service
     Then verify that page with url "https://rumskapt273.open.ru/app/accounts" is opened
     When press button with text "signOut" on "MainPage"
 
-  @cleancookies @last
+  @cleancookies
   Scenario: Check rates #157204
 
     Given open link from property "business.portal.link"
