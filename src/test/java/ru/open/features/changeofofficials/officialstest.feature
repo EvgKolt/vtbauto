@@ -1,4 +1,4 @@
-#@BPtest @last
+#@BPtest
 #Feature: Change of officials(shugar)
 #
 #  Scenario: Change officials#223371 part_1 - pm creates lead

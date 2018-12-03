@@ -8,7 +8,7 @@ select * from tb_person_contact where person_id = 'sso_____853711de-1567-4b12-b3
 /нужен контакт id где эмейл для смены мыла
 select * from tb_contact where contact_id = '4798';
 3 - acclastnumber(MSBClient) - last 4 numbers of card account
-4 -  в ApiTester сменить org id
+4 -  в ApiTester сменить person id
 5 - в фичах апи тестов менять acc id со сменой организации
 
 

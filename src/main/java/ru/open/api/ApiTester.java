@@ -10,6 +10,7 @@ public class ApiTester {
         given().
                 header("Authorization", "sso_____628ab4ef-f8e4-4516-93e2-ccbb832c9f2f").
                 when().get(uri).then().statusCode(401);
+        //to do поменять статус на 200 когда сделают хедер на 273 стенде
     }
 
     public void checkStatusCodeGETSMS(String uri) {

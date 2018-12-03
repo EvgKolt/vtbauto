@@ -1,7 +1,7 @@
 @BPtest
 Feature: Business portal card service
 
-  @cleancookies
+  @cleancookies @last
   Scenario: Order card on BP#217560 and status checking #217603
 
     Given open link from property "business.portal.link"
