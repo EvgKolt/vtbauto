@@ -38,4 +38,17 @@ public class RatePage extends AbstractPage {
     @FindBy(xpath = "//*[contains(text(),'Подтвердить')]")
     private SelenideElement confirm;
 
+    @FindBy(xpath = "//*[contains(text(),'Гибкий')]")
+    private SelenideElement depo1;
+
+    @FindBy(xpath = "//*[contains(text(),'Комфорт')]")
+    private SelenideElement depo2;
+
+    @FindBy(xpath = "//*[contains(text(),'Классика')]")
+    private SelenideElement depo3;
+
+    @FindBy(xpath = "//*[contains(text(),'На остаток')]")
+    private SelenideElement depo4;
+
+
 }

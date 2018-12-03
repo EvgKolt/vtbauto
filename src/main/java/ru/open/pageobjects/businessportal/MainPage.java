@@ -29,4 +29,7 @@ public class MainPage extends AbstractPage {
     @FindBy(xpath = "//a[contains(@href,'Контакты')]")
     private SelenideElement contacts;
 
+    @FindBy(xpath = "//a[contains(text(),'Депозиты')]")
+    private SelenideElement deposits;
+
 }
