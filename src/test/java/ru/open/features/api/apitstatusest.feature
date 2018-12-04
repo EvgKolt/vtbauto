@@ -1,4 +1,4 @@
-@BPtest
+
 Feature: Business portal api tests
 #http://rumskapp266.open.ru:11218/webapi-2.1/swagger-ui.html#/account-enrolment-controller
 

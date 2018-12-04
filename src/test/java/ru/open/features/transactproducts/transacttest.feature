@@ -47,3 +47,15 @@ Feature: Team TP testCases
     Then verify that element with text "depo2" "exists" on "RatePage"
     Then verify that element with text "depo3" "exists" on "RatePage"
     Then verify that element with text "depo4" "exists" on "RatePage"
+
+  @cleancookies
+  Scenario: load empty file from 1C
+
+    Given open link from property "business.portal.link"
+    And type to input with name "userName" property: "login" on "LoginPage"
+    And type to input with name "password" property: "password" on "LoginPage"
+    When press button with text "signIn" on "LoginPage"
+    Then verify that page with url "https://rumskapt273.open.ru/app/accounts" is opened
+    When press button with text "loadFrom1C" on "RatePage"
+    When press button with text "addFile" on "RatePage"
+    When load file with address "test.txt.file.address"

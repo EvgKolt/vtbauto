@@ -50,5 +50,11 @@ public class RatePage extends AbstractPage {
     @FindBy(xpath = "//*[contains(text(),'На остаток')]")
     private SelenideElement depo4;
 
+    @FindBy(xpath = "//li[contains(@class, 'actions-item actions__item actions-item_import')]")
+    private SelenideElement loadFrom1C;
+
+    @FindBy(className = "input-container_files")
+    private SelenideElement addFile;
+
 
 }

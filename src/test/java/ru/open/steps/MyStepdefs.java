@@ -52,6 +52,7 @@ public class MyStepdefs {
         pages.put("ShugarMenuPage", page(ShugarMenuPage.class));
         pages.put("ShugarLoginPage", page(ShugarLoginPage.class));
         pages.put("KhabenskiyPage", page(KhabenskiyPage.class));
+        pages.put("RatePage", page(RatePage.class));
     }
 
     @After("@cleancookies")
@@ -60,13 +61,12 @@ public class MyStepdefs {
     }
 
     @Given("^open link from property \"([^\"]*)\"$")
-    public void openLinkFromProperty(String property) throws IOException, InterruptedException {
+    public void openLinkFromProperty(String property) throws IOException {
         Properties properties = new Properties();
         try (FileReader fileReader = new FileReader(Constants.PROPERTY_PATH)) {
             properties.load(fileReader);
         }
         open(properties.getProperty(property));
-        sleep(30000);
     }
 
     @And("^type to input with name \"([^\"]*)\" property: \"([^\"]*)\" on \"([^\"]*)\"$")
