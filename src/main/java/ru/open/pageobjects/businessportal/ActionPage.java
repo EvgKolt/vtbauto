@@ -41,10 +41,10 @@ public class ActionPage extends AbstractPage {
     @FindBy(xpath = "(//*[contains(text(),'Изменить')])[3]")
     private SelenideElement changeLogin;
 
-    @FindBy(xpath = "//*[@id=\"widget0\"]/div/div[2]/div[2]/div[2]/div/div[2]/div/div/div[2]/div[1]/div/form/div[3]/div/div/div/input")
+    @FindBy(xpath = "(//input[contains(@class, 'input-style')])[2]")
     private SelenideElement inputNumber;
 
-    @FindBy(xpath = "//*[@id=\"widget0\"]/div/div[2]/div[2]/div[2]/div/div[2]/div/div/div[2]/div[1]/div/form/div[4]/div/button[1]/div")
+    @FindBy(xpath = "//div[contains(@class, 'col-xs-12')]/button[contains(@class, 'btn-wrapper')][1]/div[contains(@class, 'btn-container btn-container_primary-btn label-as-text')]")
     private SelenideElement savePhone;
 
     @FindBy(className = "input-style")
@@ -53,7 +53,7 @@ public class ActionPage extends AbstractPage {
     @FindBy(xpath = "//button[@class='btn-wrapper' and @type='submit']")
     private SelenideElement sign;
 
-    @FindBy(xpath = "//*[@id=\"widget0\"]/div/div[2]/div[2]/div[2]/div/div[2]/div[2]/div[1]/div/div[3]/div[1]/div/div/input")
+    @FindBy(xpath = "//input[contains(@class, 'input-style')]")
     private SelenideElement phone;
 
     @FindBy(className = "drawer-exit__button")
@@ -62,7 +62,7 @@ public class ActionPage extends AbstractPage {
     @FindBy(xpath = "//input[@type='password']")
     private SelenideElement currentPass;
 
-    @FindBy(xpath = "//*[@id=\"widget0\"]/div/div[2]/div[2]/div[2]/div/div[2]/div/div[2]/div[1]/div/form/div[3]/div/div/div/input")
+    @FindBy(xpath = "//div[contains(@class, 'input-container__tooltip input-container__tooltip_open-false input-ui_notice')]//input")
     private SelenideElement newLogin;
 
     @FindBy(xpath = "//button[@class='btn-wrapper' and @type='submit']")
