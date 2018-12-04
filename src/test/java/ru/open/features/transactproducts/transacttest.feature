@@ -34,7 +34,7 @@ Feature: Team TP testCases
     When press button with text "switchRate" on "RatePage"
     Then verify that element with text "confirm" "exists" on "RatePage"
 
-  @cleancookies @last
+  @cleancookies
   Scenario: Checking nso
 
     Given open link from property "business.portal.link"
