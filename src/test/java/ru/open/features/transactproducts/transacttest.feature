@@ -59,3 +59,4 @@ Feature: Team TP testCases
     When press button with text "loadFrom1C" on "RatePage"
     When press button with text "addFile" on "RatePage"
     When load file with address "test.txt.file.address"
+    When verify that element with text "fileEmpty" "exists" on "RatePage"

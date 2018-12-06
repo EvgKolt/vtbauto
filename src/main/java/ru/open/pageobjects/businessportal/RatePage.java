@@ -38,16 +38,16 @@ public class RatePage extends AbstractPage {
     @FindBy(xpath = "//*[contains(text(),'Подтвердить')]")
     private SelenideElement confirm;
 
-    @FindBy(xpath = "//*[contains(text(),'Гибкий')]")
+    @FindBy(xpath = "//h4[contains(.,'Гибкий')]")
     private SelenideElement depo1;
 
-    @FindBy(xpath = "//*[contains(text(),'Комфорт')]")
+    @FindBy(xpath = "//h4[contains(.,'Комфорт')]")
     private SelenideElement depo2;
 
-    @FindBy(xpath = "//*[contains(text(),'Классика')]")
+    @FindBy(xpath = "//h4[contains(.,'Классика')]")
     private SelenideElement depo3;
 
-    @FindBy(xpath = "//*[contains(text(),'На остаток')]")
+    @FindBy(xpath = "//h4[contains(.,'На остаток')]")
     private SelenideElement depo4;
 
     @FindBy(xpath = "//li[contains(@class, 'actions-item actions__item actions-item_import')]")
@@ -55,6 +55,9 @@ public class RatePage extends AbstractPage {
 
     @FindBy(className = "input-container_files")
     private SelenideElement addFile;
+
+    @FindBy(xpath = "//div[contains(@class, 'drop-container__message')]/div[contains(., \"Загружаемый файл пуст\")]")
+    private SelenideElement fileEmpty;
 
 
 }
