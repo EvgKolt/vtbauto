@@ -62,7 +62,7 @@ Feature: Team TP testCases
     When verify that element with text "fileEmpty" "exists" on "RatePage"
 
   @cleancookies
-  Scenario: load wrong format file from 1C
+  Scenario: load wrong format *.jpg file from 1C
 
     Given open link from property "business.portal.link"
     And type to input with name "userName" property: "login" on "LoginPage"
@@ -86,3 +86,42 @@ Feature: Team TP testCases
     When press button with text "addFile" on "RatePage"
     When load file with address "test.jpg.file.address"
     When verify that element with text "fileWrong2" "exists" on "RatePage"
+
+  @cleancookies
+  Scenario: load wrong data format file(abra kadabra)
+
+    Given open link from property "business.portal.link"
+    And type to input with name "userName" property: "login" on "LoginPage"
+    And type to input with name "password" property: "password" on "LoginPage"
+    When press button with text "signIn" on "LoginPage"
+    Then verify that page with url "https://rumskapt273.open.ru/app/accounts" is opened
+    When press button with text "loadFrom1C" on "RatePage"
+    When press button with text "addFile" on "RatePage"
+    When load file with address "test.txt.wrongformat.address"
+    When verify that element with text "wrongFormat" "exists" on "RatePage"
+
+  @cleancookies
+  Scenario: load wrong data format file without "FileEnd"
+
+    Given open link from property "business.portal.link"
+    And type to input with name "userName" property: "login" on "LoginPage"
+    And type to input with name "password" property: "password" on "LoginPage"
+    When press button with text "signIn" on "LoginPage"
+    Then verify that page with url "https://rumskapt273.open.ru/app/accounts" is opened
+    When press button with text "loadFrom1C" on "RatePage"
+    When press button with text "addFile" on "RatePage"
+    When load file with address "test.txt.wrongfile.address"
+    When verify that element with text "wrongFormat" "exists" on "RatePage"
+
+#  @cleancookies @last
+#  Scenario: load wrong data format file (string in "number" field)
+#
+#    Given open link from property "business.portal.link"
+#    And type to input with name "userName" property: "login" on "LoginPage"
+#    And type to input with name "password" property: "password" on "LoginPage"
+#    When press button with text "signIn" on "LoginPage"
+#    Then verify that page with url "https://rumskapt273.open.ru/app/accounts" is opened
+#    When press button with text "loadFrom1C" on "RatePage"
+#    When press button with text "addFile" on "RatePage"
+#    When load file with address "test.txt.wrongfile.address1"
+#    When wait "55555"ms
