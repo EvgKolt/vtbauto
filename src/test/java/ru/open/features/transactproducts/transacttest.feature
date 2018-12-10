@@ -141,7 +141,7 @@ Feature: Team TP testCases
     Then execute method "getValidatingStatus" from class "ru.open.dao.DBConnect" on ""
     Then execute method "compareProperties" from class "ru.open.parsers.LogParser" on "tmp,validating.status1"
 
-  @cleancookies @last
+  @cleancookies
   Scenario: load wrong data format file (string in "data" field)
 
     Given open link from property "business.portal.link"
