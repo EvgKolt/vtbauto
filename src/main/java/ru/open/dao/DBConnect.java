@@ -1,9 +1,14 @@
 package ru.open.dao;
 
 import lombok.extern.slf4j.Slf4j;
+import ru.open.Constants;
 import ru.open.entities.MSBClient;
 
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.*;
+import java.util.Properties;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.StringContains.containsString;
@@ -38,6 +43,7 @@ public final class DBConnect {
             "SELECT data FROM \"OperationAudit\" where \"url\" like '%Phone%' order by \"timeStart\" DESC limit 1";
     private static final String GET_CARD_STATUS =
             "SELECT status FROM tb_corporate_card WHERE organization_id = ?";
+    private static final String GET_VALIDATING_STATUS = "select validating_status from tb_payment_pattern order by id desc limit 1";
     private static Connection connectionCards;
 
     public static void openConnection() throws SQLException {
@@ -123,6 +129,17 @@ public final class DBConnect {
              ResultSet resultSet = statement.executeQuery(currentEmail)) {
             //contact_id(tb_contact)->tb_person_contact->tb_organization
             return resultSet.next() ? resultSet.getString(address) : null;
+        }
+    }
+
+    public static void getValidatingStatus() throws SQLException, IOException {
+        Properties properties = new Properties();
+        try (FileReader fileReader = new FileReader(Constants.PROPERTY_PATH)) {
+            properties.load(fileReader);
+        }
+        properties.setProperty("tmp", getFirstOrNull(GET_VALIDATING_STATUS, "validating_status", connection));
+        try (FileWriter fileWriter = new FileWriter(Constants.PROPERTY_PATH)) {
+            properties.store(fileWriter, "");
         }
     }
 }
