@@ -56,15 +56,15 @@ public class RatePage extends AbstractPage {
     @FindBy(className = "input-container_files")
     private SelenideElement addFile;
 
-    @FindBy(xpath = "//div[contains(@class, 'drop-container__message')]/div[contains(., \"Загружаемый файл пуст\")]")
+    @FindBy(xpath = "//div[contains(@class, 'drop-container__message')]/div[contains(., 'Загружаемый файл пуст')]")
     private SelenideElement fileEmpty;
 
-    @FindBy(xpath = "//div[contains(@class, 'drop-container__message')]/div[contains(., \"Допустимые расширения\")]")
+    @FindBy(xpath = "//div[contains(@class, 'drop-container__message')]/div[contains(., 'Допустимые расширения')]")
     private SelenideElement fileWrong1;
 
-    @FindBy(xpath = "//div[contains(@class, 'drop-container__message')]/div[contains(., \"размер\")]")
+    @FindBy(xpath = "//div[contains(@class, 'drop-container__message')]/div[contains(., 'размер')]")
     private SelenideElement fileWrong2;
 
-    @FindBy(xpath = "//div[contains(@class, 'drop-container__message')]/div[contains(., \"формат\")]")
+    @FindBy(xpath = "//div[contains(@class, 'drop-container__message')]/div[contains(., 'формат')]")
     private SelenideElement wrongFormat;
 }
