@@ -10,6 +10,7 @@ import ru.open.Constants;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Properties;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -64,5 +65,10 @@ public final class SelenHelper {
         String xpath = "//*[contains(text(),'" + tmp + "')]";
         log.info($(By.xpath(xpath)).getText());
         assertThat($(By.xpath(xpath)).getText(), containsString(tmp));
+    }
+
+    public void switchHandleTo(String handleNumber) {
+        ArrayList<String> handles = new ArrayList<>(getWebDriver().getWindowHandles());
+        getWebDriver().switchTo().window(handles.get(Integer.parseInt(handleNumber)));
     }
 }

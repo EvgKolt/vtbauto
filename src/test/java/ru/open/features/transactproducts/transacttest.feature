@@ -1,4 +1,4 @@
-@BPtest
+@BPtest @last
 Feature: Team TP testCases
 
   @cleancookies
@@ -155,6 +155,19 @@ Feature: Team TP testCases
     Then execute method "getValidatingStatus" from class "ru.open.dao.DBConnect" on ""
     Then execute method "compareProperties" from class "ru.open.parsers.LogParser" on "tmp,validating.status1"
 
+  @cleancookies
+  Scenario: checking rate's compilation
+
+    Given open link from property "business.portal.link"
+    And type to input with name "userName" property: "login" on "LoginPage"
+    And type to input with name "password" property: "password" on "LoginPage"
+    When press button with text "signIn" on "LoginPage"
+    Then verify that page with url "https://rumskapt273.open.ru/app/accounts" is opened
+    When press button with text "rate" on "MainPage"
+    When press button with text "ratesCompilation" on "RatePage"
+    When execute method "switchHandleTo" from class "ru.open.helpers.SelenHelper" on "1"
+    When verify that page with url "https://www.open.ru/small/tariffs_conditions?from=main_menu_sme" is opened
+  
 #  @cleancookies @last
 #  Scenario: load RIGHT data format file
 #

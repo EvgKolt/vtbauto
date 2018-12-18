@@ -67,4 +67,7 @@ public class RatePage extends AbstractPage {
 
     @FindBy(xpath = "//div[contains(@class, 'drop-container__message')]/div[contains(., 'формат')]")
     private SelenideElement wrongFormat;
+
+    @FindBy(xpath = "//a[contains(@class, 'link___3RI9A')]")
+    private SelenideElement ratesCompilation;
 }
