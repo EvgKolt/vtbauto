@@ -1,4 +1,4 @@
-@BPtest @last
+@BPtest
 Feature: Team TP testCases
 
   @cleancookies
