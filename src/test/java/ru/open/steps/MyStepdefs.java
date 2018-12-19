@@ -104,15 +104,6 @@ public class MyStepdefs {
         try (FileReader fileReader = new FileReader(Constants.PROPERTY_PATH)) {
             properties.load(fileReader);
         }
-//        Robot robot = new Robot();
-//        robot.keyPress(KeyEvent.VK_SHIFT);
-//        sleep(5000);
-//        robot.keyPress(KeyEvent.VK_ALT);
-//        sleep(5000);
-//        robot.keyRelease(KeyEvent.VK_ALT);
-//        sleep(15000);
-//        robot.keyRelease(KeyEvent.VK_SHIFT);
-//        sleep(5000);
         Keyboard keyboard = new Keyboard();
         keyboard.type(properties.getProperty(fileLocation));
         sleep(5000);
