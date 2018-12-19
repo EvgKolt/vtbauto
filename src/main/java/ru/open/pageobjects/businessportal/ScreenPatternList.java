@@ -6,5 +6,5 @@ import org.sikuli.script.Pattern;
 
 @Getter
 public class ScreenPatternList {
-    private final Pattern downloadFile = new Pattern("src/main/resources/imgs/downloadfile.png");
+    private final Pattern downloadFile = new Pattern("C:\\Jenkins513\\workspace\\MSB-Portal\\test_share\\downloadfile.png");
 }
