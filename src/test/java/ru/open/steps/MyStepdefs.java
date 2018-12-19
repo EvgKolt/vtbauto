@@ -194,6 +194,7 @@ public class MyStepdefs {
         Field field = ScreenPatternList.class.getDeclaredField(screenName);
         field.setAccessible(true);
         Pattern pattern = (Pattern) field.get(screenPatternList);
+        log.info("//////////////" + String.valueOf(Screen.getNumberScreens()));
         if ("type".equals(todo)) {
             Screen screen = new Screen();
             sleep(5000);
