@@ -197,6 +197,7 @@ public class MyStepdefs {
         log.info("//////////////" + String.valueOf(Screen.getNumberScreens()));
         if ("type".equals(todo)) {
             Screen screen = new Screen();
+            log.info("//////////////" + String.valueOf(Screen.getNumberScreens()));
             sleep(5000);
             screen.wait(pattern.similar((float) 0.5), 10).click(pattern);
         }

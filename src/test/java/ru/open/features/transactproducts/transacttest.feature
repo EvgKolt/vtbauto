@@ -58,7 +58,6 @@ Feature: Team TP testCases
     Then verify that page with url "https://rumskapt273.open.ru/app/accounts" is opened
     When press button with text "loadFrom1C" on "RatePage"
     When press button with text "addFile" on "RatePage"
-    When execute method "moveMouseToPoint" from class "ru.open.helpers.Keyboard" on "//h3"
     When "type" on screen "downloadFile"
     When load file with address "test.txt.file.address"
     When verify that element with text "fileEmpty" "exists" on "RatePage"
