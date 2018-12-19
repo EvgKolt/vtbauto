@@ -69,6 +69,7 @@ public final class SelenHelper {
 
     public void switchHandleTo(String handleNumber) {
         ArrayList<String> handles = new ArrayList<>(getWebDriver().getWindowHandles());
+        log.info("/////////////////////////" + handles.toString());
         getWebDriver().switchTo().window(handles.get(Integer.parseInt(handleNumber)));
         log.info(handles.toString());
     }
