@@ -100,7 +100,6 @@ public class MyStepdefs {
     @When("^load file with address \"([^\"]*)\"$")
     public void loadFileWithAddress(String fileLocation) throws InterruptedException, AWTException, IOException {
         sleep(5000);
-        getWebDriver().switchTo().window("..");
         Properties properties = new Properties();
         try (FileReader fileReader = new FileReader(Constants.PROPERTY_PATH)) {
             properties.load(fileReader);

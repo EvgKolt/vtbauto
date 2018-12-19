@@ -57,6 +57,7 @@ Feature: Team TP testCases
     When press button with text "signIn" on "LoginPage"
     Then verify that page with url "https://rumskapt273.open.ru/app/accounts" is opened
     When press button with text "loadFrom1C" on "RatePage"
+    When execute method "switchHandleTo" from class "ru.open.helpers.SelenHelper" on "0"
     When press button with text "addFile" on "RatePage"
     When load file with address "test.txt.file.address"
     When verify that element with text "fileEmpty" "exists" on "RatePage"
