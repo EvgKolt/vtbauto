@@ -48,7 +48,7 @@ Feature: Team TP testCases
     Then verify that element with text "depo3" "exists" on "RatePage"
     Then verify that element with text "depo4" "exists" on "RatePage"
 
-  @cleancookies
+  @cleancookies @last
   Scenario: load empty file from 1C
 
     Given open link from property "business.portal.link"
