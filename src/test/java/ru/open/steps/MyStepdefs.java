@@ -7,6 +7,9 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import lombok.extern.slf4j.Slf4j;
+import org.sikuli.script.FindFailed;
+import org.sikuli.script.Pattern;
+import org.sikuli.script.Screen;
 import ru.open.Constants;
 import ru.open.helpers.Keyboard;
 import ru.open.pageobjects.AbstractPage;
@@ -19,6 +22,7 @@ import java.awt.*;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
@@ -184,5 +188,17 @@ public class MyStepdefs {
         }
     }
 
+    @When("^\"([^\"]*)\" on screen \"([^\"]*)\"$")
+    public void onScreen(String todo, String screenName) throws NoSuchFieldException, IllegalAccessException, FindFailed, InterruptedException {
+        ScreenPatternList screenPatternList = new ScreenPatternList();
+        Field field = ScreenPatternList.class.getDeclaredField(screenName);
+        field.setAccessible(true);
+        Pattern pattern = (Pattern) field.get(screenPatternList);
+        if ("type".equals(todo)) {
+            Screen screen = new Screen();
+            sleep(5000);
+            screen.click(pattern);
+        }
+    }
 }
 
