@@ -197,7 +197,7 @@ public class MyStepdefs {
         if ("type".equals(todo)) {
             Screen screen = new Screen();
             sleep(5000);
-            screen.click(pattern);
+            screen.wait(pattern.similar((float) 0.5), 10).click(pattern);
         }
     }
 }
