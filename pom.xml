@@ -171,17 +171,7 @@
         <dependency>
             <groupId>com.sikulix</groupId>
             <artifactId>sikulixapi</artifactId>
-            <version>1.1.4</version>
-            <scope>system</scope>
-            <systemPath>
-                C:/jenkins513/workspace/MSB-Portal/test_share/sikulixapi.jar
-            </systemPath>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.apache.logging.log4j</groupId>
-                    <artifactId>log4j-slf4j-impl</artifactId>
-                </exclusion>
-            </exclusions>
+            <version>1.1.2</version>
         </dependency>
     </dependencies>
 </project>
