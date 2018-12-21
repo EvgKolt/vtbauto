@@ -28,7 +28,7 @@ import static com.codeborne.selenide.WebDriverRunner.setWebDriver;
         plugin = {"html:target/cucumber-report/clientservice/chrome", "json:target/cucumber.json"},
         features = "src/test/java/ru/open/features/",
         glue = "ru/open/steps",
-        tags = "@last3"
+        tags = "@BPtest"
 )
 
 public class BPChromeTest {
