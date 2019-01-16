@@ -11,46 +11,43 @@ public class CardPage extends AbstractPage {
     @FindBy(xpath = "//*[contains(text(), 'Бизнес-карты')]")
     private SelenideElement businessCards;
 
-    @FindBy(xpath = "//div[contains(@class, 'btn-container btn-container_primary-btn label-as-text')]")
+    @FindBy(xpath = "//*[contains(text(), 'Заказать карту')]")
     private SelenideElement orderCard;
 
-    @FindBy(xpath = "//div[contains(@class, 'Select-placeholder')]")
-    private SelenideElement cardHolder;
+    @FindBy(xpath = "//div[contains(@class, 'input-ui__focus')]/input")
+    private SelenideElement tipicalInput;
 
-    @FindBy(xpath = "//div[@id='react-select-4--option-1']")
-    private SelenideElement cardHolderOption1;
-
-    @FindBy(xpath = "(//input[@id='fio_russian'])[1]")
+    @FindBy(xpath = "//*[contains(text(), 'Фамилия')]")
     private SelenideElement lastName;
 
-    @FindBy(xpath = "(//input[@id='fio_russian'])[2]")
+    @FindBy(xpath = "//*[contains(text(), 'Имя')]")
     private SelenideElement mainName;
 
-    @FindBy(xpath = "(//input[@id='fio_russian'])[3]")
+    @FindBy(xpath = "//*[contains(text(), 'Отчество')]")
     private SelenideElement midName;
 
-    @FindBy(xpath = "(//div[contains(@class, 'ui-kit-datepicker')]//input)[1]")
+    @FindBy(xpath = "//*[contains(text(), 'Дата рождения')]")
     private SelenideElement dateOfBirth;
 
-    @FindBy(xpath = "//input[@id='organ']")
+    @FindBy(xpath = "//*[contains(text(), 'Наименование органа, выдавшего документ')]")
     private SelenideElement organ;
 
-    @FindBy(xpath = "(//input[@id='passport'])[1]")
+    @FindBy(xpath = "//*[contains(text(), 'Серия')]")
     private SelenideElement series;
 
-    @FindBy(xpath = "(//input[@id='passport'])[2]")
+    @FindBy(xpath = "//*[contains(text(), 'Номер')]")
     private SelenideElement number;
 
-    @FindBy(xpath = "(//div[contains(@class, 'ui-kit-datepicker')])[2]")
+    @FindBy(xpath = "//*[contains(text(), 'Дата выдачи')]")
     private SelenideElement dateOfReg;
 
-    @FindBy(xpath = "//input[@id='code']")
+    @FindBy(xpath = "//*[contains(text(), 'Код подразделения')]")
     private SelenideElement officeCode;
 
     @FindBy(xpath = "(//div[contains(@class, 'input-ui')]/input)[11]")
     private SelenideElement region;
 
-    @FindBy(xpath = "(//div[contains(@class, 'input-ui')]/input)[13]")
+    @FindBy(xpath = "//*[contains(text(), 'Место рождения')]")
     private SelenideElement city;
 
     @FindBy(xpath = "(//div[contains(@class, 'input-ui')]/input)[14]")
@@ -83,7 +80,7 @@ public class CardPage extends AbstractPage {
     @FindBy(xpath = "//div/span[contains(@class, 'Select-option')][1]")
     private SelenideElement officeBank3;
 
-    @FindBy(xpath = "//input[@id='city']")
+    @FindBy(xpath = "//*[contains(text(), 'Место рождения')]")
     private SelenideElement placeOfBirth;
 
     @FindBy(xpath = "(//*[contains(text(), 'Заказать карту')])[2]")
@@ -158,10 +155,10 @@ public class CardPage extends AbstractPage {
     @FindBy(xpath = "//*[contains(text(),'Закрыть')]")
     private SelenideElement close;
 
-    @FindBy(xpath = "//input[@id='email']")
+    @FindBy(xpath = "//*[contains(text(),'E-mail')]")
     private SelenideElement email;
 
-    @FindBy(xpath = "//input[@id='phone']")
+    @FindBy(xpath = "//*[contains(text(),'Телефон')]")
     private SelenideElement phone;
 
     @FindBy(xpath = "//div[contains(@class, 'input-container_files')]")

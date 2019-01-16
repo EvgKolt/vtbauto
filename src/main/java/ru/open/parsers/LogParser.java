@@ -21,27 +21,27 @@ public final class LogParser {
 
     public String getLastSmsCode() throws IOException {
         //find last log's message with sms
-        String result = getStringWithSms(getSmsLogFilePath("sms.logs.pattern2"));
+        String result = getStringWithSms(getSmsLogFilePath("sms.logs.pattern"));
         if (result != null) return result;
         return null;
     }
 
     public String getLastSmsCodeForKhabensky() throws IOException {
         //find last log's message with sms
-        String result = getStringWithSmsForKhabensky(getSmsLogFilePath("sms.logs.pattern2"));
+        String result = getStringWithSmsForKhabensky(getSmsLogFilePath("sms.logs.pattern"));
         if (result != null) return result;
         return null;
     }
 
     public String getLastSmsCodeForCard() throws IOException {
         //find last log's message with sms
-        String result = getStringWithSms(getSmsLogFilePath("sms.logs.pattern2"));
+        String result = getStringWithSms(getSmsLogFilePath("sms.logs.pattern"));
         if (result != null) return result;
         return null;
     }
 
     public String getLastSmsCodeForReplenishment() throws IOException {
-        try (FileReader fileReader = new FileReader(getSmsLogFilePath("sms.logs.pattern2"));
+        try (FileReader fileReader = new FileReader(getSmsLogFilePath("sms.logs.pattern"));
              BufferedReader bufferedReader = new BufferedReader(fileReader)) {
             String result = "";
             String line;
@@ -73,6 +73,8 @@ public final class LogParser {
                 return "https://rumskapt273.open.ru/sso/auth/login-password-change"
                         + result.substring(result.indexOf("?code="), result.lastIndexOf("&amp"))
                         + "&client_id=smeportal";
+            } else {
+                log.info("RESULT IS EMPTY!!!!!!!!!");
             }
         }
         return null;
@@ -184,7 +186,7 @@ public final class LogParser {
         try (FileReader fileReader = new FileReader(Constants.PROPERTY_PATH)) {
             Properties properties = new Properties();
             properties.load(fileReader);
-            return properties.getProperty("email.logs.pattern2")
+            return properties.getProperty("email.logs.pattern")
                     + dateFormat.format(new Date())
                     + ".log";
         }
