@@ -114,7 +114,7 @@ public final class LogParser {
         }
         String rez = DBConnect.getPhoneChangeLogs();
         if (!(rez.contains(properties.getProperty("phone").substring(1)))) {
-            log.info("no logs in UIDM! check it manually");
+            log.info("no logs in UIDM! check it manually!");
             throw new IllegalArgumentException();
         }
     }
